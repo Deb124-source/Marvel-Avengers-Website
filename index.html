@@ -1,0 +1,746 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Marvel Avengers</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:'Poppins',sans-serif;
+    }
+
+    html{
+      scroll-behavior:smooth;
+    }
+
+    body{
+      background:#050505;
+      color:white;
+      overflow-x:hidden;
+    }
+
+    body::-webkit-scrollbar{
+      width:8px;
+    }
+
+    body::-webkit-scrollbar-thumb{
+      background:crimson;
+      border-radius:20px;
+    }
+
+    /* LOADER */
+
+    #loader{
+      position:fixed;
+      inset:0;
+      background:black;
+      z-index:9999;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      justify-content:center;
+    }
+
+    .spinner{
+      width:120px;
+      height:120px;
+      border:5px solid crimson;
+      border-top:5px solid transparent;
+      border-radius:50%;
+      animation:spin 1s linear infinite;
+    }
+
+    #loader h1{
+      margin-top:30px;
+      font-size:4rem;
+      color:crimson;
+      text-shadow:0 0 25px crimson;
+      letter-spacing:5px;
+    }
+
+    #loader p{
+      color:#aaa;
+      margin-top:10px;
+      letter-spacing:4px;
+    }
+
+    @keyframes spin{
+      100%{
+        transform:rotate(360deg);
+      }
+    }
+
+    /* NAVBAR */
+
+    nav{
+      position:fixed;
+      top:0;
+      width:100%;
+      z-index:1000;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      padding:20px 8%;
+      background:rgba(0,0,0,0.6);
+      backdrop-filter:blur(12px);
+      border-bottom:1px solid rgba(255,255,255,0.08);
+    }
+
+    nav h1{
+      color:crimson;
+      font-size:2rem;
+      font-weight:800;
+      letter-spacing:2px;
+      text-shadow:0 0 20px crimson;
+    }
+
+    nav ul{
+      display:flex;
+      list-style:none;
+      gap:30px;
+    }
+
+    nav ul li a{
+      color:white;
+      text-decoration:none;
+      transition:0.3s;
+      position:relative;
+    }
+
+    nav ul li a::after{
+      content:'';
+      position:absolute;
+      left:0;
+      bottom:-5px;
+      width:0;
+      height:2px;
+      background:crimson;
+      transition:0.3s;
+    }
+
+    nav ul li a:hover::after{
+      width:100%;
+    }
+
+    nav ul li a:hover{
+      color:crimson;
+    }
+
+    /* HERO */
+
+    .hero{
+      height:100vh;
+      background:
+      linear-gradient(to bottom,rgba(0,0,0,0.5),rgba(0,0,0,0.9)),
+      url("avengers.jfif") center/cover no-repeat;
+
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
+      padding:20px;
+    }
+
+    .hero h2{
+      font-size:5rem;
+      font-weight:800;
+      text-shadow:0 0 30px crimson;
+      animation:fadeUp 1s ease;
+    }
+
+    .hero p{
+      margin-top:20px;
+      max-width:700px;
+      line-height:1.8;
+      color:#ddd;
+      animation:fadeUp 1.3s ease;
+    }
+
+    .hero-buttons{
+      margin-top:40px;
+      display:flex;
+      gap:20px;
+      flex-wrap:wrap;
+      justify-content:center;
+    }
+
+    .hero-buttons button{
+      padding:15px 35px;
+      border:none;
+      border-radius:50px;
+      cursor:pointer;
+      font-weight:600;
+      transition:0.3s;
+    }
+
+    .btn-primary{
+      background:crimson;
+      color:white;
+      box-shadow:0 0 25px rgba(220,20,60,0.5);
+    }
+
+    .btn-primary:hover{
+      transform:translateY(-5px) scale(1.05);
+    }
+
+    .btn-secondary{
+      background:transparent;
+      border:2px solid white;
+      color:white;
+    }
+
+    .btn-secondary:hover{
+      background:white;
+      color:black;
+    }
+
+    @keyframes fadeUp{
+      from{
+        opacity:0;
+        transform:translateY(40px);
+      }
+      to{
+        opacity:1;
+        transform:translateY(0);
+      }
+    }
+
+    /* SECTION */
+
+    section{
+      padding:120px 8%;
+    }
+
+    .section-title{
+      text-align:center;
+      margin-bottom:60px;
+    }
+
+    .section-title h2{
+      font-size:3rem;
+      color:crimson;
+      margin-bottom:15px;
+      text-shadow:0 0 20px crimson;
+    }
+
+    .section-title p{
+      color:#bbb;
+    }
+
+    /* HERO GRID */
+
+    .grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+      gap:30px;
+    }
+
+    .card{
+      background:rgba(255,255,255,0.04);
+      backdrop-filter:blur(12px);
+      border:1px solid rgba(255,255,255,0.08);
+      border-radius:25px;
+      overflow:hidden;
+      transition:0.5s;
+      cursor:pointer;
+      transform-style:preserve-3d;
+    }
+
+    .card:hover{
+      transform:rotateY(8deg) rotateX(5deg) translateY(-10px);
+      box-shadow:0 0 40px rgba(255,0,0,0.4);
+    }
+
+    .card img{
+      width:100%;
+      height:320px;
+      object-fit:cover;
+      transition:0.5s;
+    }
+
+    .card:hover img{
+      transform:scale(1.08);
+    }
+
+    .card-content{
+      padding:20px;
+      text-align:center;
+    }
+
+    .card-content h2{
+      margin-bottom:10px;
+    }
+
+    .card-content p{
+      color:#bbb;
+      font-size:0.95rem;
+      line-height:1.6;
+    }
+
+    /* INFINITY STONES */
+
+    .stones{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+      gap:30px;
+      text-align:center;
+    }
+
+    .stone{
+      width:120px;
+      height:120px;
+      border-radius:50%;
+      margin:auto;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-weight:700;
+      transition:0.4s;
+      cursor:pointer;
+    }
+
+    .stone:hover{
+      transform:scale(1.15);
+      box-shadow:0 0 30px currentColor;
+    }
+
+    /* TIMELINE */
+
+    .timeline{
+      position:relative;
+      max-width:1000px;
+      margin:auto;
+    }
+
+    .timeline::after{
+      content:'';
+      position:absolute;
+      width:4px;
+      background:crimson;
+      top:0;
+      bottom:0;
+      left:50%;
+      margin-left:-2px;
+    }
+
+    .timeline-box{
+      padding:20px 40px;
+      position:relative;
+      width:50%;
+    }
+
+    .timeline-box:nth-child(odd){
+      left:0;
+    }
+
+    .timeline-box:nth-child(even){
+      left:50%;
+    }
+
+    .timeline-content{
+      background:rgba(255,255,255,0.05);
+      padding:25px;
+      border-radius:20px;
+      border:1px solid rgba(255,255,255,0.08);
+    }
+
+    .timeline-content h3{
+      color:crimson;
+      margin-bottom:10px;
+    }
+
+    /* SUMMARY */
+
+    .summary{
+      text-align:center;
+    }
+
+    .summary-box{
+      max-width:900px;
+      margin:auto;
+      background:rgba(255,255,255,0.04);
+      padding:50px;
+      border-radius:30px;
+      border:1px solid rgba(255,255,255,0.08);
+      backdrop-filter:blur(12px);
+      line-height:1.8;
+      color:#ccc;
+    }
+
+    /* MODAL */
+
+    .modal{
+      position:fixed;
+      inset:0;
+      background:rgba(0,0,0,0.8);
+      display:none;
+      align-items:center;
+      justify-content:center;
+      z-index:2000;
+      padding:20px;
+    }
+
+    .modal-content{
+      background:#111;
+      max-width:700px;
+      width:100%;
+      border-radius:25px;
+      overflow:hidden;
+      border:1px solid rgba(255,255,255,0.08);
+      animation:popup 0.4s ease;
+    }
+
+    .modal-content img{
+      width:100%;
+      height:400px;
+      object-fit:cover;
+    }
+
+    .modal-body{
+      padding:30px;
+    }
+
+    .modal-body h2{
+      color:crimson;
+      margin-bottom:15px;
+    }
+
+    .close{
+      position:absolute;
+      top:20px;
+      right:30px;
+      font-size:2rem;
+      cursor:pointer;
+      color:white;
+    }
+
+    @keyframes popup{
+      from{
+        transform:scale(0.7);
+        opacity:0;
+      }
+      to{
+        transform:scale(1);
+        opacity:1;
+      }
+    }
+
+    /* REVEAL */
+
+    .reveal{
+      opacity:0;
+      transform:translateY(60px);
+      transition:1s;
+    }
+
+    .reveal.active{
+      opacity:1;
+      transform:translateY(0);
+    }
+
+    footer{
+      text-align:center;
+      padding:40px;
+      background:#080808;
+      color:#777;
+      border-top:1px solid rgba(255,255,255,0.08);
+    }
+
+    @media(max-width:768px){
+
+      .hero h2{
+        font-size:3rem;
+      }
+
+      nav ul{
+        display:none;
+      }
+
+      .timeline::after{
+        left:20px;
+      }
+
+      .timeline-box{
+        width:100%;
+        left:0 !important;
+        padding-left:60px;
+        margin-bottom:30px;
+      }
+
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <!-- LOADER -->
+
+  <div id="loader">
+    <div class="spinner"></div>
+    <h1>AVENGERS</h1>
+    <p>INITIALIZING MARVEL UNIVERSE...</p>
+  </div>
+
+  <!-- NAVBAR -->
+
+  <nav>
+    <h1>AVENGERS</h1>
+
+    <ul>
+      <li><a href="#heroes">Heroes</a></li>
+      <li><a href="#stones">Stones</a></li>
+      <li><a href="#timeline">Timeline</a></li>
+      <li><a href="#summary">Summary</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+
+  <section class="hero">
+
+    <h2>Earth's Mightiest Heroes</h2>
+
+    <p>
+      The Avengers protect humanity from cosmic threats, alien invasions,
+      and impossible battles across the universe.
+    </p>
+
+    <div class="hero-buttons">
+      <button class="btn-primary">Explore Heroes</button>
+      <button class="btn-secondary">Watch Trailer</button>
+    </div>
+
+  </section>
+
+  <!-- HEROES -->
+
+  <section id="heroes" class="reveal">
+
+    <div class="section-title">
+      <h2>Avengers Heroes</h2>
+      <p>Meet the legendary Marvel superheroes.</p>
+    </div>
+
+    <div class="grid">
+
+      <div class="card" onclick="openModal('Iron Man','iron_man.jfif')">
+        <img src="iron_man.jfif">
+        <div class="card-content">
+          <h2>Iron Man</h2>
+          <p>Genius billionaire armored Avenger.</p>
+        </div>
+      </div>
+
+      <div class="card" onclick="openModal('Captain America','capsy.webp')">
+        <img src="capsy.webp">
+        <div class="card-content">
+          <h2>Captain America</h2>
+          <p>The first Avenger and legendary leader.</p>
+        </div>
+      </div>
+
+      <div class="card" onclick="openModal('Thor','thor.webp')">
+        <img src="thor.webp">
+        <div class="card-content">
+          <h2>Thor</h2>
+          <p>The God of Thunder from Asgard.</p>
+        </div>
+      </div>
+
+      <div class="card" onclick="openModal('Hulk','hulk.jfif')">
+        <img src="hulk.jfif">
+        <div class="card-content">
+          <h2>Hulk</h2>
+          <p>Unstoppable green rage monster.</p>
+        </div>
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- INFINITY STONES -->
+
+  <section id="stones" class="reveal">
+
+    <div class="section-title">
+      <h2>Infinity Stones</h2>
+      <p>The six cosmic stones of ultimate power.</p>
+    </div>
+
+    <div class="stones">
+
+      <div class="stone" style="background:#3498db;">Space</div>
+      <div class="stone" style="background:#f1c40f;">Mind</div>
+      <div class="stone" style="background:#e74c3c;">Reality</div>
+      <div class="stone" style="background:#9b59b6;">Power</div>
+      <div class="stone" style="background:#2ecc71;">Time</div>
+      <div class="stone" style="background:#e67e22;">Soul</div>
+
+    </div>
+
+  </section>
+
+  <!-- MCU TIMELINE -->
+
+  <section id="timeline" class="reveal">
+
+    <div class="section-title">
+      <h2>MCU Timeline</h2>
+      <p>Marvel Cinematic Universe journey.</p>
+    </div>
+
+    <div class="timeline">
+
+      <div class="timeline-box">
+        <div class="timeline-content">
+          <h3>2008</h3>
+          <p>Iron Man launched the MCU.</p>
+        </div>
+      </div>
+
+      <div class="timeline-box">
+        <div class="timeline-content">
+          <h3>2012</h3>
+          <p>The Avengers assembled in New York.</p>
+        </div>
+      </div>
+
+      <div class="timeline-box">
+        <div class="timeline-content">
+          <h3>2018</h3>
+          <p>Infinity War shocked the universe.</p>
+        </div>
+      </div>
+
+      <div class="timeline-box">
+        <div class="timeline-content">
+          <h3>2019</h3>
+          <p>Endgame became legendary.</p>
+        </div>
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- SUMMARY -->
+
+  <section id="summary" class="summary reveal">
+
+    <div class="section-title">
+      <h2>Summary</h2>
+    </div>
+
+    <div class="summary-box">
+
+      The Avengers are Earth's mightiest heroes assembled to defend
+      humanity against the greatest threats. From Iron Man’s genius
+      to Captain America’s leadership and Thor’s godly power,
+      every Avenger brings unique abilities to the team.
+
+    </div>
+
+  </section>
+
+  <!-- MODAL -->
+
+  <div class="modal" id="modal">
+
+    <span class="close" onclick="closeModal()">&times;</span>
+
+    <div class="modal-content">
+
+      <img id="modal-img">
+
+      <div class="modal-body">
+
+        <h2 id="modal-title"></h2>
+
+        <p>
+          Legendary Marvel superhero and one of the strongest defenders
+          of the universe.
+        </p>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- FOOTER -->
+
+  <footer>
+    Designed with ❤️ by Debdut
+  </footer>
+
+  <script>
+
+    // LOADER
+
+    window.addEventListener("load",()=>{
+
+      setTimeout(()=>{
+        document.getElementById("loader").style.display="none";
+      },2500);
+
+    });
+
+    // MODAL
+
+    function openModal(title,image){
+
+      document.getElementById("modal").style.display="flex";
+
+      document.getElementById("modal-title").innerText=title;
+
+      document.getElementById("modal-img").src=image;
+
+    }
+
+    function closeModal(){
+
+      document.getElementById("modal").style.display="none";
+
+    }
+
+    // SCROLL REVEAL
+
+    const reveals=document.querySelectorAll(".reveal");
+
+    window.addEventListener("scroll",()=>{
+
+      reveals.forEach(reveal=>{
+
+        const windowHeight=window.innerHeight;
+
+        const revealTop=reveal.getBoundingClientRect().top;
+
+        const revealPoint=100;
+
+        if(revealTop<windowHeight-revealPoint){
+
+          reveal.classList.add("active");
+
+        }
+
+      });
+
+    });
+
+  </script>
+
+</body>
+</html>
