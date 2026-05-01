@@ -246,32 +246,30 @@
       gap:30px;
     }
 
-    .card{
-      background:rgba(255,255,255,0.04);
-      backdrop-filter:blur(12px);
-      border:1px solid rgba(255,255,255,0.08);
-      border-radius:25px;
-      overflow:hidden;
-      transition:0.5s;
-      cursor:pointer;
-      transform-style:preserve-3d;
+   .card {
+       background: rgba(255,255,255,0.05);
+       border-radius: 20px;
+       overflow: hidden;
+       transition: 0.4s ease;
     }
 
-    .card:hover{
-      transform:rotateY(8deg) rotateX(5deg) translateY(-10px);
-      box-shadow:0 0 40px rgba(255,0,0,0.4);
-    }
+    .card-image {
+      width: 100%;
+      height: 320px;   /* same fixed height for all cards */
+      overflow: hidden;
+   }
 
-    .card img{
-      width:100%;
-      height:320px;
-      object-fit:cover;
-      transition:0.5s;
-    }
+    .card-image img {
+     width: 100%;
+     height: 100%;
+     object-fit: cover;   /* auto fits any image */
+     object-position: center;
+     transition: 0.5s ease;
+   }
 
-    .card:hover img{
-      transform:scale(1.08);
-    }
+    .card:hover img {
+      transform: scale(1.08);
+}
 
     .card-content{
       padding:20px;
