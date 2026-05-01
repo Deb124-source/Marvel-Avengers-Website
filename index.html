@@ -246,57 +246,42 @@
       gap:30px;
     }
 
- .card{
+.card{
   background:#111;
   border-radius:20px;
   overflow:hidden;
-  padding:15px;
-  transition:0.4s ease;
-}
-
-.card:hover{
-  transform:translateY(-10px);
-  box-shadow:0 0 30px rgba(255,0,0,0.3);
+  transition:0.4s;
+  display:flex;
+  flex-direction:column;
 }
 
 .card-image{
   width:100%;
+  height:320px;
+  background:#000;
   display:flex;
   justify-content:center;
   align-items:center;
-  background:#000;
-  border-radius:15px;
   overflow:hidden;
-  padding:10px;
 }
 
 .card-image img{
-  max-width:100%;
-  max-height:350px;
-  width:auto;
-  height:auto;
-  object-fit:contain;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:center top;
   display:block;
-  transition:0.4s ease;
+  transition:0.5s;
 }
 
 .card:hover img{
-  transform:scale(1.03);
+  transform:scale(1.05);
 }
 
 .card-content{
-  padding:20px 10px 10px;
+  padding:20px;
   text-align:center;
-}
-
-.card-content h2{
-  color:white;
-  margin-bottom:10px;
-}
-
-.card-content p{
-  color:#bbb;
-  line-height:1.6;
+  flex-grow:1;
 }
 
     /* INFINITY STONES */
@@ -549,6 +534,7 @@
 
 
       <div class="card" onclick="openModal('Captain America','images/CAPS.jpg')">
+        <div class="card-image">
         <img src="images/CAPS.jpg" alt="Captain America">
         <div class="card-content">
           <h2>Captain America</h2>
@@ -558,17 +544,19 @@
 
 
          <div class="card" onclick="openModal('Iron Man','images/IRON_MAN.jpg')">
+           <div class="card-image">
         <img src="images/IRON_MAN.jpg" alt="Iron Man">
         <div class="card-content">
           <h2>Iron Man</h2>
-          <p>A genius,romeo,billionaire and philanthropist inventor, Tony Stark created the powerful Iron Man armor and became one of the founding Avengers. Known for his intelligence, technology, sarcasm, and ultimate sacrifice to save the universe.p>
+          <p>A genius,romeo,billionaire and philanthropist inventor, Tony Stark created the powerful Iron Man armor and became one of the founding Avengers. Known for his intelligence, technology, sarcasm, and ultimate sacrifice to save the universe.</p>
         </div>
       </div>
 
       
 
       <div class="card" onclick="openModal('Thor','images/THOR.webp')">
-        <img src="images/THOR.webp" alt="Thor">
+       <div class="card-image">
+     <img src="images/THOR.webp" alt="Thor">
         <div class="card-content">
           <h2>Thor</h2>
           <p>The God of Thunder and son of Odin from Asgard, Thor possesses immense strength and controls lightning with weapons like Mjolnir and Stormbreaker. He is both a warrior and a protector of the Nine Realms.</p>
@@ -576,6 +564,7 @@
       </div>
 
       <div class="card" onclick="openModal('Hulk','images/HULKU_RE.avif')">
+          <div class="card-image">
         <img src="images/HULKU_RE.avif" alt="Hulk">
         <div class="card-content">
           <h2>Hulk</h2>
@@ -583,7 +572,8 @@
         </div>
       </div>
 
-         <div class="card" onclick="openModal('Spider Man','images/SPIDY.webp')">
+         <div class="card" onclick="openModal('Spider Man','images/SPIDY.webp')">          
+        <div class="card-image">
         <img src="images/SPIDY.webp" alt="Spider Man">
         <div class="card-content">
           <h2>Spider Man</h2>
@@ -593,7 +583,8 @@
 
       
       <div class="card" onclick="openModal('Black Panther','images/BLACK_PANTHER.jpg')">
-        <img src="images/BLACK_PANTHER.jpg" alt="Black Panther">
+         <div class="card-image">
+    <img src="images/BLACK_PANTHER.jpg" alt="Black Panther">
         <div class="card-content">
           <h2>Black Panther</h2>
           <p>T’Challa, king of Wakanda, protects his nation using advanced technology, enhanced abilities from the Heart-Shaped Herb, and the legendary Black Panther suit made of vibranium.</p>
@@ -601,7 +592,8 @@
       </div>
 
        <div class="card" onclick="openModal('Doctor Strange','images/DR_STRANGE.webp')">
-        <img src="images/DR_STRANGE.webp" alt="Doctor Strange">
+        <div class="card-image">
+    <img src="images/DR_STRANGE.webp" alt="Doctor Strange">
         <div class="card-content">
           <h2>Doctor Strange</h2>
           <p>Once a brilliant surgeon, Stephen Strange became the Sorcerer Supreme after mastering the mystic arts. He protects reality from magical and multiversal threats.</p>
@@ -610,6 +602,7 @@
 
       
       <div class="card" onclick="openModal('Hawkeye','images/HAWKEYE.webp')">
+        <div class="card-image">
         <img src="images/HAWKEYE.webp" alt="Hawkeye">
         <div class="card-content">
           <h2>Hawkeye</h2>
@@ -618,8 +611,9 @@
       </div>
 
        <div class="card" onclick="openModal('Black Widow','images/BLACK_WIDOW.jpg')">
-        <img src="images/BLACK_WIDOW.jpg" alt="Black Widow">
-        <div class="card-content">
+         <div class="card-image">
+       <img src="images/BLACK_WIDOW.jpg" alt="Black Widow">
+      <div class="card-content">
           <h2>Black Widow</h2>
           <p>Natasha Romanoff is a master spy, assassin, and elite combat expert. Her intelligence, agility, and tactical skills make her one of the Avengers’ most dangerous agents.</p>
         </div>
@@ -627,6 +621,7 @@
 
       
        <div class="card" onclick="openModal('Scarlet Witch','images/SCARLET_WITCH.jpg')">
+         <div class="card-image">
         <img src="images/SCARLET_WITCH.jpg" alt="Scarlet Witch">
         <div class="card-content">
           <h2>Scarlet Witch</h2>
@@ -636,7 +631,8 @@
 
 
        <div class="card" onclick="openModal('Captain Marvel','images/CAPTAIN_MARVEL.webp')">
-        <img src="images/CAPTAIN_MARVEL.webp" alt="Captain Marvel">
+        <div class="card-image">
+    <img src="images/CAPTAIN_MARVEL.webp" alt="Captain Marvel">
         <div class="card-content">
           <h2>Captain Marvel</h2>
           <p>Carol Danvers gained cosmic powers after an energy accident, giving her super strength, flight, and energy blasts. She is among the universe’s most powerful heroes.</p>
@@ -645,7 +641,8 @@
 
       
        <div class="card" onclick="openModal('Vision','images/VISION.webp')">
-        <img src="images/VISION.webp" alt="Vision">
+        <div class="card-image">
+    <img src="images/VISION.webp" alt="Vision">
         <div class="card-content">
           <h2>Vision</h2>
           <p>Created using advanced AI and the Mind Stone, Vision possesses superhuman strength, intelligence, flight, and the ability to phase through objects.</p>
@@ -654,6 +651,7 @@
 
       
        <div class="card" onclick="openModal('Falcon','images/FALCON.jpg')">
+         <div class="card-image">
         <img src="images/FALCON.jpg" alt="Falcon">
         <div class="card-content">
           <h2>Falcon</h2>
@@ -663,6 +661,7 @@
 
        
        <div class="card" onclick="openModal('Winter Soldier','images/WINTER_SOLDIER.jpg')">
+         <div class="card-image">
         <img src="images/WINTER_SOLDIER.jpg" alt="Winter Soldier">
         <div class="card-content">
           <h2>Winter Soldier</h2>
@@ -671,8 +670,9 @@
       </div>
 
       
-       <div class="card" onclick="openModal('Ant Man','images/ANT_MAN.webp')">
-        <img src="images/ANT_MAN.webp" alt="Ant Man">
+       <div class="card" onclick="openModal('Ant Man','images/ANT_MAN.webp')">       
+  <div class="card-image">
+    <img src="images/ANT_MAN.webp" alt="Ant Man">
         <div class="card-content">
           <h2>Ant Man</h2>
           <p>Scott Lang uses the Ant-Man suit to shrink or grow in size while maintaining incredible strength. His humor and intelligence make him an important Avenger.</p>
@@ -681,6 +681,7 @@
 
         
        <div class="card" onclick="openModal('Wasp','images/WASP.webp')">
+         <div class="card-image">
         <img src="images/WASP.webp" alt="Wasp">
         <div class="card-content">
           <h2>Wasp</h2>
@@ -689,7 +690,8 @@
       </div>
       
       <div class="card" onclick="openModal('War Machine','images/WAR_MACHINE.jpg')">
-        <img src="images/WAR_MACHINE.jpg" alt="War Machine">
+        <div class="card-image">
+    <img src="images/WAR_MACHINE.jpg" alt="War Machine">
         <div class="card-content">
           <h2>War Machine</h2>
           <p>James Rhodes pilots heavily armed armor similar to Iron Man’s suit, bringing military-grade firepower to the battlefield.</p>
@@ -699,6 +701,7 @@
 
      
       <div class="card" onclick="openModal('Loki','images/LOKI.jpg')">
+         <div class="card-image">
         <img src="images/LOKI.jpg" alt="Loki">
         <div class="card-content">
           <h2>Loki</h2>
@@ -708,7 +711,8 @@
 
            
       <div class="card" onclick="openModal('Gamora','images/GAMORA.jpg')">
-        <img src="images/GAMORA.jpg" alt="Gamora">
+         <div class="card-image">
+    <img src="images/GAMORA.jpg" alt="Gamora">
         <div class="card-content">
           <h2>Gamora</h2>
           <p>Raised by Thanos, Gamora became one of the deadliest warriors in the galaxy before joining the Guardians of the Galaxy and fighting alongside the Avengers.</p>
@@ -716,6 +720,7 @@
       </div>
 
       <div class="card" onclick="openModal('Star-Lord','images/STAR_LORD.jpg')">
+        <div class="card-image">
         <img src="images/STAR_LORD.jpg" alt="Star-Lord">
         <div class="card-content">
           <h2>Star-Lord</h2>
@@ -724,7 +729,8 @@
       </div>
 
       <div class="card" onclick="openModal('Rocket','images/RACCOON.jpg')">
-        <img src="images/RACCOON.jpg" alt="Rocket">
+       <div class="card-image">
+    <img src="images/RACCOON.jpg" alt="Rocket">
         <div class="card-content">
           <h2>Rocket</h2>
           <p>A genetically enhanced raccoon with brilliant engineering and weapon expertise, Rocket is both hilarious and dangerous.</p>
@@ -732,7 +738,8 @@
       </div>
 
        <div class="card" onclick="openModal('Groot','images/I_AM_GROOT.webp')">
-        <img src="images/I_AM_GROOT.webp" alt="Groot">
+         <div class="card-image">
+    <img src="images/I_AM_GROOT.webp" alt="Groot">
         <div class="card-content">
           <h2>Groot</h2>
           <p>A tree-like alien capable of regeneration and immense strength. Despite saying only “I am Groot,” he is loyal and courageous.</p>
@@ -740,7 +747,8 @@
       </div>
 
       <div class="card" onclick="openModal('Drax','images/DRAX.webp')">
-        <img src="images/DRAX.webp" alt="Drax">
+        <div class="card-image">
+    <img src="images/DRAX.webp" alt="Drax">
         <div class="card-content">
           <h2>Drax</h2>
           <p>A powerful warrior seeking revenge against Thanos, Drax is known for his immense strength and literal personality.</p>
@@ -749,7 +757,8 @@
 
       
       <div class="card" onclick="openModal('Nebula','images/NEBULA.avif')">
-        <img src="images/NEBULA.avif" alt="Nebula">
+        <div class="card-image">
+    <img src="images/NEBULA.avif" alt="Nebula">
         <div class="card-content">
           <h2>Nebula</h2>
           <p>Once manipulated by Thanos, Nebula eventually becomes a strong and fearless fighter who helps save the universe.</p>
@@ -757,6 +766,7 @@
       </div>
 
         <div class="card" onclick="openModal('Mantis','images/MANTIS.avif')">
+          <div class="card-image">
         <img src="images/MANTIS.avif">
         <div class="card-content">
           <h2>Mantis</h2>
