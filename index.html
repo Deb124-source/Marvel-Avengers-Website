@@ -239,44 +239,57 @@
     }
 
     /* HERO GRID */
-    /* =========================
-   CARD GRID CONTAINER
+   
+/* =========================
+   PAGE WRAPPER FIX
+========================= */
+body {
+  margin: 0;
+  background: #0a0a0a;
+  font-family: Arial, sans-serif;
+}
+
+/* =========================
+   GRID CONTAINER (FIXED)
 ========================= */
 .grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: 30px;
-  padding: 50px;
+
+  /* IMPORTANT FIX */
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 50px 20px;
+
   justify-items: center;
-  align-items: stretch;
 }
 
 /* =========================
-   CARD BASE
+   CARD FIX
 ========================= */
 .card {
   width: 100%;
   max-width: 300px;
-  background: linear-gradient(145deg, #0b1726, #0a0f1c);
-  border-radius: 22px;
+  background: #0b1726;
+  border-radius: 20px;
   overflow: hidden;
+
   display: flex;
   flex-direction: column;
-  height: 100%;
-  transition: all 0.35s ease;
+
+  transition: 0.35s ease;
   box-shadow: 0 0 18px rgba(0, 255, 255, 0.08);
-  border: 1px solid rgba(0, 255, 255, 0.08);
 }
 
-/* Hover effect */
+/* hover effect */
 .card:hover {
   transform: translateY(-10px);
-  box-shadow: 0 0 40px rgba(0, 255, 255, 0.25);
-  border-color: rgba(0, 255, 255, 0.25);
+  box-shadow: 0 0 35px rgba(0, 255, 255, 0.2);
 }
 
 /* =========================
-   IMAGE SECTION
+   IMAGE FIX
 ========================= */
 .card-image {
   width: 100%;
@@ -290,63 +303,57 @@
   height: 100%;
   object-fit: cover;
   object-position: top;
-  transition: transform 0.5s ease;
+  transition: transform 0.4s ease;
 }
 
-/* image zoom on hover */
 .card:hover .card-image img {
   transform: scale(1.08);
 }
 
 /* =========================
-   CONTENT SECTION
+   CONTENT FIX
 ========================= */
 .card-content {
   padding: 20px;
+  text-align: center;
+
   display: flex;
   flex-direction: column;
-  flex-grow: 1;
-  text-align: center;
   gap: 12px;
+  flex-grow: 1;
 }
 
-/* Title */
 .card-content h2 {
   color: #00eaff;
   font-size: 1.6rem;
-  margin: 0;
 }
 
-/* Description */
 .card-content p {
   color: #d6d6d6;
-  line-height: 1.6;
   font-size: 0.95rem;
+  line-height: 1.6;
 }
 
 /* =========================
-   BUTTON
+   BUTTON FIX
 ========================= */
 .card-content button {
   margin-top: auto;
-  padding: 12px 26px;
+  padding: 12px 24px;
   border: none;
   border-radius: 12px;
   background: #00f0ff;
-  color: #000;
-  font-size: 1rem;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: 0.3s;
 }
 
-/* Button hover */
 .card-content button:hover {
-  transform: scale(1.07);
-  box-shadow: 0 0 25px #00f0ff;
+  transform: scale(1.06);
+  box-shadow: 0 0 20px #00f0ff;
 }
 
 /* =========================
-   RESPONSIVE FIX
+   MOBILE FIX
 ========================= */
 @media (max-width: 600px) {
   .grid {
