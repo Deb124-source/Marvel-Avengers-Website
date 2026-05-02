@@ -1162,15 +1162,18 @@ body {
   // LOADER
  window.addEventListener("load", () => {
   const loader = document.querySelector(".loader-wrapper");
+if (loader) {
   loader.style.display = "none";
+}
 });
 
-    const music = document.getElementById("bg-music");
-    if (music) {
-      music.play().catch(err => {
-        console.log("Autoplay blocked:", err);
-      });
-    }
+   const music = document.getElementById("bg-music");
+
+if (music) {
+  music.play().catch(err => {
+    console.log("Autoplay blocked:", err);
+  });
+}
   });
 
   // SCROLL REVEAL
@@ -1189,16 +1192,16 @@ body {
   });
 
   // MUSIC TOGGLE
-  const music = document.getElementById("bg-music");
-  const btn = document.getElementById("music-toggle");
+const bgMusic = document.getElementById("bg-music");
+const btn = document.getElementById("music-toggle");
 
-  if (btn && music) {
+  if (btn && bgMusic) {
     btn.addEventListener("click", () => {
-      if (music.paused) {
-        music.play();
+      if (bgMusic.paused) {
+        bgMusic.play();
         btn.innerText = "⏸ Pause Theme";
       } else {
-        music.pause();
+        bgMusic.pause();
         btn.innerText = "🎵 Play Avengers Theme";
       }
     });
