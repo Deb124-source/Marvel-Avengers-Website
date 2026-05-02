@@ -1161,12 +1161,22 @@ body {
     
   <script>
 window.addEventListener("load", () => {
-
-  // LOADER FIX
   const loader = document.querySelector(".loader-wrapper");
-  if (loader) {
-    loader.style.display = "none";
-  }
+
+  // minimum display time (in ms)
+  const MIN_TIME = 3500; // 3.5 seconds (adjust as you like)
+
+  setTimeout(() => {
+    if (loader) {
+      loader.style.opacity = "0";
+      loader.style.transition = "opacity 0.6s ease";
+
+      setTimeout(() => {
+        loader.style.display = "none";
+      }, 600);
+    }
+  }, MIN_TIME);
+});
 
   // AUTO MUSIC (may be blocked by browser)
   const bgMusic = document.getElementById("bg-music");
