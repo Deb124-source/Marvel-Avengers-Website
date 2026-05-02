@@ -1650,22 +1650,29 @@ document.querySelectorAll(".card").forEach(card => {
   revealOnScroll();
 
   // MUSIC BUTTON CONTROL
-  const btn = document.getElementById("music-toggle");
+const bgMusic = document.getElementById("bg-music");
+const btn = document.getElementById("music-toggle");
 
-  if (btn && bgMusic) {
-    btn.addEventListener("click", () => {
+if (bgMusic) {
+  bgMusic.volume = 0.5;
+}
+
+if (btn && bgMusic) {
+  btn.addEventListener("click", async () => {
+    try {
       if (bgMusic.paused) {
-        bgMusic.play().then(() => {
-          btn.innerText = "⏸ Pause Theme";
-        }).catch(err => {
-          console.log("Play blocked:", err);
-        });
+        await bgMusic.play();
+        btn.innerText = "⏸ Pause Theme";
       } else {
         bgMusic.pause();
         btn.innerText = "🎵 Play Avengers Theme";
       }
-    });
-  }
+    } catch (err) {
+      console.log("Audio error:", err);
+      alert("Audio file not loading. Check file path/name.");
+    }
+  });
+}
 
 });
 </script>
