@@ -239,83 +239,124 @@
     }
 
     /* HERO GRID */
-.grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-  gap:30px;
-  padding:40px;
+    /* =========================
+   CARD GRID CONTAINER
+========================= */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 30px;
+  padding: 50px;
+  justify-items: center;
+  align-items: stretch;
 }
 
-.card{
-  background:#0b1726;
-  border-radius:22px;
-  overflow:hidden;
-  transition:0.35s ease;
-  box-shadow:0 0 18px rgba(0,255,255,0.08);
-  display:flex;
-  flex-direction:column;
-  height:100%;
+/* =========================
+   CARD BASE
+========================= */
+.card {
+  width: 100%;
+  max-width: 300px;
+  background: linear-gradient(145deg, #0b1726, #0a0f1c);
+  border-radius: 22px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  transition: all 0.35s ease;
+  box-shadow: 0 0 18px rgba(0, 255, 255, 0.08);
+  border: 1px solid rgba(0, 255, 255, 0.08);
 }
 
-.card:hover{
-  transform:translateY(-8px);
-  box-shadow:0 0 35px rgba(0,255,255,0.18);
+/* Hover effect */
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 0 40px rgba(0, 255, 255, 0.25);
+  border-color: rgba(0, 255, 255, 0.25);
 }
 
-.card-image{
-  width:100%;
-  height:320px;
-  background:#050505;
-  overflow:hidden;
+/* =========================
+   IMAGE SECTION
+========================= */
+.card-image {
+  width: 100%;
+  height: 320px;
+  overflow: hidden;
+  background: #050505;
 }
 
-.card-image img{
-  width:100%;
-  height:100%;
-  object-fit:cover;
-  object-position:top;
-  display:block;
-  transition:0.4s ease;
+.card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+  transition: transform 0.5s ease;
 }
 
-.card:hover .card-image img{
-  transform:scale(1.04);
+/* image zoom on hover */
+.card:hover .card-image img {
+  transform: scale(1.08);
 }
 
-.card-content{
-  padding:22px;
-  display:flex;
-  flex-direction:column;
-  flex-grow:1;
-  text-align:center;
+/* =========================
+   CONTENT SECTION
+========================= */
+.card-content {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  text-align: center;
+  gap: 12px;
 }
 
-.card-content h2{
-  color:#00eaff;
-  font-size:1.7rem;
-  margin-bottom:14px;
+/* Title */
+.card-content h2 {
+  color: #00eaff;
+  font-size: 1.6rem;
+  margin: 0;
 }
 
-.card-content p{
-  color:#d6d6d6;
-  line-height:1.7;
-  font-size:0.95rem;
+/* Description */
+.card-content p {
+  color: #d6d6d6;
+  line-height: 1.6;
+  font-size: 0.95rem;
 }
 
-.card-content button{
-  padding:14px 32px;
-  border:none;
-  border-radius:14px;
-  background:#00f0ff;
-  color:black;
-  font-size:1rem;
-  cursor:pointer;
-  transition:0.3s;
+/* =========================
+   BUTTON
+========================= */
+.card-content button {
+  margin-top: auto;
+  padding: 12px 26px;
+  border: none;
+  border-radius: 12px;
+  background: #00f0ff;
+  color: #000;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
 }
 
-.card-content button:hover{
-  transform:scale(1.05);
-  box-shadow:0 0 25px #00f0ff;
+/* Button hover */
+.card-content button:hover {
+  transform: scale(1.07);
+  box-shadow: 0 0 25px #00f0ff;
+}
+
+/* =========================
+   RESPONSIVE FIX
+========================= */
+@media (max-width: 600px) {
+  .grid {
+    padding: 20px;
+    gap: 20px;
+  }
+
+  .card-image {
+    height: 260px;
+  }
 }
     /* INFINITY STONES */
 
