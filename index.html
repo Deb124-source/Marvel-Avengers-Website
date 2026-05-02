@@ -1159,12 +1159,11 @@ body {
     <source src="Avengers_assemble_song.mpeg" type="audio/mpeg">
   </audio>
     
-  <script>
+<script>
 window.addEventListener("load", () => {
-  const loader = document.querySelector(".loader-wrapper");
 
-  // minimum display time (in ms)
-  const MIN_TIME = 3500; // 3.5 seconds (adjust as you like)
+  const loader = document.querySelector(".loader-wrapper");
+  const MIN_TIME = 3500;
 
   setTimeout(() => {
     if (loader) {
@@ -1176,10 +1175,10 @@ window.addEventListener("load", () => {
       }, 600);
     }
   }, MIN_TIME);
-});
 
-  // AUTO MUSIC (may be blocked by browser)
+  // AUTO MUSIC
   const bgMusic = document.getElementById("bg-music");
+
   if (bgMusic) {
     bgMusic.play().catch(err => {
       console.log("Autoplay blocked:", err);
@@ -1216,7 +1215,6 @@ window.addEventListener("load", () => {
   }
 
 });
-    }
 </script>
 </body>
 </html>
