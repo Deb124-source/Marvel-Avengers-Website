@@ -39,7 +39,21 @@
     }
 
     /* LOADER */
+    
+.loader-wrapper{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background: #0a0a0a; /* or rgba(0,0,0,0.9) */
+  z-index: 9999;
+}
 /* AVENGERS LOADER WRAPPER */
 .avengers-loader{
   position: relative;
@@ -565,7 +579,7 @@ body {
 
 <!-- LOADER -->
 <div id="loader">
-
+ <div class="loader-wrapper">
   <div class="avengers-loader">
     <img src="images/LOGO.webp" alt="Avengers Logo">
     <div class="ring"></div>
