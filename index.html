@@ -1160,10 +1160,10 @@ body {
   </audio>
 <script>
   // LOADER
-  window.addEventListener("load", () => {
-    setTimeout(() => {
-      document.getElementById("loader").style.display = "none";
-    }, 2500);
+ window.addEventListener("load", () => {
+  const loader = document.querySelector(".loader-wrapper");
+  loader.style.display = "none";
+});
 
     const music = document.getElementById("bg-music");
     if (music) {
