@@ -1169,7 +1169,2348 @@ body {
 <script>
 window.addEventListener("load", () => {
 
-  const loader = document.querySelector("loader");
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Marvel Avengers</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:'Poppins',sans-serif;
+    }
+
+    html{
+      scroll-behavior:smooth;
+    }
+
+    body{
+      background:#050505;
+      color:white;
+      overflow-x:hidden;
+    }
+
+    body::-webkit-scrollbar{
+      width:8px;
+    }
+
+    body::-webkit-scrollbar-thumb{
+      background:crimson;
+      border-radius:20px;
+    }
+
+    /* LOADER */
+#loader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 9999;
+}
+.loader-wrapper{
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background: radial-gradient(circle, #111 0%, #000 100%);
+}
+
+@keyframes bgPulse{
+  from{ filter: brightness(0.8); }
+  to{ filter: brightness(1.2); }
+}
+
+/* AVENGERS LOADER WRAPPER */
+.avengers-loader{
+  position: relative;
+  width: 180px;
+  height: 180px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+/* LOGO */
+.avengers-loader img{
+  width: 110px;
+  height: 110px;
+  z-index: 2;
+  filter: drop-shadow(0 0 15px crimson);
+  animation: pulse 2s ease-in-out infinite;
+}
+
+/* ROTATING RING */
+.ring{
+  position: absolute;
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  border: 4px solid transparent;
+  border-top: 4px solid crimson;
+  border-right: 4px solid crimson;
+  animation: spin 1.2s linear infinite;
+  box-shadow: 0 0 25px crimson;
+}
+
+/* ROTATION */
+@keyframes spin{
+  100%{
+    transform: rotate(360deg);
+  }
+}
+
+/* LOGO PULSE */
+@keyframes pulse{
+  0%,100%{
+    transform: scale(1);
+  }
+  50%{
+    transform: scale(1.08);
+  }
+}
+    /* NAVBAR */
+
+    nav{
+      position:fixed;
+      top:0;
+      width:100%;
+      z-index:1000;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      padding:20px 8%;
+      background:rgba(0,0,0,0.6);
+      backdrop-filter:blur(12px);
+      border-bottom:1px solid rgba(255,255,255,0.08);
+    }
+
+    nav h1{
+      color:crimson;
+      font-size:2rem;
+      font-weight:800;
+      letter-spacing:2px;
+      text-shadow:0 0 20px crimson;
+    }
+
+    nav ul{
+      display:flex;
+      list-style:none;
+      gap:30px;
+    }
+
+    nav ul li a{
+      color:white;
+      text-decoration:none;
+      transition:0.3s;
+      position:relative;
+    }
+
+    nav ul li a::after{
+      content:'';
+      position:absolute;
+      left:0;
+      bottom:-5px;
+      width:0;
+      height:2px;
+      background:crimson;
+      transition:0.3s;
+    }
+
+    nav ul li a:hover::after{
+      width:100%;
+    }
+
+    nav ul li a:hover{
+      color:crimson;
+    }
+
+    /* HERO */
+
+    .hero{
+      height:100vh;
+      background:
+      linear-gradient(to bottom,rgba(0,0,0,0.5),rgba(0,0,0,0.9)),
+      url("avengers.jfif") center/cover no-repeat;
+
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
+      padding:20px;
+    }
+
+    .hero h2{
+      font-size:5rem;
+      font-weight:800;
+      text-shadow:0 0 30px crimson;
+      animation:fadeUp 1s ease;
+    }
+
+    .hero p{
+      margin-top:20px;
+      max-width:700px;
+      line-height:1.8;
+      color:#ddd;
+      animation:fadeUp 1.3s ease;
+    }
+
+    .hero-buttons{
+      margin-top:40px;
+      display:flex;
+      gap:20px;
+      flex-wrap:wrap;
+      justify-content:center;
+    }
+
+    .hero-buttons button{
+      padding:15px 35px;
+      border:none;
+      border-radius:50px;
+      cursor:pointer;
+      font-weight:600;
+      transition:0.3s;
+    }
+
+    .btn-primary{
+      background:crimson;
+      color:white;
+      box-shadow:0 0 25px rgba(220,20,60,0.5);
+    }
+
+    .btn-primary:hover{
+      transform:translateY(-5px) scale(1.05);
+    }
+
+    .btn-secondary{
+      background:transparent;
+      border:2px solid white;
+      color:white;
+    }
+
+    .btn-secondary:hover{
+      background:white;
+      color:black;
+    }
+    
+/* HERO IMAGE CONTAINER */
+.hero-image{
+  margin-top:40px;
+  display:flex;
+  justify-content:center;
+}
+
+/* SQUARE IMAGE STYLE */
+.hero-image img{
+  width:320px;
+  height:320px;
+
+  object-fit:cover;
+  object-position:center;
+
+  border-radius:20px;
+
+  border:3px solid crimson;
+  box-shadow:0 0 35px rgba(220,20,60,0.4);
+
+  transition:0.4s ease;
+}
+
+/* HOVER EFFECT */
+.hero-image img:hover{
+  transform:scale(1.05);
+  box-shadow:0 0 50px rgba(220,20,60,0.6);
+}
+
+    @keyframes fadeUp{
+      from{
+        opacity:0;
+        transform:translateY(40px);
+      }
+      to{
+        opacity:1;
+        transform:translateY(0);
+      }
+    }
+
+    /* SECTION */
+
+    section{
+      padding:120px 8%;
+    }
+
+    .section-title{
+      text-align:center;
+      margin-bottom:60px;
+    }
+
+    .section-title h2{
+      font-size:3rem;
+      color:crimson;
+      margin-bottom:15px;
+      text-shadow:0 0 20px crimson;
+    }
+
+    .section-title p{
+      color:#bbb;
+    }
+
+    /* HERO GRID */
+   
+/* =========================
+   PAGE WRAPPER FIX
+========================= */
+body {
+  margin: 0;
+  background: #0a0a0a;
+  font-family: Arial, sans-serif;
+}
+
+/* =========================
+   GRID CONTAINER (FIXED)
+========================= */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 30px;
+
+  /* IMPORTANT FIX */
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 50px 20px;
+
+  justify-items: center;
+}
+
+/* =========================
+   CARD FIX
+========================= */
+.card {
+  width: 100%;
+  max-width: 300px;
+  background: #0b1726;
+  border-radius: 20px;
+  overflow: hidden;
+
+  display: flex;
+  flex-direction: column;
+
+  transition: 0.35s ease;
+  box-shadow: 0 0 18px rgba(0, 255, 255, 0.08);
+}
+
+/* hover effect */
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 0 35px rgba(0, 255, 255, 0.2);
+}
+
+/* =========================
+   IMAGE FIX
+========================= */
+.card-image {
+  width: 100%;
+  height: 320px;
+  overflow: hidden;
+  background: #050505;
+}
+
+.card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+  transition: transform 0.4s ease;
+}
+
+.card:hover .card-image img {
+  transform: scale(1.08);
+}
+
+/* =========================
+   CONTENT FIX
+========================= */
+.card-content {
+  padding: 20px;
+  text-align: center;
+
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  flex-grow: 1;
+}
+
+.card-content h2 {
+  color: #00eaff;
+  font-size: 1.6rem;
+}
+
+.card-content p {
+  color: #d6d6d6;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+/* =========================
+   BUTTON FIX
+========================= */
+.card-content button {
+  margin-top: auto;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 12px;
+  background: #00f0ff;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.card-content button:hover {
+  transform: scale(1.06);
+  box-shadow: 0 0 20px #00f0ff;
+}
+
+/* =========================
+   MOBILE FIX
+========================= */
+@media (max-width: 600px) {
+  .grid {
+    padding: 20px;
+    gap: 20px;
+  }
+}
+  .card-image {
+    height: 260px;
+  }
+}
+    .music-control{
+  margin-top:15px;
+  display:flex;
+  justify-content:center;
+}
+
+#music-toggle{
+  padding:12px 20px;
+  border:none;
+  border-radius:30px;
+  background:crimson;
+  color:white;
+  cursor:pointer;
+  box-shadow:0 0 20px crimson;
+  transition:0.3s;
+}
+
+#music-toggle:hover{
+  transform:scale(1.05);
+}
+    /* INFINITY STONES */
+
+    .stones{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+      gap:30px;
+      text-align:center;
+    }
+
+    .stone{
+      width:120px;
+      height:120px;
+      border-radius:50%;
+      margin:auto;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-weight:700;
+      transition:0.4s;
+      cursor:pointer;
+    }
+
+    .stone:hover{
+      transform:scale(1.15);
+      box-shadow:0 0 30px currentColor;
+    }
+
+    /* TIMELINE */
+
+    .timeline{
+      position:relative;
+      max-width:1000px;
+      margin:auto;
+    }
+
+    .timeline::after{
+      content:'';
+      position:absolute;
+      width:4px;
+      background:crimson;
+      top:0;
+      bottom:0;
+      left:50%;
+      margin-left:-2px;
+    }
+
+    .timeline-box{
+      padding:20px 40px;
+      position:relative;
+      width:50%;
+    }
+
+    .timeline-box:nth-child(odd){
+      left:0;
+    }
+
+    .timeline-box:nth-child(even){
+      left:50%;
+    }
+
+    .timeline-content{
+      background:rgba(255,255,255,0.05);
+      padding:25px;
+      border-radius:20px;
+      border:1px solid rgba(255,255,255,0.08);
+    }
+
+    .timeline-content h3{
+      color:crimson;
+      margin-bottom:10px;
+    }
+
+    /* SUMMARY */
+
+    .summary{
+      text-align:center;
+    }
+
+    .summary-box{
+      max-width:900px;
+      margin:auto;
+      background:rgba(255,255,255,0.04);
+      padding:50px;
+      border-radius:30px;
+      border:1px solid rgba(255,255,255,0.08);
+      backdrop-filter:blur(12px);
+      line-height:1.8;
+      color:#ccc;
+    }
+
+    /* REVEAL */
+
+    .reveal{
+      opacity:0;
+      transform:translateY(60px);
+      transition:1s;
+    }
+
+    .reveal.active{
+      opacity:1;
+      transform:translateY(0);
+    }
+
+    footer{
+      text-align:center;
+      padding:40px;
+      background:#080808;
+      color:#777;
+      border-top:1px solid rgba(255,255,255,0.08);
+    }
+
+    @media(max-width:768px){
+
+      .hero h2{
+        font-size:3rem;
+      }
+
+      nav ul{
+        display:none;
+      }
+
+      .timeline::after{
+        left:20px;
+      }
+
+      .timeline-box{
+        width:100%;
+        left:0 !important;
+        padding-left:60px;
+        margin-bottom:30px;
+      }
+
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <!-- LOADER -->
+
+<!-- LOADER -->
+<div id="loader">
+ <div class="loader-wrapper">
+  <div class="avengers-loader">
+    <img src="images/LOGO.webp" alt="Avengers Logo">
+    <div class="ring"></div>
+  </div>
+ </div>
+</div>
+
+  <!-- NAVBAR -->
+
+  <nav>
+    <h1>AVENGERS</h1>
+
+    <ul>
+      <li><a href="#heroes">Super Heroes</a></li>
+      <li><a href="#villains">Super Villains</a></li>
+      <li><a href="#stones">Stones</a></li>
+      <li><a href="#timeline">Timeline</a></li>
+      <li><a href="#summary">Summary</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+
+  <section class="hero">
+
+    <h2>Earth's Mightiest Heroes</h2>
+
+    <p>
+      The Avengers protect humanity from cosmic threats, alien invasions,
+      and impossible battles across the universe.
+    </p>
+
+    <div class="hero-buttons">
+     <a href="#heroes">
+  <button class="btn-primary">Explore Heroes</button>
+   </a>
+      <a href="#summary">
+  <button class="btn-secondary">Watch Trailer</button>
+    </a>
+    </div>
+   <div class="hero-image">
+  <img src="images/Avengers_Assemble.jpeg" alt="Avengers Assembled">
+  </div>
+   <div class="music-control">
+    <button id="music-toggle">🎵 Play Avengers Theme</button>
+  </div>
+
+  </section>
+
+  <!-- HEROES -->
+
+  <section id="heroes" class="reveal">
+
+    <div class="section-title">
+      <h2>Avengers Heroes</h2>
+      <p>Meet the legendary Marvel superheroes.</p>
+    </div>
+
+ <!-- REPLACE ONLY THIS ENTIRE HERO GRID SECTION -->
+<div class="grid">
+
+  <!-- Captain America -->
+  <div class="card">
+    <div class="card-image">
+      <img src="images/CAPS.jpg" alt="Captain America">
+    </div>
+    <div class="card-content">
+      <h2>Captain America</h2>
+      <p>Steve Rogers is the super-soldier known for bravery...</p>
+    </div>
+  </div>
+
+  <!-- Iron Man -->
+  <div class="card">
+    <div class="card-image">
+      <img src="images/IRON_MAN.jpg" alt="Iron Man">
+    </div>
+    <div class="card-content">
+      <h2>Iron Man</h2>
+      <p>Tony Stark created the Iron Man armor...</p>
+    </div>
+  </div>
+
+  <!-- Thor -->
+  <div class="card">
+    <div class="card-image">
+      <img src="images/THOR.webp" alt="Thor">
+    </div>
+    <div class="card-content">
+      <h2>Thor</h2>
+      <p>The God of Thunder from Asgard...</p>
+    </div>
+  </div>
+
+  <!-- Hulk -->
+  <div class="card">
+    <div class="card-image">
+      <img src="images/HULKU_RE.avif" alt="Hulk">
+    </div>
+    <div class="card-content">
+      <h2>Hulk</h2>
+      <p>Bruce Banner transforms into Hulk...</p>
+    </div>
+  </div>
+
+  <!-- Spider-Man -->
+  <div class="card">
+    <div class="card-image">
+      <img src="images/SPIDY.webp" alt="Spider Man">
+    </div>
+    <div class="card-content">
+      <h2>Spider Man</h2>
+      <p>Peter Parker fights crime using spider powers...</p>
+    </div>
+  </div>
+
+  <!-- Black Panther -->
+  <div class="card">
+    <div class="card-image">
+      <img src="images/BLACK_PANTHER.jpg" alt="Black Panther">
+    </div>
+    <div class="card-content">
+      <h2>Black Panther</h2>
+      <p>T’Challa protects Wakanda using vibranium tech...</p>
+    </div>
+  </div>
+
+  <!-- Doctor Strange -->
+  <div class="card">
+    <div class="card-image">
+      <img src="images/DR_STRANGE.webp" alt="Doctor Strange">
+    </div>
+    <div class="card-content">
+      <h2>Doctor Strange</h2>
+      <p>The Sorcerer Supreme protects reality...</p>
+    </div>
+  </div>
+
+  <!-- Scarlet Witch -->
+  <div class="card">
+    <div class="card-image">
+      <img src="images/SCARLET_WITCH.jpg" alt="Scarlet Witch">
+    </div>
+    <div class="card-content">
+      <h2>Scarlet Witch</h2>
+      <p>Wanda Maximoff uses chaos magic...</p>
+    </div>
+  </div>
+
+  <!-- Captain Marvel -->
+  <div class="card">
+    <div class="card-image">
+      <img src="images/CAPTAIN_MARVEL.webp" alt="Captain Marvel">
+    </div>
+    <div class="card-content">
+      <h2>Captain Marvel</h2>
+      <p>Carol Danvers possesses cosmic powers...</p>
+    </div>
+  </div>
+
+  <!-- Black Widow -->
+  <div class="card">
+    <div class="card-image">
+      <img src="images/BLACK_WIDOW.jpg" alt="Black Widow">
+    </div>
+    <div class="card-content">
+      <h2>Black Widow</h2>
+      <p>Natasha Romanoff is an elite spy...</p>
+    </div>
+  </div>
+
+  <!-- Hawkeye -->
+  <div class="card">
+    <div class="card-image">
+      <img src="images/HAWKEYE.webp" alt="Hawkeye">
+    </div>
+    <div class="card-content">
+      <h2>Hawkeye</h2>
+      <p>Clint Barton is a master archer...</p>
+    </div>
+  </div>
+
+  <!-- Vision -->
+  <div class="card">
+    <div class="card-image">
+      <img src="images/VISION.webp" alt="Vision">
+    </div>
+    <div class="card-content">
+      <h2>Vision</h2>
+      <p>Vision is powered by the Mind Stone...</p>
+    </div>
+  </div>
+
+  <!-- Falcon -->
+  <div class="card">
+    <div class="card-image">
+      <img src="images/FALCON.jpg" alt="Falcon">
+    </div>
+    <div class="card-content">
+      <h2>Falcon</h2>
+      <p>Sam Wilson fights using advanced wings...</p>
+    </div>
+  </div>
+
+  <!-- Winter Soldier -->
+  <div class="card">
+    <div class="card-image">
+      <img src="images/WINTER_SOLDIER.jpg" alt="Winter Soldier">
+    </div>
+    <div class="card-content">
+      <h2>Winter Soldier</h2>
+      <p>Bucky Barnes is a super-soldier...</p>
+    </div>
+  </div>
+
+  <!-- Ant-Man -->
+  <div class="card">
+    <div class="card-image">
+      <img src="images/ANT_MAN.webp" alt="Ant Man">
+    </div>
+    <div class="card-content">
+      <h2>Ant Man</h2>
+      <p>Scott Lang uses shrinking technology...</p>
+    </div>
+  </div>
+
+  <!-- Wasp -->
+  <div class="card">
+    <div class="card-image">
+      <img src="images/WASP.webp" alt="Wasp">
+    </div>
+    <div class="card-content">
+      <h2>Wasp</h2>
+      <p>Hope van Dyne fights using Pym tech...</p>
+    </div>
+  </div>
+
+  <!-- War Machine -->
+  <div class="card">
+    <div class="card-image">
+      <img src="images/WAR_MACHINE.jpg" alt="War Machine">
+    </div>
+    <div class="card-content">
+      <h2>War Machine</h2>
+      <p>James Rhodes uses armored combat suit...</p>
+    </div>
+  </div>
+
+  <!-- Loki -->
+  <div class="card">
+    <div class="card-image">
+      <img src="images/LOKI.jpg" alt="Loki">
+    </div>
+    <div class="card-content">
+      <h2>Loki</h2>
+      <p>God of Mischief uses illusion magic...</p>
+    </div>
+  </div>
+
+  <!-- Gamora -->
+  <div class="card">
+    <div class="card-image">
+      <img src="images/GAMORA.jpg" alt="Gamora">
+    </div>
+    <div class="card-content">
+      <h2>Gamora</h2>
+      <p>Deadliest woman in the galaxy...</p>
+    </div>
+  </div>
+
+  <!-- Star-Lord -->
+  <div class="card">
+    <div class="card-image">
+      <img src="images/STAR_LORD.jpg" alt="Star Lord">
+    </div>
+    <div class="card-content">
+      <h2>Star Lord</h2>
+      <p>Leader of the Guardians of the Galaxy...</p>
+    </div>
+  </div>
+
+  <!-- Rocket -->
+  <div class="card">
+    <div class="card-image">
+      <img src="images/RACCOON.jpg" alt="Rocket">
+    </div>
+    <div class="card-content">
+      <h2>Rocket</h2>
+      <p>Genius raccoon engineer...</p>
+    </div>
+  </div>
+
+  <!-- Groot -->
+  <div class="card">
+    <div class="card-image">
+      <img src="images/I_AM_GROOT.webp" alt="Groot">
+    </div>
+    <div class="card-content">
+      <h2>Groot</h2>
+      <p>I am Groot.</p>
+    </div>
+  </div>
+
+  <!-- Drax -->
+  <div class="card">
+    <div class="card-image">
+      <img src="images/DRAX.webp" alt="Drax">
+    </div>
+    <div class="card-content">
+      <h2>Drax</h2>
+      <p>Powerful warrior of the Guardians...</p>
+    </div>
+  </div>
+
+  <!-- Nebula -->
+  <div class="card">
+    <div class="card-image">
+      <img src="images/NEBULA.avif" alt="Nebula">
+    </div>
+    <div class="card-content">
+      <h2>Nebula</h2>
+      <p>Cybernetic warrior turned hero...</p>
+    </div>
+  </div>
+
+  <!-- Mantis -->
+  <div class="card">
+    <div class="card-image">
+      <img src="images/MANTIS.avif" alt="Mantis">
+    </div>
+    <div class="card-content">
+      <h2>Mantis</h2>
+      <p>Empathic alien with emotional powers...</p>
+    </div>
+  </div>
+
+</div>
+  </section>
+  
+  <section id="villains" class="reveal">
+
+  <div class="section-title">
+    <h2>Marvel Super Villains</h2>
+    <p>The most dangerous enemies in the Marvel Universe.</p>
+  </div>
+
+  <div class="grid">
+
+  <!-- Thanos -->
+  <div class="card">
+    <div class="card-image">
+      <img src="images/THANOS.jpg" alt="Thanos">
+    </div>
+    <div class="card-content">
+      <h2>Thanos</h2>
+      <p>
+        The Mad Titan sought the Infinity Stones to wipe out half of all life,
+        believing it would restore balance to the universe.
+      </p>
+    </div>
+  </div>
+
+  <!-- Ultron -->
+  <div class="card">
+    <div class="card-image">
+      <img src="images/ULTRON.webp" alt="Ultron">
+    </div>
+    <div class="card-content">
+      <h2>Ultron</h2>
+      <p>
+        An AI created by Tony Stark that turned against humanity,
+        believing extinction was the only path to peace.
+      </p>
+    </div>
+  </div>
+
+  <!-- Hela -->
+  <div class="card">
+    <div class="card-image">
+      <img src="images/HELA.webp" alt="Hela">
+    </div>
+    <div class="card-content">
+      <h2>Hela</h2>
+      <p>
+        Goddess of Death and Thor’s sister with immense destructive power.
+      </p>
+    </div>
+  </div>
+
+  <!-- Green Goblin -->
+  <div class="card">
+    <div class="card-image">
+      <img src="images/GREEN_GOBLIN.jpg" alt="Green Goblin">
+    </div>
+    <div class="card-content">
+      <h2>Green Goblin</h2>
+      <p>
+        Norman Osborn became Spider-Man’s deadliest enemy through insanity and tech.
+      </p>
+    </div>
+  </div>
+
+  <!-- Doctor Doom -->
+  <div class="card">
+    <div class="card-image">
+      <img src="images/DOOM.webp" alt="Doctor Doom">
+    </div>
+    <div class="card-content">
+      <h2>Doctor Doom</h2>
+      <p>
+        Genius ruler combining science and dark magic to dominate the world.
+      </p>
+    </div>
+  </div>
+
+  <!-- Red Skull -->
+  <div class="card">
+    <div class="card-image">
+      <img src="images/RED_SKULL.jpg" alt="Red Skull">
+    </div>
+    <div class="card-content">
+      <h2>Red Skull</h2>
+      <p>
+        HYDRA leader obsessed with global domination and cosmic power.
+      </p>
+    </div>
+  </div>
+
+  <!-- Killmonger -->
+  <div class="card">
+    <div class="card-image">
+      <img src="images/KILLMONGER.jpg" alt="Killmonger">
+    </div>
+    <div class="card-content">
+      <h2>Killmonger</h2>
+      <p>
+        Warrior seeking revenge and control over Wakanda’s throne.
+      </p>
+    </div>
+  </div>
+
+  <!-- Dormammu -->
+  <div class="card">
+    <div class="card-image">
+      <img src="images/DORMAMMU.jpg" alt="Dormammu">
+    </div>
+    <div class="card-content">
+      <h2>Dormammu</h2>
+      <p>
+        Cosmic entity from the Dark Dimension seeking universal domination.
+      </p>
+    </div>
+  </div>
+
+  <!-- Venom -->
+  <div class="card">
+    <div class="card-image">
+      <img src="images/VENOM.avif" alt="Venom">
+    </div>
+    <div class="card-content">
+      <h2>Venom</h2>
+      <p>
+        Symbiote bonded with Eddie Brock, granting monstrous abilities.
+      </p>
+    </div>
+  </div>
+
+  <!-- Kang -->
+  <div class="card">
+    <div class="card-image">
+      <img src="images/KANG.avif" alt="Kang">
+    </div>
+    <div class="card-content">
+      <h2>Kang the Conqueror</h2>
+      <p>
+        Time-traveling conqueror controlling multiple timelines.
+      </p>
+    </div>
+  </div>
+</div>
+  </section>
+
+  
+  <!-- INFINITY STONES -->
+
+  <section id="stones" class="reveal">
+
+    <div class="section-title">
+      <h2>Infinity Stones</h2>
+      <p>The six cosmic stones of ultimate power.</p>
+    </div>
+
+    <div class="stones">
+
+      <div class="stone" style="background:#3498db;">Space</div>
+      <div class="stone" style="background:#f1c40f;">Mind</div>
+      <div class="stone" style="background:#e74c3c;">Reality</div>
+      <div class="stone" style="background:#9b59b6;">Power</div>
+      <div class="stone" style="background:#2ecc71;">Time</div>
+      <div class="stone" style="background:#e67e22;">Soul</div>
+
+    </div>
+
+  </section>
+
+  <!-- MCU TIMELINE -->
+
+  <section id="timeline" class="reveal">
+
+    <div class="section-title">
+      <h2>MCU Timeline</h2>
+      <p>Marvel Cinematic Universe journey.</p>
+    </div>
+
+    <div class="timeline">
+
+      <div class="timeline-box">
+        <div class="timeline-content">
+          <h3>2008</h3>
+          <p>Iron Man launched the MCU.</p>
+        </div>
+      </div>
+
+      <div class="timeline-box">
+        <div class="timeline-content">
+          <h3>2012</h3>
+          <p>The Avengers assembled in New York.</p>
+        </div>
+      </div>
+
+      <div class="timeline-box">
+        <div class="timeline-content">
+          <h3>2018</h3>
+          <p>Infinity War shocked the universe.</p>
+        </div>
+      </div>
+
+      <div class="timeline-box">
+        <div class="timeline-content">
+          <h3>2019</h3>
+          <p>Endgame became legendary.</p>
+        </div>
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- SUMMARY -->
+
+  <section id="summary" class="summary reveal">
+
+    <div class="section-title">
+      <h2>Summary</h2>
+    </div>
+
+    <div class="summary-box">
+
+      The Avengers are Earth's mightiest heroes assembled to defend
+      humanity against the greatest threats. From Iron Man’s genius
+      to Captain America’s leadership and Thor’s godly power,
+      every Avenger brings unique abilities to the team.
+
+    </div>
+
+  </section>
+
+
+  <!-- FOOTER -->
+
+  <footer>
+    © 2026 Debdut Nandy | Marvel Avengers Website
+  </footer>
+ <audio id="bg-music" loop>
+    <source src="Avengers_assemble_song.mpeg" type="audio/mpeg">
+  </audio>
+    
+<script>
+window.addEventListener("load", () => {
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Marvel Avengers</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:'Poppins',sans-serif;
+    }
+
+    html{
+      scroll-behavior:smooth;
+    }
+
+    body{
+      background:#050505;
+      color:white;
+      overflow-x:hidden;
+    }
+
+    body::-webkit-scrollbar{
+      width:8px;
+    }
+
+    body::-webkit-scrollbar-thumb{
+      background:crimson;
+      border-radius:20px;
+    }
+
+    /* LOADER */
+#loader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 9999;
+}
+.loader-wrapper{
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background: radial-gradient(circle, #111 0%, #000 100%);
+}
+
+@keyframes bgPulse{
+  from{ filter: brightness(0.8); }
+  to{ filter: brightness(1.2); }
+}
+
+/* AVENGERS LOADER WRAPPER */
+.avengers-loader{
+  position: relative;
+  width: 180px;
+  height: 180px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+/* LOGO */
+.avengers-loader img{
+  width: 110px;
+  height: 110px;
+  z-index: 2;
+  filter: drop-shadow(0 0 15px crimson);
+  animation: pulse 2s ease-in-out infinite;
+}
+
+/* ROTATING RING */
+.ring{
+  position: absolute;
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  border: 4px solid transparent;
+  border-top: 4px solid crimson;
+  border-right: 4px solid crimson;
+  animation: spin 1.2s linear infinite;
+  box-shadow: 0 0 25px crimson;
+}
+
+/* ROTATION */
+@keyframes spin{
+  100%{
+    transform: rotate(360deg);
+  }
+}
+
+/* LOGO PULSE */
+@keyframes pulse{
+  0%,100%{
+    transform: scale(1);
+  }
+  50%{
+    transform: scale(1.08);
+  }
+}
+    /* NAVBAR */
+
+    nav{
+      position:fixed;
+      top:0;
+      width:100%;
+      z-index:1000;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      padding:20px 8%;
+      background:rgba(0,0,0,0.6);
+      backdrop-filter:blur(12px);
+      border-bottom:1px solid rgba(255,255,255,0.08);
+    }
+
+    nav h1{
+      color:crimson;
+      font-size:2rem;
+      font-weight:800;
+      letter-spacing:2px;
+      text-shadow:0 0 20px crimson;
+    }
+
+    nav ul{
+      display:flex;
+      list-style:none;
+      gap:30px;
+    }
+
+    nav ul li a{
+      color:white;
+      text-decoration:none;
+      transition:0.3s;
+      position:relative;
+    }
+
+    nav ul li a::after{
+      content:'';
+      position:absolute;
+      left:0;
+      bottom:-5px;
+      width:0;
+      height:2px;
+      background:crimson;
+      transition:0.3s;
+    }
+
+    nav ul li a:hover::after{
+      width:100%;
+    }
+
+    nav ul li a:hover{
+      color:crimson;
+    }
+
+    /* HERO */
+
+    .hero{
+      height:100vh;
+      background:
+      linear-gradient(to bottom,rgba(0,0,0,0.5),rgba(0,0,0,0.9)),
+      url("avengers.jfif") center/cover no-repeat;
+
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
+      padding:20px;
+    }
+
+    .hero h2{
+      font-size:5rem;
+      font-weight:800;
+      text-shadow:0 0 30px crimson;
+      animation:fadeUp 1s ease;
+    }
+
+    .hero p{
+      margin-top:20px;
+      max-width:700px;
+      line-height:1.8;
+      color:#ddd;
+      animation:fadeUp 1.3s ease;
+    }
+
+    .hero-buttons{
+      margin-top:40px;
+      display:flex;
+      gap:20px;
+      flex-wrap:wrap;
+      justify-content:center;
+    }
+
+    .hero-buttons button{
+      padding:15px 35px;
+      border:none;
+      border-radius:50px;
+      cursor:pointer;
+      font-weight:600;
+      transition:0.3s;
+    }
+
+    .btn-primary{
+      background:crimson;
+      color:white;
+      box-shadow:0 0 25px rgba(220,20,60,0.5);
+    }
+
+    .btn-primary:hover{
+      transform:translateY(-5px) scale(1.05);
+    }
+
+    .btn-secondary{
+      background:transparent;
+      border:2px solid white;
+      color:white;
+    }
+
+    .btn-secondary:hover{
+      background:white;
+      color:black;
+    }
+    
+/* HERO IMAGE CONTAINER */
+.hero-image{
+  margin-top:40px;
+  display:flex;
+  justify-content:center;
+}
+
+/* SQUARE IMAGE STYLE */
+.hero-image img{
+  width:320px;
+  height:320px;
+
+  object-fit:cover;
+  object-position:center;
+
+  border-radius:20px;
+
+  border:3px solid crimson;
+  box-shadow:0 0 35px rgba(220,20,60,0.4);
+
+  transition:0.4s ease;
+}
+
+/* HOVER EFFECT */
+.hero-image img:hover{
+  transform:scale(1.05);
+  box-shadow:0 0 50px rgba(220,20,60,0.6);
+}
+
+    @keyframes fadeUp{
+      from{
+        opacity:0;
+        transform:translateY(40px);
+      }
+      to{
+        opacity:1;
+        transform:translateY(0);
+      }
+    }
+
+    /* SECTION */
+
+    section{
+      padding:120px 8%;
+    }
+
+    .section-title{
+      text-align:center;
+      margin-bottom:60px;
+    }
+
+    .section-title h2{
+      font-size:3rem;
+      color:crimson;
+      margin-bottom:15px;
+      text-shadow:0 0 20px crimson;
+    }
+
+    .section-title p{
+      color:#bbb;
+    }
+
+    /* HERO GRID */
+   
+/* =========================
+   PAGE WRAPPER FIX
+========================= */
+body {
+  margin: 0;
+  background: #0a0a0a;
+  font-family: Arial, sans-serif;
+}
+
+/* =========================
+   GRID CONTAINER (FIXED)
+========================= */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 30px;
+
+  /* IMPORTANT FIX */
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 50px 20px;
+
+  justify-items: center;
+}
+
+/* =========================
+   CARD FIX
+========================= */
+.card {
+  width: 100%;
+  max-width: 300px;
+  background: #0b1726;
+  border-radius: 20px;
+  overflow: hidden;
+
+  display: flex;
+  flex-direction: column;
+
+  transition: 0.35s ease;
+  box-shadow: 0 0 18px rgba(0, 255, 255, 0.08);
+}
+
+/* hover effect */
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 0 35px rgba(0, 255, 255, 0.2);
+}
+
+/* =========================
+   IMAGE FIX
+========================= */
+.card-image {
+  width: 100%;
+  height: 320px;
+  overflow: hidden;
+  background: #050505;
+}
+
+.card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+  transition: transform 0.4s ease;
+}
+
+.card:hover .card-image img {
+  transform: scale(1.08);
+}
+
+/* =========================
+   CONTENT FIX
+========================= */
+.card-content {
+  padding: 20px;
+  text-align: center;
+
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  flex-grow: 1;
+}
+
+.card-content h2 {
+  color: #00eaff;
+  font-size: 1.6rem;
+}
+
+.card-content p {
+  color: #d6d6d6;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+/* =========================
+   BUTTON FIX
+========================= */
+.card-content button {
+  margin-top: auto;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 12px;
+  background: #00f0ff;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.card-content button:hover {
+  transform: scale(1.06);
+  box-shadow: 0 0 20px #00f0ff;
+}
+
+/* =========================
+   MOBILE FIX
+========================= */
+@media (max-width: 600px) {
+  .grid {
+    padding: 20px;
+    gap: 20px;
+  }
+}
+  .card-image {
+    height: 260px;
+  }
+}
+    .music-control{
+  margin-top:15px;
+  display:flex;
+  justify-content:center;
+}
+
+#music-toggle{
+  padding:12px 20px;
+  border:none;
+  border-radius:30px;
+  background:crimson;
+  color:white;
+  cursor:pointer;
+  box-shadow:0 0 20px crimson;
+  transition:0.3s;
+}
+
+#music-toggle:hover{
+  transform:scale(1.05);
+}
+    /* INFINITY STONES */
+
+    .stones{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+      gap:30px;
+      text-align:center;
+    }
+
+    .stone{
+      width:120px;
+      height:120px;
+      border-radius:50%;
+      margin:auto;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-weight:700;
+      transition:0.4s;
+      cursor:pointer;
+    }
+
+    .stone:hover{
+      transform:scale(1.15);
+      box-shadow:0 0 30px currentColor;
+    }
+
+    /* TIMELINE */
+
+    .timeline{
+      position:relative;
+      max-width:1000px;
+      margin:auto;
+    }
+
+    .timeline::after{
+      content:'';
+      position:absolute;
+      width:4px;
+      background:crimson;
+      top:0;
+      bottom:0;
+      left:50%;
+      margin-left:-2px;
+    }
+
+    .timeline-box{
+      padding:20px 40px;
+      position:relative;
+      width:50%;
+    }
+
+    .timeline-box:nth-child(odd){
+      left:0;
+    }
+
+    .timeline-box:nth-child(even){
+      left:50%;
+    }
+
+    .timeline-content{
+      background:rgba(255,255,255,0.05);
+      padding:25px;
+      border-radius:20px;
+      border:1px solid rgba(255,255,255,0.08);
+    }
+
+    .timeline-content h3{
+      color:crimson;
+      margin-bottom:10px;
+    }
+
+    /* SUMMARY */
+
+    .summary{
+      text-align:center;
+    }
+
+    .summary-box{
+      max-width:900px;
+      margin:auto;
+      background:rgba(255,255,255,0.04);
+      padding:50px;
+      border-radius:30px;
+      border:1px solid rgba(255,255,255,0.08);
+      backdrop-filter:blur(12px);
+      line-height:1.8;
+      color:#ccc;
+    }
+
+    /* REVEAL */
+
+    .reveal{
+      opacity:0;
+      transform:translateY(60px);
+      transition:1s;
+    }
+
+    .reveal.active{
+      opacity:1;
+      transform:translateY(0);
+    }
+
+    footer{
+      text-align:center;
+      padding:40px;
+      background:#080808;
+      color:#777;
+      border-top:1px solid rgba(255,255,255,0.08);
+    }
+
+    @media(max-width:768px){
+
+      .hero h2{
+        font-size:3rem;
+      }
+
+      nav ul{
+        display:none;
+      }
+
+      .timeline::after{
+        left:20px;
+      }
+
+      .timeline-box{
+        width:100%;
+        left:0 !important;
+        padding-left:60px;
+        margin-bottom:30px;
+      }
+
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <!-- LOADER -->
+
+<!-- LOADER -->
+<div id="loader">
+ <div class="loader-wrapper">
+  <div class="avengers-loader">
+    <img src="images/LOGO.webp" alt="Avengers Logo">
+    <div class="ring"></div>
+  </div>
+ </div>
+</div>
+
+  <!-- NAVBAR -->
+
+  <nav>
+    <h1>AVENGERS</h1>
+
+    <ul>
+      <li><a href="#heroes">Super Heroes</a></li>
+      <li><a href="#villains">Super Villains</a></li>
+      <li><a href="#stones">Stones</a></li>
+      <li><a href="#timeline">Timeline</a></li>
+      <li><a href="#summary">Summary</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+
+  <section class="hero">
+
+    <h2>Earth's Mightiest Heroes</h2>
+
+    <p>
+      The Avengers protect humanity from cosmic threats, alien invasions,
+      and impossible battles across the universe.
+    </p>
+
+    <div class="hero-buttons">
+     <a href="#heroes">
+  <button class="btn-primary">Explore Heroes</button>
+   </a>
+      <a href="#summary">
+  <button class="btn-secondary">Watch Trailer</button>
+    </a>
+    </div>
+   <div class="hero-image">
+  <img src="images/Avengers_Assemble.jpeg" alt="Avengers Assembled">
+  </div>
+   <div class="music-control">
+    <button id="music-toggle">🎵 Play Avengers Theme</button>
+  </div>
+
+  </section>
+
+  <!-- HEROES -->
+
+  <section id="heroes" class="reveal">
+
+    <div class="section-title">
+      <h2>Avengers Heroes</h2>
+      <p>Meet the legendary Marvel superheroes.</p>
+    </div>
+
+ <!-- REPLACE ONLY THIS ENTIRE HERO GRID SECTION -->
+<div class="grid">
+
+  <!-- Captain America -->
+  <div class="card">
+    <div class="card-image">
+      <img src="images/CAPS.jpg" alt="Captain America">
+    </div>
+    <div class="card-content">
+      <h2>Captain America</h2>
+      <p>Steve Rogers is the super-soldier known for bravery...</p>
+    </div>
+  </div>
+
+  <!-- Iron Man -->
+  <div class="card">
+    <div class="card-image">
+      <img src="images/IRON_MAN.jpg" alt="Iron Man">
+    </div>
+    <div class="card-content">
+      <h2>Iron Man</h2>
+      <p>Tony Stark created the Iron Man armor...</p>
+    </div>
+  </div>
+
+  <!-- Thor -->
+  <div class="card">
+    <div class="card-image">
+      <img src="images/THOR.webp" alt="Thor">
+    </div>
+    <div class="card-content">
+      <h2>Thor</h2>
+      <p>The God of Thunder from Asgard...</p>
+    </div>
+  </div>
+
+  <!-- Hulk -->
+  <div class="card">
+    <div class="card-image">
+      <img src="images/HULKU_RE.avif" alt="Hulk">
+    </div>
+    <div class="card-content">
+      <h2>Hulk</h2>
+      <p>Bruce Banner transforms into Hulk...</p>
+    </div>
+  </div>
+
+  <!-- Spider-Man -->
+  <div class="card">
+    <div class="card-image">
+      <img src="images/SPIDY.webp" alt="Spider Man">
+    </div>
+    <div class="card-content">
+      <h2>Spider Man</h2>
+      <p>Peter Parker fights crime using spider powers...</p>
+    </div>
+  </div>
+
+  <!-- Black Panther -->
+  <div class="card">
+    <div class="card-image">
+      <img src="images/BLACK_PANTHER.jpg" alt="Black Panther">
+    </div>
+    <div class="card-content">
+      <h2>Black Panther</h2>
+      <p>T’Challa protects Wakanda using vibranium tech...</p>
+    </div>
+  </div>
+
+  <!-- Doctor Strange -->
+  <div class="card">
+    <div class="card-image">
+      <img src="images/DR_STRANGE.webp" alt="Doctor Strange">
+    </div>
+    <div class="card-content">
+      <h2>Doctor Strange</h2>
+      <p>The Sorcerer Supreme protects reality...</p>
+    </div>
+  </div>
+
+  <!-- Scarlet Witch -->
+  <div class="card">
+    <div class="card-image">
+      <img src="images/SCARLET_WITCH.jpg" alt="Scarlet Witch">
+    </div>
+    <div class="card-content">
+      <h2>Scarlet Witch</h2>
+      <p>Wanda Maximoff uses chaos magic...</p>
+    </div>
+  </div>
+
+  <!-- Captain Marvel -->
+  <div class="card">
+    <div class="card-image">
+      <img src="images/CAPTAIN_MARVEL.webp" alt="Captain Marvel">
+    </div>
+    <div class="card-content">
+      <h2>Captain Marvel</h2>
+      <p>Carol Danvers possesses cosmic powers...</p>
+    </div>
+  </div>
+
+  <!-- Black Widow -->
+  <div class="card">
+    <div class="card-image">
+      <img src="images/BLACK_WIDOW.jpg" alt="Black Widow">
+    </div>
+    <div class="card-content">
+      <h2>Black Widow</h2>
+      <p>Natasha Romanoff is an elite spy...</p>
+    </div>
+  </div>
+
+  <!-- Hawkeye -->
+  <div class="card">
+    <div class="card-image">
+      <img src="images/HAWKEYE.webp" alt="Hawkeye">
+    </div>
+    <div class="card-content">
+      <h2>Hawkeye</h2>
+      <p>Clint Barton is a master archer...</p>
+    </div>
+  </div>
+
+  <!-- Vision -->
+  <div class="card">
+    <div class="card-image">
+      <img src="images/VISION.webp" alt="Vision">
+    </div>
+    <div class="card-content">
+      <h2>Vision</h2>
+      <p>Vision is powered by the Mind Stone...</p>
+    </div>
+  </div>
+
+  <!-- Falcon -->
+  <div class="card">
+    <div class="card-image">
+      <img src="images/FALCON.jpg" alt="Falcon">
+    </div>
+    <div class="card-content">
+      <h2>Falcon</h2>
+      <p>Sam Wilson fights using advanced wings...</p>
+    </div>
+  </div>
+
+  <!-- Winter Soldier -->
+  <div class="card">
+    <div class="card-image">
+      <img src="images/WINTER_SOLDIER.jpg" alt="Winter Soldier">
+    </div>
+    <div class="card-content">
+      <h2>Winter Soldier</h2>
+      <p>Bucky Barnes is a super-soldier...</p>
+    </div>
+  </div>
+
+  <!-- Ant-Man -->
+  <div class="card">
+    <div class="card-image">
+      <img src="images/ANT_MAN.webp" alt="Ant Man">
+    </div>
+    <div class="card-content">
+      <h2>Ant Man</h2>
+      <p>Scott Lang uses shrinking technology...</p>
+    </div>
+  </div>
+
+  <!-- Wasp -->
+  <div class="card">
+    <div class="card-image">
+      <img src="images/WASP.webp" alt="Wasp">
+    </div>
+    <div class="card-content">
+      <h2>Wasp</h2>
+      <p>Hope van Dyne fights using Pym tech...</p>
+    </div>
+  </div>
+
+  <!-- War Machine -->
+  <div class="card">
+    <div class="card-image">
+      <img src="images/WAR_MACHINE.jpg" alt="War Machine">
+    </div>
+    <div class="card-content">
+      <h2>War Machine</h2>
+      <p>James Rhodes uses armored combat suit...</p>
+    </div>
+  </div>
+
+  <!-- Loki -->
+  <div class="card">
+    <div class="card-image">
+      <img src="images/LOKI.jpg" alt="Loki">
+    </div>
+    <div class="card-content">
+      <h2>Loki</h2>
+      <p>God of Mischief uses illusion magic...</p>
+    </div>
+  </div>
+
+  <!-- Gamora -->
+  <div class="card">
+    <div class="card-image">
+      <img src="images/GAMORA.jpg" alt="Gamora">
+    </div>
+    <div class="card-content">
+      <h2>Gamora</h2>
+      <p>Deadliest woman in the galaxy...</p>
+    </div>
+  </div>
+
+  <!-- Star-Lord -->
+  <div class="card">
+    <div class="card-image">
+      <img src="images/STAR_LORD.jpg" alt="Star Lord">
+    </div>
+    <div class="card-content">
+      <h2>Star Lord</h2>
+      <p>Leader of the Guardians of the Galaxy...</p>
+    </div>
+  </div>
+
+  <!-- Rocket -->
+  <div class="card">
+    <div class="card-image">
+      <img src="images/RACCOON.jpg" alt="Rocket">
+    </div>
+    <div class="card-content">
+      <h2>Rocket</h2>
+      <p>Genius raccoon engineer...</p>
+    </div>
+  </div>
+
+  <!-- Groot -->
+  <div class="card">
+    <div class="card-image">
+      <img src="images/I_AM_GROOT.webp" alt="Groot">
+    </div>
+    <div class="card-content">
+      <h2>Groot</h2>
+      <p>I am Groot.</p>
+    </div>
+  </div>
+
+  <!-- Drax -->
+  <div class="card">
+    <div class="card-image">
+      <img src="images/DRAX.webp" alt="Drax">
+    </div>
+    <div class="card-content">
+      <h2>Drax</h2>
+      <p>Powerful warrior of the Guardians...</p>
+    </div>
+  </div>
+
+  <!-- Nebula -->
+  <div class="card">
+    <div class="card-image">
+      <img src="images/NEBULA.avif" alt="Nebula">
+    </div>
+    <div class="card-content">
+      <h2>Nebula</h2>
+      <p>Cybernetic warrior turned hero...</p>
+    </div>
+  </div>
+
+  <!-- Mantis -->
+  <div class="card">
+    <div class="card-image">
+      <img src="images/MANTIS.avif" alt="Mantis">
+    </div>
+    <div class="card-content">
+      <h2>Mantis</h2>
+      <p>Empathic alien with emotional powers...</p>
+    </div>
+  </div>
+
+</div>
+  </section>
+  
+  <section id="villains" class="reveal">
+
+  <div class="section-title">
+    <h2>Marvel Super Villains</h2>
+    <p>The most dangerous enemies in the Marvel Universe.</p>
+  </div>
+
+  <div class="grid">
+
+  <!-- Thanos -->
+  <div class="card">
+    <div class="card-image">
+      <img src="images/THANOS.jpg" alt="Thanos">
+    </div>
+    <div class="card-content">
+      <h2>Thanos</h2>
+      <p>
+        The Mad Titan sought the Infinity Stones to wipe out half of all life,
+        believing it would restore balance to the universe.
+      </p>
+    </div>
+  </div>
+
+  <!-- Ultron -->
+  <div class="card">
+    <div class="card-image">
+      <img src="images/ULTRON.webp" alt="Ultron">
+    </div>
+    <div class="card-content">
+      <h2>Ultron</h2>
+      <p>
+        An AI created by Tony Stark that turned against humanity,
+        believing extinction was the only path to peace.
+      </p>
+    </div>
+  </div>
+
+  <!-- Hela -->
+  <div class="card">
+    <div class="card-image">
+      <img src="images/HELA.webp" alt="Hela">
+    </div>
+    <div class="card-content">
+      <h2>Hela</h2>
+      <p>
+        Goddess of Death and Thor’s sister with immense destructive power.
+      </p>
+    </div>
+  </div>
+
+  <!-- Green Goblin -->
+  <div class="card">
+    <div class="card-image">
+      <img src="images/GREEN_GOBLIN.jpg" alt="Green Goblin">
+    </div>
+    <div class="card-content">
+      <h2>Green Goblin</h2>
+      <p>
+        Norman Osborn became Spider-Man’s deadliest enemy through insanity and tech.
+      </p>
+    </div>
+  </div>
+
+  <!-- Doctor Doom -->
+  <div class="card">
+    <div class="card-image">
+      <img src="images/DOOM.webp" alt="Doctor Doom">
+    </div>
+    <div class="card-content">
+      <h2>Doctor Doom</h2>
+      <p>
+        Genius ruler combining science and dark magic to dominate the world.
+      </p>
+    </div>
+  </div>
+
+  <!-- Red Skull -->
+  <div class="card">
+    <div class="card-image">
+      <img src="images/RED_SKULL.jpg" alt="Red Skull">
+    </div>
+    <div class="card-content">
+      <h2>Red Skull</h2>
+      <p>
+        HYDRA leader obsessed with global domination and cosmic power.
+      </p>
+    </div>
+  </div>
+
+  <!-- Killmonger -->
+  <div class="card">
+    <div class="card-image">
+      <img src="images/KILLMONGER.jpg" alt="Killmonger">
+    </div>
+    <div class="card-content">
+      <h2>Killmonger</h2>
+      <p>
+        Warrior seeking revenge and control over Wakanda’s throne.
+      </p>
+    </div>
+  </div>
+
+  <!-- Dormammu -->
+  <div class="card">
+    <div class="card-image">
+      <img src="images/DORMAMMU.jpg" alt="Dormammu">
+    </div>
+    <div class="card-content">
+      <h2>Dormammu</h2>
+      <p>
+        Cosmic entity from the Dark Dimension seeking universal domination.
+      </p>
+    </div>
+  </div>
+
+  <!-- Venom -->
+  <div class="card">
+    <div class="card-image">
+      <img src="images/VENOM.avif" alt="Venom">
+    </div>
+    <div class="card-content">
+      <h2>Venom</h2>
+      <p>
+        Symbiote bonded with Eddie Brock, granting monstrous abilities.
+      </p>
+    </div>
+  </div>
+
+  <!-- Kang -->
+  <div class="card">
+    <div class="card-image">
+      <img src="images/KANG.avif" alt="Kang">
+    </div>
+    <div class="card-content">
+      <h2>Kang the Conqueror</h2>
+      <p>
+        Time-traveling conqueror controlling multiple timelines.
+      </p>
+    </div>
+  </div>
+</div>
+  </section>
+
+  
+  <!-- INFINITY STONES -->
+
+  <section id="stones" class="reveal">
+
+    <div class="section-title">
+      <h2>Infinity Stones</h2>
+      <p>The six cosmic stones of ultimate power.</p>
+    </div>
+
+    <div class="stones">
+
+      <div class="stone" style="background:#3498db;">Space</div>
+      <div class="stone" style="background:#f1c40f;">Mind</div>
+      <div class="stone" style="background:#e74c3c;">Reality</div>
+      <div class="stone" style="background:#9b59b6;">Power</div>
+      <div class="stone" style="background:#2ecc71;">Time</div>
+      <div class="stone" style="background:#e67e22;">Soul</div>
+
+    </div>
+
+  </section>
+
+  <!-- MCU TIMELINE -->
+
+  <section id="timeline" class="reveal">
+
+    <div class="section-title">
+      <h2>MCU Timeline</h2>
+      <p>Marvel Cinematic Universe journey.</p>
+    </div>
+
+    <div class="timeline">
+
+      <div class="timeline-box">
+        <div class="timeline-content">
+          <h3>2008</h3>
+          <p>Iron Man launched the MCU.</p>
+        </div>
+      </div>
+
+      <div class="timeline-box">
+        <div class="timeline-content">
+          <h3>2012</h3>
+          <p>The Avengers assembled in New York.</p>
+        </div>
+      </div>
+
+      <div class="timeline-box">
+        <div class="timeline-content">
+          <h3>2018</h3>
+          <p>Infinity War shocked the universe.</p>
+        </div>
+      </div>
+
+      <div class="timeline-box">
+        <div class="timeline-content">
+          <h3>2019</h3>
+          <p>Endgame became legendary.</p>
+        </div>
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- SUMMARY -->
+
+  <section id="summary" class="summary reveal">
+
+    <div class="section-title">
+      <h2>Summary</h2>
+    </div>
+
+    <div class="summary-box">
+
+      The Avengers are Earth's mightiest heroes assembled to defend
+      humanity against the greatest threats. From Iron Man’s genius
+      to Captain America’s leadership and Thor’s godly power,
+      every Avenger brings unique abilities to the team.
+
+    </div>
+
+  </section>
+
+
+  <!-- FOOTER -->
+
+  <footer>
+    © 2026 Debdut Nandy | Marvel Avengers Website
+  </footer>
+ <audio id="bg-music" loop>
+    <source src="Avengers_assemble_song.mpeg" type="audio/mpeg">
+  </audio>
+    
+<script>
+window.addEventListener("load", () => {
+
+  const loader = document.querySelector("#loader");
   const MIN_TIME = 3500;
 
 setTimeout(() => {
@@ -1177,7 +3518,7 @@ setTimeout(() => {
     loader.style.opacity = "0";
     loader.style.transition = "opacity 0.6s ease";
 
-    setTimeout(() => { 
+    setTimeout(() => {
       loader.remove();
     }, 600);
   }
