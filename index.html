@@ -492,22 +492,25 @@ body {
 
 /* container */
 .phase-container{
-  display:flex;
-  gap:25px;
-  flex-wrap:wrap;
-  justify-content:center;
-  margin-top:40px;
-}
+  display:grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap:30px;
 
+  max-width:1200px;
+  margin:0 auto;
+  margin-top:40px;
+  padding:20px;
+}
 /* phase cards */
 .phase-box{
-  width:300px;
-  padding:20px;
-  border-radius:20px;
   background:rgba(255,255,255,0.05);
   border:1px solid rgba(255,255,255,0.12);
+  border-radius:20px;
+  padding:20px;
+
   backdrop-filter:blur(12px);
   transition:0.4s ease;
+
   position:relative;
   overflow:hidden;
 }
@@ -526,8 +529,8 @@ body {
 }
 
 .phase-box:hover{
-  transform:translateY(-12px);
-  box-shadow:0 0 35px crimson;
+  transform:translateY(-10px);
+  box-shadow:0 0 30px rgba(255,0,0,0.4);
 }
 
 /* headings */
@@ -559,6 +562,16 @@ body {
 .phase-5 h2{ color:#2ecc71; text-shadow:0 0 10px #2ecc71; }
 .phase-6 h2{ color:#ff7f50; text-shadow:0 0 10px #ff7f50; }
 
+    .phase-container::-webkit-scrollbar{
+  height:6px;
+}
+
+.phase-container::-webkit-scrollbar-thumb{
+  background:crimson;
+  border-radius:10px;
+}
+
+    
 /* MOBILE FIX */
 @media(max-width:768px){
   .phase-box{
