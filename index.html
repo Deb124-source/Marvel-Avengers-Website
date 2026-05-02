@@ -41,18 +41,38 @@
     /* LOADER */
     
 .loader-wrapper{
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
+  flex-direction: column;
+  gap: 25px;
+  background: radial-gradient(circle, #111 0%, #000 100%);
+}
 
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.loader-text{
+  text-align: center;
+}
 
-  background: #0a0a0a; /* or rgba(0,0,0,0.9) */
-  z-index: 9999;
+.loader-text h1{
+  font-size: 2.5rem;
+  letter-spacing: 6px;
+  color: crimson;
+  text-shadow: 0 0 25px crimson;
+  animation: glowText 1.5s ease-in-out infinite alternate;
+}
+
+.loader-text p{
+  font-size: 0.9rem;
+  letter-spacing: 3px;
+  color: #bbb;
+  margin-top: 10px;
+}
+
+/* glow animation */
+@keyframes glowText{
+  from{
+    text-shadow: 0 0 10px crimson;
+  }
+  to{
+    text-shadow: 0 0 30px crimson, 0 0 60px crimson;
+  }
 }
 /* AVENGERS LOADER WRAPPER */
 .avengers-loader{
