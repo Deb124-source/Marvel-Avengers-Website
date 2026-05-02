@@ -394,6 +394,26 @@ body {
     height: 260px;
   }
 }
+    .music-control{
+  margin-top:15px;
+  display:flex;
+  justify-content:center;
+}
+
+#music-toggle{
+  padding:12px 20px;
+  border:none;
+  border-radius:30px;
+  background:crimson;
+  color:white;
+  cursor:pointer;
+  box-shadow:0 0 20px crimson;
+  transition:0.3s;
+}
+
+#music-toggle:hover{
+  transform:scale(1.05);
+}
     /* INFINITY STONES */
 
     .stones{
@@ -573,6 +593,10 @@ body {
    <div class="hero-image">
   <img src="images/Avengers_Assemble.jpeg" alt="Avengers Assembled">
   </div>
+   <div class="music-control">
+    <button id="music-toggle">🎵 Play Avengers Theme</button>
+  </div>
+
   </section>
 
   <!-- HEROES -->
@@ -1122,6 +1146,9 @@ body {
   <footer>
     © 2026 Debdut Nandy | Marvel Avengers Website
   </footer>
+ <audio id="bg-music" loop>
+    <source src="Avengers_assemble_song.mpeg" type="audio/mpeg">
+  </audio>
 
   <script>
 
@@ -1160,6 +1187,20 @@ body {
       });
 
     });
+    <script>
+  const music = document.getElementById("bg-music");
+  const btn = document.getElementById("music-toggle");
+
+  btn.addEventListener("click", () => {
+    if (music.paused) {
+      music.play();
+      btn.innerText = "⏸ Pause Theme";
+    } else {
+      music.pause();
+      btn.innerText = "🎵 Play Avengers Theme";
+    }
+  });
+</script>
 
   </script>
 
