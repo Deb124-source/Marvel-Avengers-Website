@@ -1158,23 +1158,23 @@ body {
  <audio id="bg-music" loop>
     <source src="Avengers_assemble_song.mpeg" type="audio/mpeg">
   </audio>
-<script>
-  // LOADER
- window.addEventListener("load", () => {
+    
+  <script>
+window.addEventListener("load", () => {
+
+  // LOADER FIX
   const loader = document.querySelector(".loader-wrapper");
-if (loader) {
-  loader.style.display = "none";
-}
-});
+  if (loader) {
+    loader.style.display = "none";
+  }
 
-   const music = document.getElementById("bg-music");
-
-if (music) {
-  music.play().catch(err => {
-    console.log("Autoplay blocked:", err);
-  });
-}
-  });
+  // AUTO MUSIC (may be blocked by browser)
+  const bgMusic = document.getElementById("bg-music");
+  if (bgMusic) {
+    bgMusic.play().catch(err => {
+      console.log("Autoplay blocked:", err);
+    });
+  }
 
   // SCROLL REVEAL
   const reveals = document.querySelectorAll(".reveal");
@@ -1183,17 +1183,15 @@ if (music) {
     reveals.forEach(reveal => {
       const windowHeight = window.innerHeight;
       const revealTop = reveal.getBoundingClientRect().top;
-      const revealPoint = 100;
 
-      if (revealTop < windowHeight - revealPoint) {
+      if (revealTop < windowHeight - 100) {
         reveal.classList.add("active");
       }
     });
   });
 
-  // MUSIC TOGGLE
-const bgMusic = document.getElementById("bg-music");
-const btn = document.getElementById("music-toggle");
+  // MUSIC BUTTON
+  const btn = document.getElementById("music-toggle");
 
   if (btn && bgMusic) {
     btn.addEventListener("click", () => {
@@ -1206,7 +1204,8 @@ const btn = document.getElementById("music-toggle");
       }
     });
   }
-</script>
 
+});
+</script>
 </body>
 </html>
