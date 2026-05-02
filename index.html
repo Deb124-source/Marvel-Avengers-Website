@@ -1149,7 +1149,6 @@ body {
  <audio id="bg-music" loop>
     <source src="Avengers_assemble_song.mpeg" type="audio/mpeg">
   </audio>
-
 <script>
   // LOADER
   window.addEventListener("load", () => {
@@ -1157,11 +1156,10 @@ body {
       document.getElementById("loader").style.display = "none";
     }, 2500);
 
-    // START MUSIC AFTER LOADER
     const music = document.getElementById("bg-music");
     if (music) {
-      music.play().catch(() => {
-        console.log("Autoplay blocked by browser");
+      music.play().catch(err => {
+        console.log("Autoplay blocked:", err);
       });
     }
   });
@@ -1181,7 +1179,7 @@ body {
     });
   });
 
-  // MUSIC TOGGLE (FIXED)
+  // MUSIC TOGGLE
   const music = document.getElementById("bg-music");
   const btn = document.getElementById("music-toggle");
 
@@ -1197,8 +1195,6 @@ body {
     });
   }
 </script>
-
-  </script>
 
 </body>
 </html>
