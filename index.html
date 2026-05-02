@@ -482,108 +482,98 @@ body {
     }
 
     /* TIMELINE */
-   /* =========================
-   MARVEL PHASE TIMELINE UI (FINAL FIXED)
+/* =========================
+   CINEMATIC MARVEL TIMELINE CARDS (DORMAMMU STYLE)
 ========================= */
 
 #timeline {
   padding: 120px 8%;
 }
 
-/* TITLE */
-#timeline .section-title h2 {
-  color: crimson;
-  text-shadow: 0 0 20px crimson;
-}
-
-/* CONTAINER (PORTFOLIO STYLE GRID FIX) */
-.phase-container {
+/* GRID LAYOUT LIKE VILLAINS */
+.timeline-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: 30px;
 
   max-width: 1200px;
   margin: 40px auto 0;
-  padding: 10px;
 }
 
-/* PHASE CARD */
-.phase-box {
-  position: relative;
+/* MAIN CARD STYLE (LIKE YOUR VILLAIN CARDS) */
+.phase-card {
+  background: #0b1726;
+  border-radius: 20px;
   overflow: hidden;
 
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  border-radius: 20px;
+  padding: 25px;
 
-  padding: 22px;
+  border: 1px solid rgba(0, 255, 255, 0.15);
+  box-shadow: 0 0 18px rgba(0, 255, 255, 0.08);
 
-  backdrop-filter: blur(14px);
+  transition: 0.4s ease;
 
-  transition: 0.35s ease;
-
-  z-index: 1;
+  position: relative;
 }
 
-/* GLOW LAYER FIXED */
-.phase-box::before {
+/* DARK CINEMATIC GLOW */
+.phase-card::before {
   content: '';
   position: absolute;
-  inset: -60%;
+  inset: 0;
 
-  background: radial-gradient(circle, rgba(255, 0, 0, 0.18), transparent 60%);
-  transform: rotate(25deg);
+  background: radial-gradient(circle at top,
+    rgba(255, 0, 0, 0.15),
+    transparent 60%
+  );
 
-  z-index: 0;
+  opacity: 0.6;
+  pointer-events: none;
 }
 
-/* CONTENT ABOVE GLOW */
-.phase-box * {
-  position: relative;
-  z-index: 2;
-}
-
-/* HOVER EFFECT */
-.phase-box:hover {
-  transform: translateY(-12px);
-  box-shadow: 0 0 35px rgba(255, 0, 0, 0.4);
+/* HOVER LIKE VILLAINS CARD */
+.phase-card:hover {
+  transform: translateY(-12px) scale(1.02);
+  box-shadow: 0 0 40px rgba(255, 0, 0, 0.35);
 }
 
 /* TITLE */
-.phase-box h2 {
+.phase-card h2 {
   text-align: center;
   margin-bottom: 15px;
 
-  font-size: 1.6rem;
+  font-size: 1.4rem;
   font-weight: 800;
-  letter-spacing: 1px;
+
+  text-shadow: 0 0 15px currentColor;
 }
 
-/* LIST */
-.phase-box ul {
+/* LIST STYLE */
+.phase-card ul {
   list-style: none;
   padding: 0;
   margin: 0;
 }
 
-.phase-box li {
-  padding: 8px 0;
-  color: #ddd;
+.phase-card li {
+  padding: 7px 0;
   font-size: 0.95rem;
-  border-bottom: 1px dashed rgba(255, 255, 255, 0.12);
+  color: #ddd;
+
+  border-bottom: 1px dashed rgba(255, 255, 255, 0.1);
 }
 
-/* PHASE COLORS */
-.phase-1 h2 { color: #00f0ff; text-shadow: 0 0 10px #00f0ff; }
-.phase-2 h2 { color: #ffcc00; text-shadow: 0 0 10px #ffcc00; }
-.phase-3 h2 { color: #ff3c3c; text-shadow: 0 0 10px #ff3c3c; }
-.phase-4 h2 { color: #9b59b6; text-shadow: 0 0 10px #9b59b6; }
-.phase-5 h2 { color: #2ecc71; text-shadow: 0 0 10px #2ecc71; }
-.phase-6 h2 { color: #ff7f50; text-shadow: 0 0 10px #ff7f50; }
+/* PHASE COLORS (CINEMATIC GLOW) */
+.phase-1 h2 { color: #00f0ff; }
+.phase-2 h2 { color: #ffcc00; }
+.phase-3 h2 { color: #ff3c3c; }
+.phase-4 h2 { color: #9b59b6; }
+.phase-5 h2 { color: #2ecc71; }
+.phase-6 h2 { color: #ff7f50; }
 
-/* RESPONSIVE FIX (NO WIDTH OVERRIDE) */
+/* MOBILE */
 @media (max-width: 768px) {
-  .phase-container {
+  .timeline-grid {
     grid-template-columns: 1fr;
   }
 }
@@ -1265,255 +1255,79 @@ body {
 
   <!-- MCU TIMELINE -->
 
-<div class="timeline">
+<section id="timeline" class="reveal">
 
-  <!-- PHASE 1 -->
-  <div class="phase-column">
-    <h2 class="phase-title phase-1">Phase 1</h2>
-
-    <div class="timeline-box">
-      <div class="timeline-content">
-        Iron Man (2008)
-      </div>
-    </div>
-
-    <div class="timeline-box">
-      <div class="timeline-content">
-        The Incredible Hulk (2008)
-      </div>
-    </div>
-
-    <div class="timeline-box">
-      <div class="timeline-content">
-        Thor (2011)
-      </div>
-    </div>
-
-    <div class="timeline-box">
-      <div class="timeline-content">
-        Captain America: The First Avenger (2011)
-      </div>
-    </div>
-
-    <div class="timeline-box">
-      <div class="timeline-content">
-        The Avengers (2012)
-      </div>
-    </div>
+  <div class="section-title">
+    <h2>MCU Phases</h2>
+    <p>Cinematic journey of Marvel Universe</p>
   </div>
 
-  <!-- PHASE 2 -->
-  <div class="phase-column">
-    <h2 class="phase-title phase-2">Phase 2</h2>
+  <div class="timeline-grid">
 
-    <div class="timeline-box">
-      <div class="timeline-content">
-        Iron Man 3 (2013)
-      </div>
+    <div class="phase-card phase-1">
+      <h2>Phase 1 (2008–2012)</h2>
+      <ul>
+        <li>Iron Man (2008)</li>
+        <li>The Incredible Hulk (2008)</li>
+        <li>Thor (2011)</li>
+        <li>Captain America (2011)</li>
+        <li>The Avengers (2012)</li>
+      </ul>
     </div>
 
-    <div class="timeline-box">
-      <div class="timeline-content">
-        Thor: The Dark World (2013)
-      </div>
+    <div class="phase-card phase-2">
+      <h2>Phase 2 (2013–2015)</h2>
+      <ul>
+        <li>Iron Man 3 (2013)</li>
+        <li>Thor: The Dark World (2013)</li>
+        <li>Winter Soldier (2014)</li>
+        <li>Guardians of the Galaxy (2014)</li>
+        <li>Age of Ultron (2015)</li>
+        <li>Ant-Man (2015)</li>
+      </ul>
     </div>
 
-    <div class="timeline-box">
-      <div class="timeline-content">
-        Captain America: The Winter Soldier (2014)
-      </div>
+    <div class="phase-card phase-3">
+      <h2>Phase 3 (2016–2019)</h2>
+      <ul>
+        <li>Civil War (2016)</li>
+        <li>Doctor Strange (2016)</li>
+        <li>Infinity War (2018)</li>
+        <li>Endgame (2019)</li>
+      </ul>
     </div>
 
-    <div class="timeline-box">
-      <div class="timeline-content">
-        Guardians of the Galaxy (2014)
-      </div>
+    <div class="phase-card phase-4">
+      <h2>Phase 4 (2021–2022)</h2>
+      <ul>
+        <li>WandaVision</li>
+        <li>Loki</li>
+        <li>Spider-Man: No Way Home</li>
+        <li>Doctor Strange 2</li>
+      </ul>
     </div>
 
-    <div class="timeline-box">
-      <div class="timeline-content">
-        Avengers: Age of Ultron (2015)
-      </div>
+    <div class="phase-card phase-5">
+      <h2>Phase 5 (2023–2025)</h2>
+      <ul>
+        <li>Ant-Man Quantumania</li>
+        <li>Guardians Vol 3</li>
+        <li>The Marvels</li>
+        <li>Loki S2</li>
+      </ul>
     </div>
 
-    <div class="timeline-box">
-      <div class="timeline-content">
-        Ant-Man (2015)
-      </div>
+    <div class="phase-card phase-6">
+      <h2>Phase 6 (Upcoming)</h2>
+      <ul>
+        <li>Fantastic Four</li>
+        <li>Avengers: Kang Dynasty</li>
+        <li>Secret Wars</li>
+      </ul>
     </div>
+
   </div>
-
-  <!-- PHASE 3 -->
-  <div class="phase-column">
-    <h2 class="phase-title phase-3">Phase 3</h2>
-
-    <div class="timeline-box">
-      <div class="timeline-content">
-        Captain America: Civil War (2016)
-      </div>
-    </div>
-
-    <div class="timeline-box">
-      <div class="timeline-content">
-        Doctor Strange (2016)
-      </div>
-    </div>
-
-    <div class="timeline-box">
-      <div class="timeline-content">
-        Guardians of the Galaxy Vol. 2 (2017)
-      </div>
-    </div>
-
-    <div class="timeline-box">
-      <div class="timeline-content">
-        Spider-Man: Homecoming (2017)
-      </div>
-    </div>
-
-    <div class="timeline-box">
-      <div class="timeline-content">
-        Thor: Ragnarok (2017)
-      </div>
-    </div>
-
-    <div class="timeline-box">
-      <div class="timeline-content">
-        Black Panther (2018)
-      </div>
-    </div>
-
-    <div class="timeline-box">
-      <div class="timeline-content">
-        Avengers: Infinity War (2018)
-      </div>
-    </div>
-
-    <div class="timeline-box">
-      <div class="timeline-content">
-        Ant-Man and the Wasp (2018)
-      </div>
-    </div>
-
-    <div class="timeline-box">
-      <div class="timeline-content">
-        Avengers: Endgame (2019)
-      </div>
-    </div>
-  </div>
-
-  <!-- PHASE 4 -->
-  <div class="phase-column">
-    <h2 class="phase-title phase-4">Phase 4</h2>
-
-    <div class="timeline-box">
-      <div class="timeline-content">
-        Black Widow (2021)
-      </div>
-    </div>
-
-    <div class="timeline-box">
-      <div class="timeline-content">
-        Shang-Chi and the Legend of the Ten Rings (2021)
-      </div>
-    </div>
-
-    <div class="timeline-box">
-      <div class="timeline-content">
-        Eternals (2021)
-      </div>
-    </div>
-
-    <div class="timeline-box">
-      <div class="timeline-content">
-        Spider-Man: No Way Home (2021)
-      </div>
-    </div>
-
-    <div class="timeline-box">
-      <div class="timeline-content">
-        Doctor Strange in the Multiverse of Madness (2022)
-      </div>
-    </div>
-
-    <div class="timeline-box">
-      <div class="timeline-content">
-        Thor: Love and Thunder (2022)
-      </div>
-    </div>
-
-    <div class="timeline-box">
-      <div class="timeline-content">
-        Black Panther: Wakanda Forever (2022)
-      </div>
-    </div>
-  </div>
-
-  <!-- PHASE 5 -->
-  <div class="phase-column">
-    <h2 class="phase-title phase-5">Phase 5</h2>
-
-    <div class="timeline-box">
-      <div class="timeline-content">
-        Ant-Man and the Wasp: Quantumania (2023)
-      </div>
-    </div>
-
-    <div class="timeline-box">
-      <div class="timeline-content">
-        Guardians of the Galaxy Vol. 3 (2023)
-      </div>
-    </div>
-
-    <div class="timeline-box">
-      <div class="timeline-content">
-        The Marvels (2023)
-      </div>
-    </div>
-
-    <div class="timeline-box">
-      <div class="timeline-content">
-        Deadpool & Wolverine (2024)
-      </div>
-    </div>
-
-    <div class="timeline-box">
-      <div class="timeline-content">
-        Captain America: Brave New World (2025)
-      </div>
-    </div>
-  </div>
-
-  <!-- PHASE 6 -->
-  <div class="phase-column">
-    <h2 class="phase-title phase-6">Phase 6</h2>
-
-    <div class="timeline-box">
-      <div class="timeline-content">
-        Thunderbolts (2025)
-      </div>
-    </div>
-
-    <div class="timeline-box">
-      <div class="timeline-content">
-        Fantastic Four (2025)
-      </div>
-    </div>
-
-    <div class="timeline-box">
-      <div class="timeline-content">
-        Avengers: The Kang Dynasty (Upcoming)
-      </div>
-    </div>
-
-    <div class="timeline-box">
-      <div class="timeline-content">
-        Avengers: Secret Wars (Upcoming)
-      </div>
-    </div>
-  </div>
-
-</div>
+</section>
 
   <!-- SUMMARY -->
 
