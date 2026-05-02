@@ -482,90 +482,109 @@ body {
     }
 
     /* TIMELINE */
-/* =========================
-   MARVEL PHASE TIMELINE UI
+   /* =========================
+   MARVEL PHASE TIMELINE UI (FINAL FIXED)
 ========================= */
 
-#timeline{
-  padding:120px 8%;
+#timeline {
+  padding: 120px 8%;
 }
 
-/* container */
-.phase-container{
-  display:grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap:30px;
-
-  max-width:1200px;
-  margin:0 auto;
-  margin-top:40px;
-  padding:20px;
-}
-/* phase cards */
-.phase-box{
-  background:rgba(255,255,255,0.05);
-  border:1px solid rgba(255,255,255,0.12);
-  border-radius:20px;
-  padding:20px;
-
-  backdrop-filter:blur(12px);
-  transition:0.4s ease;
-
-  position:relative;
-  overflow:hidden;
+/* TITLE */
+#timeline .section-title h2 {
+  color: crimson;
+  text-shadow: 0 0 20px crimson;
 }
 
-/* glow effect */
-.phase-box::before{
-  content:'';
-  position:absolute;
-  top:-50%;
-  left:-50%;
-  width:200%;
-  height:200%;
-  background:radial-gradient(circle, rgba(255,0,0,0.15), transparent 60%);
-  transform:rotate(25deg);
-  pointer-events:none;
+/* CONTAINER (PORTFOLIO STYLE GRID FIX) */
+.phase-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+
+  max-width: 1200px;
+  margin: 40px auto 0;
+  padding: 10px;
 }
 
-.phase-box:hover{
-  transform:translateY(-10px);
-  box-shadow:0 0 30px rgba(255,0,0,0.4);
+/* PHASE CARD */
+.phase-box {
+  position: relative;
+  overflow: hidden;
+
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 20px;
+
+  padding: 22px;
+
+  backdrop-filter: blur(14px);
+
+  transition: 0.35s ease;
+
+  z-index: 1;
 }
 
-/* headings */
-.phase-box h2{
-  text-align:center;
-  margin-bottom:15px;
-  font-size:1.4rem;
-  font-weight:700;
+/* GLOW LAYER FIXED */
+.phase-box::before {
+  content: '';
+  position: absolute;
+  inset: -60%;
+
+  background: radial-gradient(circle, rgba(255, 0, 0, 0.18), transparent 60%);
+  transform: rotate(25deg);
+
+  z-index: 0;
 }
 
-
-.phase-box ul{
-  list-style:none;
-  padding:0;
+/* CONTENT ABOVE GLOW */
+.phase-box * {
+  position: relative;
+  z-index: 2;
 }
 
-.phase-box li{
-  padding:6px 0;
-  color:#ddd;
-  font-size:0.9rem;
-  border-bottom:1px dashed rgba(255,255,255,0.1);
+/* HOVER EFFECT */
+.phase-box:hover {
+  transform: translateY(-12px);
+  box-shadow: 0 0 35px rgba(255, 0, 0, 0.4);
 }
 
+/* TITLE */
+.phase-box h2 {
+  text-align: center;
+  margin-bottom: 15px;
 
-.phase-1 h2{ color:#00f0ff; text-shadow:0 0 10px #00f0ff; }
-.phase-2 h2{ color:#ffcc00; text-shadow:0 0 10px #ffcc00; }
-.phase-3 h2{ color:#ff3c3c; text-shadow:0 0 10px #ff3c3c; }
-.phase-4 h2{ color:#9b59b6; text-shadow:0 0 10px #9b59b6; }
-.phase-5 h2{ color:#2ecc71; text-shadow:0 0 10px #2ecc71; }
-.phase-6 h2{ color:#ff7f50; text-shadow:0 0 10px #ff7f50; }
+  font-size: 1.6rem;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
 
-/* MOBILE FIX */
-@media(max-width:768px){
-  .phase-box{
-    width:90%;
+/* LIST */
+.phase-box ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.phase-box li {
+  padding: 8px 0;
+  color: #ddd;
+  font-size: 0.95rem;
+  border-bottom: 1px dashed rgba(255, 255, 255, 0.12);
+}
+
+/* PHASE COLORS */
+.phase-1 h2 { color: #00f0ff; text-shadow: 0 0 10px #00f0ff; }
+.phase-2 h2 { color: #ffcc00; text-shadow: 0 0 10px #ffcc00; }
+.phase-3 h2 { color: #ff3c3c; text-shadow: 0 0 10px #ff3c3c; }
+.phase-4 h2 { color: #9b59b6; text-shadow: 0 0 10px #9b59b6; }
+.phase-5 h2 { color: #2ecc71; text-shadow: 0 0 10px #2ecc71; }
+.phase-6 h2 { color: #ff7f50; text-shadow: 0 0 10px #ff7f50; }
+
+/* RESPONSIVE FIX (NO WIDTH OVERRIDE) */
+@media (max-width: 768px) {
+  .phase-container {
+    grid-template-columns: 1fr;
   }
 }
     /* SUMMARY */
