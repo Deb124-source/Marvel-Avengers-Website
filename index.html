@@ -39,9 +39,23 @@
     }
 
     /* LOADER */
+#loader{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 9999;
+}
 .loader-wrapper{
-  background: radial-gradient(circle, #1a0000 0%, #000 70%);
-  animation: bgPulse 2.5s ease-in-out infinite alternate;
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background: radial-gradient(circle, #111 0%, #000 100%);
 }
 
 @keyframes bgPulse{
