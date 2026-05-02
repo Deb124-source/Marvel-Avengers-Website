@@ -39,13 +39,24 @@
     }
 
     /* LOADER */
-    
 .loader-wrapper{
-  flex-direction: column;
-  gap: 25px;
-  background: radial-gradient(circle, #111 0%, #000 100%);
-}
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
 
+  display: flex;              
+  flex-direction: column;
+
+  justify-content: center;    /* vertical center */
+  align-items: center;        /* horizontal center */
+
+  gap: 25px;
+
+  background: radial-gradient(circle, #111 0%, #000 100%);
+  z-index: 9999;
+}
 .loader-text{
   text-align: center;
 }
