@@ -1150,56 +1150,52 @@ body {
     <source src="Avengers_assemble_song.mpeg" type="audio/mpeg">
   </audio>
 
-  <script>
+<script>
+  // LOADER
+  window.addEventListener("load", () => {
+    setTimeout(() => {
+      document.getElementById("loader").style.display = "none";
+    }, 2500);
 
-    // LOADER
-
-    window.addEventListener("load",()=>{
-
-      setTimeout(()=>{
-        document.getElementById("loader").style.display="none";
-      },2500);
-
-    });
-
-
-
-    // SCROLL REVEAL
-
-    const reveals=document.querySelectorAll(".reveal");
-
-    window.addEventListener("scroll",()=>{
-
-      reveals.forEach(reveal=>{
-
-        const windowHeight=window.innerHeight;
-
-        const revealTop=reveal.getBoundingClientRect().top;
-
-        const revealPoint=100;
-
-        if(revealTop<windowHeight-revealPoint){
-
-          reveal.classList.add("active");
-
-        }
-
+    // START MUSIC AFTER LOADER
+    const music = document.getElementById("bg-music");
+    if (music) {
+      music.play().catch(() => {
+        console.log("Autoplay blocked by browser");
       });
+    }
+  });
 
+  // SCROLL REVEAL
+  const reveals = document.querySelectorAll(".reveal");
+
+  window.addEventListener("scroll", () => {
+    reveals.forEach(reveal => {
+      const windowHeight = window.innerHeight;
+      const revealTop = reveal.getBoundingClientRect().top;
+      const revealPoint = 100;
+
+      if (revealTop < windowHeight - revealPoint) {
+        reveal.classList.add("active");
+      }
     });
-    <script>
+  });
+
+  // MUSIC TOGGLE (FIXED)
   const music = document.getElementById("bg-music");
   const btn = document.getElementById("music-toggle");
 
-  btn.addEventListener("click", () => {
-    if (music.paused) {
-      music.play();
-      btn.innerText = "⏸ Pause Theme";
-    } else {
-      music.pause();
-      btn.innerText = "🎵 Play Avengers Theme";
-    }
-  });
+  if (btn && music) {
+    btn.addEventListener("click", () => {
+      if (music.paused) {
+        music.play();
+        btn.innerText = "⏸ Pause Theme";
+      } else {
+        music.pause();
+        btn.innerText = "🎵 Play Avengers Theme";
+      }
+    });
+  }
 </script>
 
   </script>
