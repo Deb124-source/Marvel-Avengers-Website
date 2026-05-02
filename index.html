@@ -40,46 +40,54 @@
 
     /* LOADER */
 
-    #loader{
-      position:fixed;
-      inset:0;
-      background:black;
-      z-index:9999;
-      display:flex;
-      flex-direction:column;
-      align-items:center;
-      justify-content:center;
-    }
+/* AVENGERS LOADER WRAPPER */
+.avengers-loader{
+  position: relative;
+  width: 180px;
+  height: 180px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
 
-    .spinner{
-      width:120px;
-      height:120px;
-      border:5px solid crimson;
-      border-top:5px solid transparent;
-      border-radius:50%;
-      animation:spin 1s linear infinite;
-    }
+/* LOGO */
+.avengers-loader img{
+  width: 110px;
+  height: 110px;
+  z-index: 2;
+  filter: drop-shadow(0 0 15px crimson);
+  animation: pulse 2s ease-in-out infinite;
+}
 
-    #loader h1{
-      margin-top:30px;
-      font-size:4rem;
-      color:crimson;
-      text-shadow:0 0 25px crimson;
-      letter-spacing:5px;
-    }
+/* ROTATING RING */
+.ring{
+  position: absolute;
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  border: 4px solid transparent;
+  border-top: 4px solid crimson;
+  border-right: 4px solid crimson;
+  animation: spin 1.2s linear infinite;
+  box-shadow: 0 0 25px crimson;
+}
 
-    #loader p{
-      color:#aaa;
-      margin-top:10px;
-      letter-spacing:4px;
-    }
+/* ROTATION */
+@keyframes spin{
+  100%{
+    transform: rotate(360deg);
+  }
+}
 
-    @keyframes spin{
-      100%{
-        transform:rotate(360deg);
-      }
-    }
-
+/* LOGO PULSE */
+@keyframes pulse{
+  0%,100%{
+    transform: scale(1);
+  }
+  50%{
+    transform: scale(1.08);
+  }
+}
     /* NAVBAR */
 
     nav{
@@ -555,11 +563,18 @@ body {
 
   <!-- LOADER -->
 
-  <div id="loader">
-    <div class="spinner"></div>
-    <h1>AVENGERS</h1>
-    <p>INITIALIZING MARVEL UNIVERSE...</p>
+<!-- LOADER -->
+<div id="loader">
+
+  <div class="avengers-loader">
+    <img src="images/LOGO.webp" alt="Avengers Logo">
+    <div class="ring"></div>
   </div>
+
+  <h1>AVENGERS</h1>
+  <p>INITIALIZING MARVEL UNIVERSE...</p>
+
+</div>
 
   <!-- NAVBAR -->
 
