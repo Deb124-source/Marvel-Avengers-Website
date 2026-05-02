@@ -111,6 +111,18 @@
     transform: scale(1.08);
   }
 }
+
+    .typing-text{
+  margin-top:18px;
+  font-size:1rem;
+  color:crimson;
+  font-weight:700;
+  letter-spacing:2px;
+  text-align:center;
+  text-shadow:0 0 12px crimson;
+  min-height:20px;
+}
+    
     /* NAVBAR */
 
     nav{
@@ -751,6 +763,9 @@ body {
   <div class="avengers-loader">
     <img src="images/LOGO.webp" alt="Avengers Logo">
     <div class="ring"></div>
+
+   <div class="typing-text" id="typing-text"></div>
+    
   </div>
  </div>
 </div>
@@ -1535,7 +1550,23 @@ window.addEventListener("load", () => {
     }
   }, 3500);
 
+  const text = "INITIALIZING MARVEL UNIVERSE.....";
+const target = document.getElementById("typing-text");
 
+let i = 0;
+
+function typeEffect() {
+  if (!target) return;
+
+  if (i < text.length) {
+    target.innerHTML += text.charAt(i);
+    i++;
+    setTimeout(typeEffect, 80); // speed of typing
+  }
+}
+
+typeEffect();
+  
   const heroPowers = {
   "Captain America": "🛡️ Shield Master + Leadership Aura",
   "Iron Man": "🤖 Genius AI Armor + Missile System",
