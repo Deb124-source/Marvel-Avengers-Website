@@ -595,6 +595,60 @@ body {
       color:#ccc;
     }
 
+    #developer {
+  padding: 120px 8%;
+  text-align: center;
+}
+
+.dev-card {
+  max-width: 800px;
+  margin: auto;
+
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.12);
+
+  padding: 40px;
+  border-radius: 25px;
+
+  backdrop-filter: blur(12px);
+
+  box-shadow: 0 0 25px rgba(255,0,0,0.2);
+}
+
+.dev-card h3 {
+  font-size: 2rem;
+  color: crimson;
+  margin-bottom: 15px;
+}
+
+.dev-card p {
+  color: #ccc;
+  line-height: 1.7;
+}
+
+.dev-links {
+  margin-top: 25px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.dev-links a {
+  color: white;
+  text-decoration: none;
+
+  padding: 10px;
+  border-radius: 10px;
+
+  background: rgba(255,255,255,0.05);
+
+  transition: 0.3s;
+}
+
+.dev-links a:hover {
+  background: crimson;
+  transform: translateX(10px);
+}
     /* REVEAL */
 
     .reveal{
@@ -667,6 +721,7 @@ body {
       <li><a href="#stones">Stones</a></li>
       <li><a href="#timeline">Timeline</a></li>
       <li><a href="#summary">Summary</a></li>
+      <li><a href="#developer">About Developer</a></li>
     </ul>
   </nav>
 
@@ -1348,6 +1403,36 @@ body {
 
   </section>
 
+  <section id="developer" class="reveal">
+
+  <div class="section-title">
+    <h2>About Developer</h2>
+    <p>Portfolio & Achievements</p>
+  </div>
+
+  <div class="dev-card">
+
+    <h3>Debdut Nandy</h3>
+
+    <p>
+      Frontend Developer & AI Enthusiast building cinematic UI experiences
+      using HTML, CSS, and JavaScript.
+    </p>
+
+    <div class="dev-links">
+
+      <a href="https://github.com/Deb124-source" target="_blank">
+        GitHub Profile
+      </a>
+      <a href="https://deb124-source.github.io/Personal-Portfolio-Website/" target="_blank">
+        Personal Portfolio Wbesite
+      </a>
+
+    </div>
+
+  </div>
+
+</section>
 
   <!-- FOOTER -->
 
