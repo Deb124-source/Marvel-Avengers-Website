@@ -482,40 +482,90 @@ body {
     }
 
     /* TIMELINE */
+/* =========================
+   MARVEL PHASE TIMELINE UI
+========================= */
 
- .phase-title {
-  text-align: center;
-  font-size: 2rem;
-  margin-bottom: 20px;
-  text-shadow: 0 0 15px currentColor;
+#timeline{
+  padding:120px 8%;
 }
 
-.phase-1 { color: #00eaff; }
-.phase-2 { color: #ffcc00; }
-.phase-3 { color: #ff4d4d; }
-.phase-4 { color: #9b59b6; }
-.phase-5 { color: #2ecc71; }
-.phase-6 { color: #ff6bcb; }
-
-    
-.timeline-content {
-  background: rgba(0,0,0,0.4);
-  padding: 15px;
-  border-radius: 12px;
-  margin-bottom: 10px;
-
-  font-family: 'Poppins', sans-serif;
-  font-size: 0.95rem;
-  color: #eaeaea;
-
-  border-left: 3px solid crimson;
-  transition: 0.3s;
+/* container */
+.phase-container{
+  display:flex;
+  gap:25px;
+  flex-wrap:wrap;
+  justify-content:center;
+  margin-top:40px;
 }
 
-.timeline-content:hover {
-  transform: scale(1.05);
-  background: rgba(255,255,255,0.06);
-}  /* SUMMARY */
+/* phase cards */
+.phase-box{
+  width:300px;
+  padding:20px;
+  border-radius:20px;
+  background:rgba(255,255,255,0.05);
+  border:1px solid rgba(255,255,255,0.12);
+  backdrop-filter:blur(12px);
+  transition:0.4s ease;
+  position:relative;
+  overflow:hidden;
+}
+
+/* glow effect */
+.phase-box::before{
+  content:'';
+  position:absolute;
+  top:-50%;
+  left:-50%;
+  width:200%;
+  height:200%;
+  background:radial-gradient(circle, rgba(255,0,0,0.15), transparent 60%);
+  transform:rotate(25deg);
+  pointer-events:none;
+}
+
+.phase-box:hover{
+  transform:translateY(-12px);
+  box-shadow:0 0 35px crimson;
+}
+
+/* headings */
+.phase-box h2{
+  text-align:center;
+  margin-bottom:15px;
+  font-size:1.4rem;
+  font-weight:700;
+}
+
+
+.phase-box ul{
+  list-style:none;
+  padding:0;
+}
+
+.phase-box li{
+  padding:6px 0;
+  color:#ddd;
+  font-size:0.9rem;
+  border-bottom:1px dashed rgba(255,255,255,0.1);
+}
+
+
+.phase-1 h2{ color:#00f0ff; text-shadow:0 0 10px #00f0ff; }
+.phase-2 h2{ color:#ffcc00; text-shadow:0 0 10px #ffcc00; }
+.phase-3 h2{ color:#ff3c3c; text-shadow:0 0 10px #ff3c3c; }
+.phase-4 h2{ color:#9b59b6; text-shadow:0 0 10px #9b59b6; }
+.phase-5 h2{ color:#2ecc71; text-shadow:0 0 10px #2ecc71; }
+.phase-6 h2{ color:#ff7f50; text-shadow:0 0 10px #ff7f50; }
+
+/* MOBILE FIX */
+@media(max-width:768px){
+  .phase-box{
+    width:90%;
+  }
+}
+    /* SUMMARY */
 
     .summary{
       text-align:center;
