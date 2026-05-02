@@ -577,6 +577,51 @@ body {
     grid-template-columns: 1fr;
   }
 }
+
+    /* =========================
+   MINI GAME SECTION
+========================= */
+
+#game{
+  padding:120px 8%;
+  text-align:center;
+}
+
+.game-box{
+  max-width:800px;
+  margin:auto;
+  padding:40px;
+  border-radius:25px;
+  background:rgba(255,255,255,0.05);
+  border:1px solid rgba(255,255,255,0.12);
+  backdrop-filter:blur(12px);
+  box-shadow:0 0 30px rgba(255,0,0,0.15);
+}
+
+#selected-hero{
+  font-size:2rem;
+  color:crimson;
+  margin-bottom:20px;
+  text-shadow:0 0 15px crimson;
+}
+
+#hero-power{
+  font-size:1.2rem;
+  color:#ddd;
+  line-height:1.8;
+}
+
+/* HERO CARDS BECOME CLICKABLE */
+.card{
+  cursor:pointer;
+}
+
+/* HOVER UPGRADE */
+.card:hover{
+  transform:translateY(-10px) scale(1.03);
+  box-shadow:0 0 35px crimson;
+}
+    
     /* SUMMARY */
 
     .summary{
@@ -720,6 +765,7 @@ body {
       <li><a href="#villains">Super Villains</a></li>
       <li><a href="#stones">Stones</a></li>
       <li><a href="#timeline">Timeline</a></li>
+      <li><a href="#game">Choose Your Avenger</a></li>
       <li><a href="#summary">Summary</a></li>
       <li><a href="#developer">About Developer</a></li>
     </ul>
@@ -1384,6 +1430,26 @@ body {
   </div>
 </section>
 
+
+  <section id="game" class="reveal">
+
+  <div class="section-title">
+    <h2>Choose Your Avenger</h2>
+    <p>Click on any hero above to unlock their power</p>
+  </div>
+
+  <div class="game-box">
+
+    <h3 id="selected-hero">No Avenger Selected</h3>
+
+    <div id="hero-power">
+      Select a hero to reveal abilities ⚡
+    </div>
+
+  </div>
+
+</section>
+
   <!-- SUMMARY -->
 
   <section id="summary" class="summary reveal">
@@ -1460,6 +1526,49 @@ window.addEventListener("load", () => {
     }
   }, 3500);
 
+
+  const heroPowers = {
+  "Captain America": "🛡️ Shield Master + Leadership Aura",
+  "Iron Man": "🤖 Genius AI Armor + Missile System",
+  "Thor": "⚡ God of Thunder + Storm Control",
+  "Hulk": "💪 Unlimited Rage Strength",
+  "Spider Man": "🕷️ Spider Sense + Web Combat",
+  "Black Panther": "🐾 Vibranium Suit + Super Agility",
+  "Doctor Strange": "🌀 Time + Dimensional Magic",
+  "Scarlet Witch": "🔮 Chaos Magic Reality Control",
+  "Captain Marvel": "🚀 Cosmic Energy Blast",
+  "Black Widow": "🕶️ Spy Master + Combat Expert",
+  "Hawkeye": "🏹 Perfect Accuracy Archery",
+  "Vision": "🧠 AI + Mind Stone Power",
+  "Falcon": "🦅 Aerial Combat Specialist",
+  "Winter Soldier": "🔫 Super Soldier + Cyber Arm",
+  "Ant Man": "🐜 Size Manipulation Technology",
+  "Wasp": "⚡ Flight + Bio Energy Blasts",
+  "War Machine": "🤖 Heavy Weapon Armor",
+  "Loki": "🪄 Illusion + Trickster Magic",
+  "Gamora": "⚔️ Deadliest Assassin Training",
+  "Star Lord": "🎧 Tactical Leader + Element Guns",
+  "Rocket": "💣 Genius Weapons Engineer",
+  "Groot": "🌱 Regenerative Strength",
+  "Drax": "🪓 Super Strength Warrior",
+  "Nebula": "🤖 Cybernetic Combat Enhancements",
+  "Mantis": "✨ Empathy + Emotion Control"
+};
+
+document.querySelectorAll(".card").forEach(card => {
+  card.addEventListener("click", () => {
+
+    const name = card.querySelector("h2").innerText;
+
+    document.getElementById("selected-hero").innerText = name;
+
+    document.getElementById("hero-power").innerText =
+      heroPowers[name] || "Unknown Power Activated ⚡";
+
+  });
+});
+
+  
   // MUSIC ELEMENT
   const bgMusic = document.getElementById("bg-music");
 
