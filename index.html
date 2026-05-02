@@ -483,31 +483,39 @@ body {
 
     /* TIMELINE */
 
-  .phase-title{
-  text-align:center;
-  font-size:2.2rem;
-  margin:60px 0 30px;
-  font-weight:800;
-  letter-spacing:2px;
-  text-transform:uppercase;
+ .phase-title {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 20px;
+  text-shadow: 0 0 15px currentColor;
 }
 
-.phase-1{ color:#ff3b3b; text-shadow:0 0 20px #ff3b3b; }
-.phase-2{ color:#3b82ff; text-shadow:0 0 20px #3b82ff; }
-.phase-3{ color:#a855f7; text-shadow:0 0 20px #a855f7; }
-.phase-4{ color:#22c55e; text-shadow:0 0 20px #22c55e; }
+.phase-1 { color: #00eaff; }
+.phase-2 { color: #ffcc00; }
+.phase-3 { color: #ff4d4d; }
+.phase-4 { color: #9b59b6; }
+.phase-5 { color: #2ecc71; }
+.phase-6 { color: #ff6bcb; }
 
-.timeline-content{
-  background:rgba(255,255,255,0.06);
-  border-left:4px solid crimson;
-  transition:0.3s;
+    
+.timeline-content {
+  background: rgba(0,0,0,0.4);
+  padding: 15px;
+  border-radius: 12px;
+  margin-bottom: 10px;
+
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.95rem;
+  color: #eaeaea;
+
+  border-left: 3px solid crimson;
+  transition: 0.3s;
 }
 
-.timeline-content:hover{
-  transform:scale(1.03);
-  box-shadow:0 0 25px rgba(255,0,60,0.4);
-}
-    /* SUMMARY */
+.timeline-content:hover {
+  transform: scale(1.05);
+  background: rgba(255,255,255,0.06);
+}  /* SUMMARY */
 
     .summary{
       text-align:center;
@@ -1184,280 +1192,255 @@ body {
   </section>
 
   <!-- MCU TIMELINE -->
-  <h2 class="phase-title phase-1">Phase 1</h2>
 
-<div class="timeline-box">
-  <div class="timeline-content">
-    <h3>Iron Man (2008)</h3>
-    <p>Tony Stark becomes Iron Man and unknowingly starts the MCU.</p>
+<div class="timeline">
+
+  <!-- PHASE 1 -->
+  <div class="phase-column">
+    <h2 class="phase-title phase-1">Phase 1</h2>
+
+    <div class="timeline-box">
+      <div class="timeline-content">
+        Iron Man (2008)
+      </div>
+    </div>
+
+    <div class="timeline-box">
+      <div class="timeline-content">
+        The Incredible Hulk (2008)
+      </div>
+    </div>
+
+    <div class="timeline-box">
+      <div class="timeline-content">
+        Thor (2011)
+      </div>
+    </div>
+
+    <div class="timeline-box">
+      <div class="timeline-content">
+        Captain America: The First Avenger (2011)
+      </div>
+    </div>
+
+    <div class="timeline-box">
+      <div class="timeline-content">
+        The Avengers (2012)
+      </div>
+    </div>
   </div>
-</div>
 
-<div class="timeline-box">
-  <div class="timeline-content">
-    <h3>The Incredible Hulk (2008)</h3>
-    <p>Bruce Banner struggles with the monster inside him.</p>
+  <!-- PHASE 2 -->
+  <div class="phase-column">
+    <h2 class="phase-title phase-2">Phase 2</h2>
+
+    <div class="timeline-box">
+      <div class="timeline-content">
+        Iron Man 3 (2013)
+      </div>
+    </div>
+
+    <div class="timeline-box">
+      <div class="timeline-content">
+        Thor: The Dark World (2013)
+      </div>
+    </div>
+
+    <div class="timeline-box">
+      <div class="timeline-content">
+        Captain America: The Winter Soldier (2014)
+      </div>
+    </div>
+
+    <div class="timeline-box">
+      <div class="timeline-content">
+        Guardians of the Galaxy (2014)
+      </div>
+    </div>
+
+    <div class="timeline-box">
+      <div class="timeline-content">
+        Avengers: Age of Ultron (2015)
+      </div>
+    </div>
+
+    <div class="timeline-box">
+      <div class="timeline-content">
+        Ant-Man (2015)
+      </div>
+    </div>
   </div>
-</div>
 
-<div class="timeline-box">
-  <div class="timeline-content">
-    <h3>Thor (2011)</h3>
-    <p>The God of Thunder is banished to Earth.</p>
+  <!-- PHASE 3 -->
+  <div class="phase-column">
+    <h2 class="phase-title phase-3">Phase 3</h2>
+
+    <div class="timeline-box">
+      <div class="timeline-content">
+        Captain America: Civil War (2016)
+      </div>
+    </div>
+
+    <div class="timeline-box">
+      <div class="timeline-content">
+        Doctor Strange (2016)
+      </div>
+    </div>
+
+    <div class="timeline-box">
+      <div class="timeline-content">
+        Guardians of the Galaxy Vol. 2 (2017)
+      </div>
+    </div>
+
+    <div class="timeline-box">
+      <div class="timeline-content">
+        Spider-Man: Homecoming (2017)
+      </div>
+    </div>
+
+    <div class="timeline-box">
+      <div class="timeline-content">
+        Thor: Ragnarok (2017)
+      </div>
+    </div>
+
+    <div class="timeline-box">
+      <div class="timeline-content">
+        Black Panther (2018)
+      </div>
+    </div>
+
+    <div class="timeline-box">
+      <div class="timeline-content">
+        Avengers: Infinity War (2018)
+      </div>
+    </div>
+
+    <div class="timeline-box">
+      <div class="timeline-content">
+        Ant-Man and the Wasp (2018)
+      </div>
+    </div>
+
+    <div class="timeline-box">
+      <div class="timeline-content">
+        Avengers: Endgame (2019)
+      </div>
+    </div>
   </div>
-</div>
 
-<div class="timeline-box">
-  <div class="timeline-content">
-    <h3>Captain America: The First Avenger (2011)</h3>
-    <p>Steve Rogers becomes the first super soldier.</p>
+  <!-- PHASE 4 -->
+  <div class="phase-column">
+    <h2 class="phase-title phase-4">Phase 4</h2>
+
+    <div class="timeline-box">
+      <div class="timeline-content">
+        Black Widow (2021)
+      </div>
+    </div>
+
+    <div class="timeline-box">
+      <div class="timeline-content">
+        Shang-Chi and the Legend of the Ten Rings (2021)
+      </div>
+    </div>
+
+    <div class="timeline-box">
+      <div class="timeline-content">
+        Eternals (2021)
+      </div>
+    </div>
+
+    <div class="timeline-box">
+      <div class="timeline-content">
+        Spider-Man: No Way Home (2021)
+      </div>
+    </div>
+
+    <div class="timeline-box">
+      <div class="timeline-content">
+        Doctor Strange in the Multiverse of Madness (2022)
+      </div>
+    </div>
+
+    <div class="timeline-box">
+      <div class="timeline-content">
+        Thor: Love and Thunder (2022)
+      </div>
+    </div>
+
+    <div class="timeline-box">
+      <div class="timeline-content">
+        Black Panther: Wakanda Forever (2022)
+      </div>
+    </div>
   </div>
-</div>
 
-<div class="timeline-box">
-  <div class="timeline-content">
-    <h3>The Avengers (2012)</h3>
-    <p>Earth’s mightiest heroes assemble for the first time.</p>
+  <!-- PHASE 5 -->
+  <div class="phase-column">
+    <h2 class="phase-title phase-5">Phase 5</h2>
+
+    <div class="timeline-box">
+      <div class="timeline-content">
+        Ant-Man and the Wasp: Quantumania (2023)
+      </div>
+    </div>
+
+    <div class="timeline-box">
+      <div class="timeline-content">
+        Guardians of the Galaxy Vol. 3 (2023)
+      </div>
+    </div>
+
+    <div class="timeline-box">
+      <div class="timeline-content">
+        The Marvels (2023)
+      </div>
+    </div>
+
+    <div class="timeline-box">
+      <div class="timeline-content">
+        Deadpool & Wolverine (2024)
+      </div>
+    </div>
+
+    <div class="timeline-box">
+      <div class="timeline-content">
+        Captain America: Brave New World (2025)
+      </div>
+    </div>
   </div>
-</div>
 
+  <!-- PHASE 6 -->
+  <div class="phase-column">
+    <h2 class="phase-title phase-6">Phase 6</h2>
 
-  <h2 class="phase-title phase-2">Phase 2</h2>
+    <div class="timeline-box">
+      <div class="timeline-content">
+        Thunderbolts (2025)
+      </div>
+    </div>
 
-<div class="timeline-box">
-  <div class="timeline-content">
-    <h3>Iron Man 3 (2013)</h3>
-    <p>Tony Stark deals with trauma after the Avengers battle.</p>
+    <div class="timeline-box">
+      <div class="timeline-content">
+        Fantastic Four (2025)
+      </div>
+    </div>
+
+    <div class="timeline-box">
+      <div class="timeline-content">
+        Avengers: The Kang Dynasty (Upcoming)
+      </div>
+    </div>
+
+    <div class="timeline-box">
+      <div class="timeline-content">
+        Avengers: Secret Wars (Upcoming)
+      </div>
+    </div>
   </div>
-</div>
 
-<div class="timeline-box">
-  <div class="timeline-content">
-    <h3>Thor: The Dark World (2013)</h3>
-    <p>Thor battles the dark elf Malekith.</p>
-  </div>
-</div>
-
-<div class="timeline-box">
-  <div class="timeline-content">
-    <h3>Captain America: The Winter Soldier (2014)</h3>
-    <p>Hydra infiltrates S.H.I.E.L.D.</p>
-  </div>
-</div>
-
-<div class="timeline-box">
-  <div class="timeline-content">
-    <h3>Guardians of the Galaxy (2014)</h3>
-    <p>A group of misfits become unlikely heroes.</p>
-  </div>
-</div>
-
-<div class="timeline-box">
-  <div class="timeline-content">
-    <h3>Avengers: Age of Ultron (2015)</h3>
-    <p>Ultron threatens global extinction.</p>
-  </div>
-</div>
-
-<div class="timeline-box">
-  <div class="timeline-content">
-    <h3>Ant-Man (2015)</h3>
-    <p>Scott Lang becomes Ant-Man using shrinking tech.</p>
-  </div>
-</div>
-
-
-  <h2 class="phase-title phase-3">Phase 3</h2>
-
-<div class="timeline-box">
-  <div class="timeline-content">
-    <h3>Captain America: Civil War (2016)</h3>
-    <p>The Avengers split into opposing factions over accountability.</p>
-  </div>
-</div>
-
-<div class="timeline-box">
-  <div class="timeline-content">
-    <h3>Doctor Strange (2016)</h3>
-    <p>Stephen Strange discovers the world of mystic arts.</p>
-  </div>
-</div>
-
-<div class="timeline-box">
-  <div class="timeline-content">
-    <h3>Guardians of the Galaxy Vol. 2 (2017)</h3>
-    <p>The Guardians uncover Peter Quill’s true heritage.</p>
-  </div>
-</div>
-
-<div class="timeline-box">
-  <div class="timeline-content">
-    <h3>Spider-Man: Homecoming (2017)</h3>
-    <p>Peter Parker learns what it means to be a hero.</p>
-  </div>
-</div>
-
-<div class="timeline-box">
-  <div class="timeline-content">
-    <h3>Thor: Ragnarok (2017)</h3>
-    <p>Asgard falls and Thor discovers his true power.</p>
-  </div>
-</div>
-
-<div class="timeline-box">
-  <div class="timeline-content">
-    <h3>Black Panther (2018)</h3>
-    <p>T’Challa rises as king of Wakanda.</p>
-  </div>
-</div>
-
-<div class="timeline-box">
-  <div class="timeline-content">
-    <h3>Avengers: Infinity War (2018)</h3>
-    <p>Thanos collects all Infinity Stones and wipes out half the universe.</p>
-  </div>
-</div>
-
-<div class="timeline-box">
-  <div class="timeline-content">
-    <h3>Ant-Man and the Wasp (2018)</h3>
-    <p>Quantum Realm secrets are explored.</p>
-  </div>
-</div>
-
-<div class="timeline-box">
-  <div class="timeline-content">
-    <h3>Avengers: Endgame (2019)</h3>
-    <p>The Avengers reverse the snap in an ultimate final battle.</p>
-  </div>
-</div>
-
-
-  <h2 class="phase-title phase-4">Phase 4</h2>
-
-<div class="timeline-box">
-  <div class="timeline-content">
-    <h3>Black Widow (2021)</h3>
-    <p>Natasha Romanoff confronts her past.</p>
-  </div>
-</div>
-
-<div class="timeline-box">
-  <div class="timeline-content">
-    <h3>Shang-Chi and the Legend of the Ten Rings (2021)</h3>
-    <p>Shang-Chi faces his mysterious legacy and the Ten Rings.</p>
-  </div>
-</div>
-
-<div class="timeline-box">
-  <div class="timeline-content">
-    <h3>Eternals (2021)</h3>
-    <p>Ancient immortals reveal their hidden role on Earth.</p>
-  </div>
-</div>
-
-<div class="timeline-box">
-  <div class="timeline-content">
-    <h3>Spider-Man: No Way Home (2021)</h3>
-    <p>The multiverse collapses bringing alternate Spider-Men.</p>
-  </div>
-</div>
-
-<div class="timeline-box">
-  <div class="timeline-content">
-    <h3>Doctor Strange in the Multiverse of Madness (2022)</h3>
-    <p>The multiverse becomes unstable with dangerous consequences.</p>
-  </div>
-</div>
-
-<div class="timeline-box">
-  <div class="timeline-content">
-    <h3>Thor: Love and Thunder (2022)</h3>
-    <p>Thor faces Gorr the God Butcher.</p>
-  </div>
-</div>
-
-<div class="timeline-box">
-  <div class="timeline-content">
-    <h3>Black Panther: Wakanda Forever (2022)</h3>
-    <p>Wakanda struggles after the loss of its king.</p>
-  </div>
-</div>
-
-<div class="timeline-box">
-  <div class="timeline-content">
-    <h3>Ant-Man and the Wasp: Quantumania (2023)</h3>
-    <p>Kang the Conqueror emerges from the Quantum Realm.</p>
-  </div>
-</div>
-
-
-  <h2 class="phase-title phase-5">Phase 5</h2>
-
-<div class="timeline-box">
-  <div class="timeline-content">
-    <h3>Ant-Man and the Wasp: Quantumania (2023)</h3>
-    <p>Kang the Conqueror rises as a major multiversal threat.</p>
-  </div>
-</div>
-
-<div class="timeline-box">
-  <div class="timeline-content">
-    <h3>Guardians of the Galaxy Vol. 3 (2023)</h3>
-    <p>The Guardians face their most emotional mission yet.</p>
-  </div>
-</div>
-
-<div class="timeline-box">
-  <div class="timeline-content">
-    <h3>The Marvels (2023)</h3>
-    <p>Captain Marvel, Monica Rambeau, and Ms. Marvel unite.</p>
-  </div>
-</div>
-
-<div class="timeline-box">
-  <div class="timeline-content">
-    <h3>Deadpool & Wolverine (2024)</h3>
-    <p>Deadpool enters the MCU multiverse with Wolverine chaos.</p>
-  </div>
-</div>
-
-<div class="timeline-box">
-  <div class="timeline-content">
-    <h3>Captain America: Brave New World (2025)</h3>
-    <p>Sam Wilson officially steps into the role of Captain America.</p>
-  </div>
-</div>
-
-
-  <h2 class="phase-title phase-6">Phase 6</h2>
-
-<div class="timeline-box">
-  <div class="timeline-content">
-    <h3>Thunderbolts (2025)</h3>
-    <p>A team of anti-heroes is assembled for dangerous missions.</p>
-  </div>
-</div>
-
-<div class="timeline-box">
-  <div class="timeline-content">
-    <h3>Fantastic Four (2025)</h3>
-    <p>Marvel’s first family enters the MCU multiverse.</p>
-  </div>
-</div>
-
-<div class="timeline-box">
-  <div class="timeline-content">
-    <h3>Avengers: The Kang Dynasty (Upcoming)</h3>
-    <p>The Avengers face Kang across multiple timelines.</p>
-  </div>
-</div>
-
-<div class="timeline-box">
-  <div class="timeline-content">
-    <h3>Avengers: Secret Wars (Upcoming)</h3>
-    <p>The multiverse collapses into one final battle reality.</p>
-  </div>
 </div>
 
   <!-- SUMMARY -->
