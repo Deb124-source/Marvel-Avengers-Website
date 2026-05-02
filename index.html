@@ -1621,57 +1621,74 @@ document.querySelectorAll(".card").forEach(card => {
   });
 });
 
-  
-  // MUSIC ELEMENT
-  const bgMusic = document.getElementById("bg-music");
+// =========================
+// MUSIC ELEMENT
+// =========================
 
-  // IMPORTANT: Autoplay may be blocked (this is normal)
-  if (bgMusic) {
-    bgMusic.volume = 0.5;
-  }
-
-  // SCROLL REVEAL
-  const reveals = document.querySelectorAll(".reveal");
-
-  const revealOnScroll = () => {
-    reveals.forEach((reveal) => {
-      const windowHeight = window.innerHeight;
-      const revealTop = reveal.getBoundingClientRect().top;
-
-      if (revealTop < windowHeight - 100) {
-        reveal.classList.add("active");
-      }
-    });
-  };
-
-  window.addEventListener("scroll", revealOnScroll);
-
-  // run once on load
-  revealOnScroll();
-
-  // MUSIC BUTTON CONTROL
 const bgMusic = document.getElementById("bg-music");
 const btn = document.getElementById("music-toggle");
 
+// Set music volume
 if (bgMusic) {
   bgMusic.volume = 0.5;
 }
 
+// =========================
+// SCROLL REVEAL
+// =========================
+
+const reveals = document.querySelectorAll(".reveal");
+
+const revealOnScroll = () => {
+  reveals.forEach((reveal) => {
+
+    const windowHeight = window.innerHeight;
+    const revealTop = reveal.getBoundingClientRect().top;
+
+    if (revealTop < windowHeight - 100) {
+      reveal.classList.add("active");
+    }
+
+  });
+};
+
+window.addEventListener("scroll", revealOnScroll);
+
+// Run once on page load
+revealOnScroll();
+
+// =========================
+// MUSIC BUTTON CONTROL
+// =========================
+
 if (btn && bgMusic) {
+
   btn.addEventListener("click", async () => {
+
     try {
+
       if (bgMusic.paused) {
+
         await bgMusic.play();
-        btn.innerText = "⏸ Pause Theme";
+
+        btn.innerText = "⏸ Pause Avengers Theme";
+
       } else {
+
         bgMusic.pause();
+
         btn.innerText = "🎵 Play Avengers Theme";
       }
+
     } catch (err) {
+
       console.log("Audio error:", err);
-      alert("Audio file not loading. Check file path/name.");
+
+      alert("Audio file not loading. Check file path or file name.");
     }
+
   });
+
 }
 
 });
