@@ -403,66 +403,6 @@
       color:#ccc;
     }
 
-    /* MODAL */
-.modal{
-  position:fixed;
-  inset:0;
-  background:rgba(0,0,0,0.88);
-  display:none;
-  align-items:center;
-  justify-content:center;
-  z-index:999999;
-  backdrop-filter:blur(10px);
-}
-
-.modal-content{
-  width:350px;
-  background:#0b0b0b;
-  border-radius:24px;
-  overflow:hidden;
-  position:relative;
-  transform:none !important;
-  animation:none !important;
-  box-shadow:0 0 45px rgba(255,0,80,0.28);
-  isolation:isolate;
-}
-
-.modal-content img{
-  width:100%;
-  height:420px;
-  object-fit:contain;
-  background:#111;
-  display:block;
-}
-
-.modal-body{
-  padding:22px;
-  text-align:center;
-}
-
-.modal-body h2{
-  color:crimson;
-  margin-bottom:10px;
-}
-
-.modal-body p{
-  color:#ddd;
-  line-height:1.7;
-}
-
-.close{
-  position:absolute;
-  top:12px;
-  right:18px;
-  font-size:2rem;
-  color:white;
-  cursor:pointer;
-  z-index:5;
-}
-    body.modal-open{
-  overflow:hidden;
-}
-    
     /* REVEAL */
 
     .reveal{
@@ -565,7 +505,6 @@
 
 <div class="grid">
 
-  <div class="card" onclick="openModal('Captain America','images/CAPS.jpg')">
     <div class="card-image">
       <img src="images/CAPS.jpg" alt="Captain America">
     </div>
@@ -580,7 +519,6 @@
     </div>
   </div>
 
-  <div class="card" onclick="openModal('Iron Man','images/IRON_MAN.jpg')">
     <div class="card-image">
       <img src="images/IRON_MAN.jpg" alt="Iron Man">
     </div>
@@ -595,7 +533,6 @@
     </div>
   </div>
 
-  <div class="card" onclick="openModal('Thor','images/THOR.webp')">
     <div class="card-image">
       <img src="images/THOR.webp" alt="Thor">
     </div>
@@ -610,7 +547,7 @@
     </div>
   </div>
 
-  <div class="card" onclick="openModal('Hulk','images/HULKU_RE.avif')">
+
     <div class="card-image">
       <img src="images/HULKU_RE.avif" alt="Hulk">
     </div>
@@ -625,7 +562,6 @@
     </div>
   </div>
 
-  <div class="card" onclick="openModal('Spider Man','images/SPIDY.webp')">
     <div class="card-image">
       <img src="images/SPIDY.webp" alt="Spider Man">
     </div>
@@ -640,7 +576,7 @@
     </div>
   </div>
 
-  <div class="card" onclick="openModal('Black Panther','images/BLACK_PANTHER.jpg')">
+
     <div class="card-image">
       <img src="images/BLACK_PANTHER.jpg" alt="Black Panther">
     </div>
@@ -655,7 +591,6 @@
     </div>
   </div>
 
-  <div class="card" onclick="openModal('Doctor Strange','images/DR_STRANGE.webp')">
     <div class="card-image">
       <img src="images/DR_STRANGE.webp" alt="Doctor Strange">
     </div>
@@ -670,7 +605,6 @@
     </div>
   </div>
 
-  <div class="card" onclick="openModal('Scarlet Witch','images/SCARLET_WITCH.jpg')">
     <div class="card-image">
       <img src="images/SCARLET_WITCH.jpg" alt="Scarlet Witch">
     </div>
@@ -685,7 +619,7 @@
     </div>
   </div>
 
-  <div class="card" onclick="openModal('Captain Marvel','images/CAPTAIN_MARVEL.webp')">
+
     <div class="card-image">
       <img src="images/CAPTAIN_MARVEL.webp" alt="Captain Marvel">
     </div>
@@ -700,7 +634,6 @@
     </div>
   </div>
 
-  <div class="card" onclick="openModal('Black Widow','images/BLACK_WIDOW.jpg')">
     <div class="card-image">
       <img src="images/BLACK_WIDOW.jpg" alt="Black Widow">
     </div>
@@ -715,7 +648,6 @@
     </div>
   </div>
 
-  <div class="card" onclick="openModal('Hawkeye','images/HAWKEYE.webp')">
     <div class="card-image">
       <img src="images/HAWKEYE.webp" alt="Hawkeye">
     </div>
@@ -730,7 +662,6 @@
     </div>
   </div>
 
-  <div class="card" onclick="openModal('Vision','images/VISION.webp')">
     <div class="card-image">
       <img src="images/VISION.webp" alt="Vision">
     </div>
@@ -745,7 +676,7 @@
     </div>
   </div>
 
-  <div class="card" onclick="openModal('Falcon','images/FALCON.jpg')">
+  
     <div class="card-image">
       <img src="images/FALCON.jpg" alt="Falcon">
     </div>
@@ -760,7 +691,7 @@
     </div>
   </div>
 
-  <div class="card" onclick="openModal('Winter Soldier','images/WINTER_SOLDIER.jpg')">
+
     <div class="card-image">
       <img src="images/WINTER_SOLDIER.jpg" alt="Winter Soldier">
     </div>
@@ -775,7 +706,7 @@
     </div>
   </div>
 
-  <div class="card" onclick="openModal('Ant Man','images/ANT_MAN.webp')">
+
     <div class="card-image">
       <img src="images/ANT_MAN.webp" alt="Ant Man">
     </div>
@@ -790,7 +721,6 @@
     </div>
   </div>
 
-  <div class="card" onclick="openModal('Wasp','images/WASP.webp')">
     <div class="card-image">
       <img src="images/WASP.webp" alt="Wasp">
     </div>
@@ -805,7 +735,7 @@
     </div>
   </div>
 
-  <div class="card" onclick="openModal('War Machine','images/WAR_MACHINE.jpg')">
+
     <div class="card-image">
       <img src="images/WAR_MACHINE.jpg" alt="War Machine">
     </div>
@@ -820,7 +750,7 @@
     </div>
   </div>
 
-  <div class="card" onclick="openModal('Loki','images/LOKI.jpg')">
+
     <div class="card-image">
       <img src="images/LOKI.jpg" alt="Loki">
     </div>
@@ -835,7 +765,7 @@
     </div>
   </div>
 
-  <div class="card" onclick="openModal('Gamora','images/GAMORA.jpg')">
+
     <div class="card-image">
       <img src="images/GAMORA.jpg" alt="Gamora">
     </div>
@@ -850,7 +780,6 @@
     </div>
   </div>
 
-  <div class="card" onclick="openModal('Star Lord','images/STAR_LORD.jpg')">
     <div class="card-image">
       <img src="images/STAR_LORD.jpg" alt="Star Lord">
     </div>
@@ -865,7 +794,7 @@
     </div>
   </div>
 
-  <div class="card" onclick="openModal('Rocket','images/RACCOON.jpg')">
+
     <div class="card-image">
       <img src="images/RACCOON.jpg" alt="Rocket">
     </div>
@@ -880,7 +809,7 @@
     </div>
   </div>
 
-  <div class="card" onclick="openModal('Groot','images/I_AM_GROOT.webp')">
+  
     <div class="card-image">
       <img src="images/I_AM_GROOT.webp" alt="Groot">
     </div>
@@ -895,7 +824,7 @@
     </div>
   </div>
 
-  <div class="card" onclick="openModal('Drax','images/DRAX.webp')">
+
     <div class="card-image">
       <img src="images/DRAX.webp" alt="Drax">
     </div>
@@ -910,7 +839,7 @@
     </div>
   </div>
 
-  <div class="card" onclick="openModal('Nebula','images/NEBULA.avif')">
+
     <div class="card-image">
       <img src="images/NEBULA.avif" alt="Nebula">
     </div>
@@ -924,7 +853,7 @@
     </div>
   </div>
 
-  <div class="card" onclick="openModal('Mantis','images/MANTIS.avif')">
+
     <div class="card-image">
       <img src="images/MANTIS.avif" alt="Mantis">
     </div>
@@ -950,7 +879,7 @@
   </div>
 
   <div class="grid">
-   <div class="card" onclick="openModal('Thanos','images/THANOS.jpg')">
+   
   <div class="card-image">
     <img src="images/THANOS.jpg" alt="Thanos">
   </div>
@@ -964,7 +893,7 @@
   </div>
 </div>
 
-<div class="card" onclick="openModal('Ultron','images/ULTRON.webp')">
+
   <div class="card-image">
     <img src="images/ULTRON.webp" alt="Ultron">
   </div>
@@ -978,7 +907,7 @@
   </div>
 </div>
 
-<div class="card" onclick="openModal('Hela','images/HELA.webp')">
+
   <div class="card-image">
     <img src="images/HELA.webp" alt="Hela">
   </div>
@@ -992,7 +921,6 @@
   </div>
 </div>
 
-<div class="card" onclick="openModal('Green Goblin','images/GREEN_GOBLIN.jpg')">
   <div class="card-image">
     <img src="images/GREEN_GOBLIN.jpg" alt="Green Goblin">
   </div>
@@ -1006,7 +934,6 @@
   </div>
 </div>
 
-<div class="card" onclick="openModal('Doctor Doom','images/DOOM.webp)">
   <div class="card-image">
     <img src="images/DOOM.webp" alt="Doctor Doom">
   </div>
@@ -1020,7 +947,6 @@
   </div>
 </div>
 
-<div class="card" onclick="openModal('Red Skull','images/RED_SKULL.jpg')">
   <div class="card-image">
     <img src="images/RED_SKULL.jpg" alt="Red Skull">
   </div>
@@ -1034,7 +960,6 @@
   </div>
 </div>
 
-<div class="card" onclick="openModal('Killmonger','images/KILLMONGER.jpg')">
   <div class="card-image">
     <img src="images/KILLMONGER.jpg" alt="Killmonger">
   </div>
@@ -1048,7 +973,7 @@
   </div>
 </div>
 
-<div class="card" onclick="openModal('Dormammu','images/DORMAMMU.jpg')">
+
   <div class="card-image">
     <img src="images/DORMAMMU.jpg" alt="Dormammu">
   </div>
@@ -1062,7 +987,7 @@
   </div>
 </div>
 
-<div class="card" onclick="openModal('Venom','images/VENOM.avif')">
+
   <div class="card-image">
     <img src="images/VENOM.avif" alt="Venom">
   </div>
@@ -1075,8 +1000,6 @@
     </p>
   </div>
 </div>
-
-<div class="card" onclick="openModal('Kang','images/KANG.avif')">
   <div class="card-image">
     <img src="images/KANG.avif" alt="Kang">
   </div>
@@ -1219,25 +1142,7 @@
 
     });
 
-    // MODAL
 
-function openModal(title,image){
-
-  document.getElementById("modal").style.display="flex";
-
-  document.getElementById("modal-title").innerText=title;
-
-  document.getElementById("modal-img").src=image;
-
-  document.body.classList.add("modal-open");
-}
-
-function closeModal(){
-
-  document.getElementById("modal").style.display="none";
-
-  document.body.classList.remove("modal-open");
-}
 
     // SCROLL REVEAL
 
