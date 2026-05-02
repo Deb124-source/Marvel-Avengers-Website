@@ -40,52 +40,15 @@
 
     /* LOADER */
 .loader-wrapper{
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-
-  display: flex;              
-  flex-direction: column;
-
-  justify-content: center;    /* vertical center */
-  align-items: center;        /* horizontal center */
-
-  gap: 25px;
-
-  background: radial-gradient(circle, #111 0%, #000 100%);
-  z-index: 9999;
-}
-.loader-text{
-  text-align: center;
+  background: radial-gradient(circle, #1a0000 0%, #000 70%);
+  animation: bgPulse 2.5s ease-in-out infinite alternate;
 }
 
-.loader-text h1{
-  font-size: 2.5rem;
-  letter-spacing: 6px;
-  color: crimson; 
-  text-shadow: 0 0 25px crimson, 0 0 50px crimson;
-  animation: glowText 1.5s ease-in-out infinite alternate;
+@keyframes bgPulse{
+  from{ filter: brightness(0.8); }
+  to{ filter: brightness(1.2); }
 }
 
-.loader-text p{
-  font-size: 0.9rem;
-  letter-spacing: 3px;
-  color: crimson; 
-  margin-top: 10px;
-  opacity: 0.85; 
-}
-
-/* glow animation */
-@keyframes glowText{
-  from{
-    text-shadow: 0 0 10px crimson;
-  }
-  to{
-    text-shadow: 0 0 30px crimson, 0 0 60px crimson;
-  }
-}
 /* AVENGERS LOADER WRAPPER */
 .avengers-loader{
   position: relative;
@@ -616,10 +579,6 @@ body {
     <img src="images/LOGO.webp" alt="Avengers Logo">
     <div class="ring"></div>
   </div>
-
-  <h1>AVENGERS</h1>
-  <p>INITIALIZING MARVEL UNIVERSE...</p>
-
 </div>
 
   <!-- NAVBAR -->
