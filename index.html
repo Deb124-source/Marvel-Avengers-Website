@@ -204,6 +204,35 @@
       background:white;
       color:black;
     }
+    
+/* HERO IMAGE CONTAINER */
+.hero-image{
+  margin-top:40px;
+  display:flex;
+  justify-content:center;
+}
+
+/* SQUARE IMAGE STYLE */
+.hero-image img{
+  width:320px;
+  height:320px;
+
+  object-fit:cover;
+  object-position:center;
+
+  border-radius:20px;
+
+  border:3px solid crimson;
+  box-shadow:0 0 35px rgba(220,20,60,0.4);
+
+  transition:0.4s ease;
+}
+
+/* HOVER EFFECT */
+.hero-image img:hover{
+  transform:scale(1.05);
+  box-shadow:0 0 50px rgba(220,20,60,0.6);
+}
 
     @keyframes fadeUp{
       from{
@@ -541,7 +570,9 @@ body {
       <button class="btn-primary">Explore Heroes</button>
       <button class="btn-secondary">Watch Trailer</button>
     </div>
-
+   <div class="hero-image">
+  <img src="images/Avengers_Assemble.jpeg" alt="Avengers Assembled">
+  </div>
   </section>
 
   <!-- HEROES -->
