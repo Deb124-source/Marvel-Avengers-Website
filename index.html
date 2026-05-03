@@ -516,33 +516,138 @@ body {
 #music-toggle:hover{
   transform:scale(1.05);
 }
+
+    
     /* INFINITY STONES */
 
-    .stones{
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
-      gap:30px;
-      text-align:center;
-    }
+.stones{
+  margin-top:60px;
 
-    .stone{
-      width:120px;
-      height:120px;
-      border-radius:50%;
-      margin:auto;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      font-weight:700;
-      transition:0.4s;
-      cursor:pointer;
-    }
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+  gap:40px;
 
-    .stone:hover{
-      transform:scale(1.15);
-      box-shadow:0 0 30px currentColor;
-    }
+  max-width:1100px;
+  margin-inline:auto;
 
+  transition:1s ease;
+}
+
+/* hidden initially */
+.hidden-stones{
+  opacity:0;
+  transform:translateY(80px);
+  pointer-events:none;
+}
+
+.show-stones{
+  opacity:1;
+  transform:translateY(0);
+  pointer-events:auto;
+}
+
+/* STONE CARD */
+.stone-card{
+  background:rgba(255,255,255,0.04);
+
+  border:1px solid rgba(255,255,255,0.08);
+
+  border-radius:24px;
+
+  padding:30px 20px;
+
+  text-align:center;
+
+  backdrop-filter:blur(10px);
+
+  transition:0.4s ease;
+
+  position:relative;
+
+  overflow:hidden;
+}
+
+/* glow overlay */
+.stone-card::before{
+  content:'';
+
+  position:absolute;
+  inset:0;
+
+  background:radial-gradient(
+    circle at top,
+    rgba(255,0,0,0.18),
+    transparent 65%
+  );
+
+  opacity:0.7;
+
+  pointer-events:none;
+}
+
+/* hover */
+.stone-card:hover{
+  transform:translateY(-12px) scale(1.03);
+
+  box-shadow:0 0 35px crimson;
+}
+
+/* IMAGE */
+.stone-card img{
+  width:110px;
+  height:110px;
+
+  object-fit:contain;
+
+  filter:drop-shadow(0 0 20px currentColor);
+
+  transition:0.4s ease;
+
+  animation:stoneFloat 3s ease-in-out infinite;
+}
+
+/* image hover */
+.stone-card:hover img{
+  transform:scale(1.12) rotate(8deg);
+}
+
+/* TITLE */
+.stone-card h3{
+  margin-top:20px;
+
+  color:white;
+
+  font-size:1.1rem;
+
+  letter-spacing:1px;
+}
+
+/* FLOAT EFFECT */
+@keyframes stoneFloat{
+
+  0%{
+    transform:translateY(0);
+  }
+
+  50%{
+    transform:translateY(-10px);
+  }
+
+  100%{
+    transform:translateY(0);
+  }
+
+}
+
+/* MOBILE */
+@media(max-width:768px){
+
+  .stone-card img{
+    width:90px;
+    height:90px;
+  }
+
+}
     /* TIMELINE */
 /* =========================
    CINEMATIC MARVEL TIMELINE CARDS (DORMAMMU STYLE)
@@ -1432,26 +1537,39 @@ body {
   
   <!-- INFINITY STONES -->
 
-  <section id="stones" class="reveal">
+ <div class="stones hidden-stones">
 
-    <div class="section-title">
-      <h2>Infinity Stones</h2>
-      <p>The six cosmic stones of ultimate power.</p>
-    </div>
+  <div class="stone-card">
+    <img src="images/space.jpeg" alt="Space Stone">
+    <h3>Space Stone</h3>
+  </div>
 
-    <div class="stones">
+  <div class="stone-card">
+    <img src="images/mind.jpeg" alt="Mind Stone">
+    <h3>Mind Stone</h3>
+  </div>
 
-      <div class="stone" style="background:#3498db;">Space</div>
-      <div class="stone" style="background:#f1c40f;">Mind</div>
-      <div class="stone" style="background:#e74c3c;">Reality</div>
-      <div class="stone" style="background:#9b59b6;">Power</div>
-      <div class="stone" style="background:#2ecc71;">Time</div>
-      <div class="stone" style="background:#e67e22;">Soul</div>
+  <div class="stone-card">
+    <img src="images/reality.jpeg" alt="Reality Stone">
+    <h3>Reality Stone</h3>
+  </div>
 
-    </div>
+  <div class="stone-card">
+    <img src="images/power.jpeg" alt="Power Stone">
+    <h3>Power Stone</h3>
+  </div>
 
-  </section>
+  <div class="stone-card">
+    <img src="images/green.jpeg" alt="Time Stone">
+    <h3>Time Stone</h3>
+  </div>
 
+  <div class="stone-card">
+    <img src="images/soul.jpeg" alt="Soul Stone">
+    <h3>Soul Stone</h3>
+  </div>
+
+</div>
   <!-- MCU TIMELINE -->
 
 <section id="timeline" class="reveal">
