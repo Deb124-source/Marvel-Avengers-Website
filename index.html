@@ -296,25 +296,62 @@
 
     /* SECTION */
 
-    section{
-      padding:120px 8%;
-    }
+/* =========================
+   GLOBAL SECTION SPACING
+========================= */
 
-    .section-title{
-      text-align:center;
-      margin-bottom:60px;
-    }
 
-    .section-title h2{
-      font-size:3rem;
-      color:crimson;
-      margin-bottom:15px;
-      text-shadow:0 0 20px crimson;
-    }
+section{
+  padding:140px 8%;
+  position:relative;
+}
+/* SECTION DIVIDER GLOW */
 
-    .section-title p{
-      color:#bbb;
-    }
+section::after{
+  content:'';
+  position:absolute;
+
+  bottom:0;
+  left:50%;
+
+  transform:translateX(-50%);
+
+  width:80%;
+  height:1px;
+
+  background:linear-gradient(
+    to right,
+    transparent,
+    rgba(220,20,60,0.4),
+    transparent
+  );
+}
+/* =========================
+   SECTION TITLES
+========================= */
+
+.section-title{
+  text-align:center;
+  margin-bottom:70px;
+}
+
+.section-title h2{
+  font-size:3rem;
+  color:crimson;
+  margin-bottom:18px;
+
+  text-shadow:0 0 20px crimson;
+}
+
+.section-title p{
+  color:#bdbdbd;
+  font-size:1rem;
+
+  max-width:700px;
+  margin:auto;
+
+  line-height:1.7;
+}
 
     /* HERO GRID */
    
