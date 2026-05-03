@@ -959,7 +959,7 @@ body {
     <div class="hero-buttons">
      <a href="#heroes">
   <button class="btn-primary">Explore Heroes</button>
-   </a>
+     </a>
       <a href="#summary">
   <button class="btn-secondary">Watch Trailer</button>
     </a>
@@ -1536,40 +1536,54 @@ body {
 </section>
   
   <!-- INFINITY STONES -->
+<!-- INFINITY STONES -->
 
- <div class="stones hidden-stones">
+<section id="stones" class="reveal">
 
-  <div class="stone-card">
-    <img src="images/space.jpeg" alt="Space Stone">
-    <h3>Space Stone</h3>
+  <div class="section-title">
+    <h2>Infinity Stones</h2>
+    <p>The six cosmic stones that control the universe.</p>
+
+    <button class="btn-primary" id="stones-btn">
+      Reveal Infinity Stones
+    </button>
   </div>
 
-  <div class="stone-card">
-    <img src="images/mind.jpeg" alt="Mind Stone">
-    <h3>Mind Stone</h3>
+  <div class="stones hidden-stones" id="stones-container">
+
+    <div class="stone-card">
+      <img src="images/space.jpeg" alt="Space Stone">
+      <h3>Space Stone</h3>
+    </div>
+
+    <div class="stone-card">
+      <img src="images/mind.jpeg" alt="Mind Stone">
+      <h3>Mind Stone</h3>
+    </div>
+
+    <div class="stone-card">
+      <img src="images/reality.jpeg" alt="Reality Stone">
+      <h3>Reality Stone</h3>
+    </div>
+
+    <div class="stone-card">
+      <img src="images/power.jpeg" alt="Power Stone">
+      <h3>Power Stone</h3>
+    </div>
+
+    <div class="stone-card">
+      <img src="images/green.jpeg" alt="Time Stone">
+      <h3>Time Stone</h3>
+    </div>
+
+    <div class="stone-card">
+      <img src="images/soul.jpeg" alt="Soul Stone">
+      <h3>Soul Stone</h3>
+    </div>
+
   </div>
 
-  <div class="stone-card">
-    <img src="images/reality.jpeg" alt="Reality Stone">
-    <h3>Reality Stone</h3>
-  </div>
-
-  <div class="stone-card">
-    <img src="images/power.jpeg" alt="Power Stone">
-    <h3>Power Stone</h3>
-  </div>
-
-  <div class="stone-card">
-    <img src="images/green.jpeg" alt="Time Stone">
-    <h3>Time Stone</h3>
-  </div>
-
-  <div class="stone-card">
-    <img src="images/soul.jpeg" alt="Soul Stone">
-    <h3>Soul Stone</h3>
-  </div>
-
-</div>
+</section>
   <!-- MCU TIMELINE -->
 
 <section id="timeline" class="reveal">
@@ -1844,6 +1858,29 @@ if (btn && bgMusic) {
       console.log("Audio error:", err);
 
       alert("Audio file not loading. Check file path or file name.");
+    }
+
+  });
+
+}
+
+// =========================
+// INFINITY STONES BUTTON
+// =========================
+
+const stonesBtn = document.getElementById("stones-btn");
+const stonesContainer = document.getElementById("stones-container");
+
+if (stonesBtn && stonesContainer) {
+
+  stonesBtn.addEventListener("click", () => {
+
+    stonesContainer.classList.toggle("show-stones");
+
+    if (stonesContainer.classList.contains("show-stones")) {
+      stonesBtn.innerText = "✨ Infinity Stones Activated";
+    } else {
+      stonesBtn.innerText = "Reveal Infinity Stones";
     }
 
   });
