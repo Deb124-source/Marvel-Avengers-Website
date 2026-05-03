@@ -639,6 +639,100 @@ body {
 
 }
 
+/* =========================
+   INFINITY STONES BUTTON
+========================= */
+
+#stones-btn{
+  margin-top:30px;
+
+  position:relative;
+  overflow:hidden;
+
+  padding:16px 34px;
+
+  border:none;
+  border-radius:50px;
+
+  background:linear-gradient(
+    135deg,
+    #6a00ff,
+    crimson,
+    #ff9900
+  );
+
+  color:white;
+
+  font-size:1rem;
+  font-weight:700;
+  letter-spacing:1px;
+
+  cursor:pointer;
+
+  transition:0.4s ease;
+
+  box-shadow:
+    0 0 20px rgba(255,0,80,0.45),
+    0 0 45px rgba(106,0,255,0.25);
+
+  animation:stonesPulse 2s infinite;
+}
+
+/* SHINE EFFECT */
+#stones-btn::before{
+  content:'';
+
+  position:absolute;
+  top:0;
+  left:-120%;
+
+  width:60%;
+  height:100%;
+
+  background:rgba(255,255,255,0.25);
+
+  transform:skewX(-25deg);
+
+  transition:0.7s;
+}
+
+/* HOVER */
+#stones-btn:hover{
+  transform:translateY(-6px) scale(1.05);
+
+  box-shadow:
+    0 0 30px rgba(255,0,80,0.7),
+    0 0 70px rgba(106,0,255,0.45);
+}
+
+/* SHINE MOVE */
+#stones-btn:hover::before{
+  left:140%;
+}
+
+/* PULSE ANIMATION */
+@keyframes stonesPulse{
+
+  0%{
+    box-shadow:
+      0 0 15px rgba(255,0,80,0.4),
+      0 0 35px rgba(106,0,255,0.2);
+  }
+
+  50%{
+    box-shadow:
+      0 0 30px rgba(255,0,80,0.7),
+      0 0 60px rgba(106,0,255,0.4);
+  }
+
+  100%{
+    box-shadow:
+      0 0 15px rgba(255,0,80,0.4),
+      0 0 35px rgba(106,0,255,0.2);
+  }
+
+}
+
 /* MOBILE */
 @media(max-width:768px){
 
