@@ -882,7 +882,226 @@ body {
   transform:translateY(-10px) scale(1.03);
   box-shadow:0 0 35px crimson;
 }
-    
+
+/* =========================
+   GAUNTLET SECTION
+========================= */
+
+.gauntlet-section{
+  margin-top:80px;
+  text-align:center;
+}
+
+.gauntlet-title{
+  font-size:2rem;
+  margin-bottom:40px;
+  color:#ffd700;
+  letter-spacing:2px;
+}
+
+.gauntlet-container{
+  position:relative;
+  width:350px;
+  margin:auto;
+}
+
+.gauntlet-img{
+  width:100%;
+  filter:
+  drop-shadow(0 0 25px gold);
+  animation:gauntletFloat 4s ease-in-out infinite;
+}
+
+/* FLOATING EFFECT */
+
+@keyframes gauntletFloat{
+
+  0%{
+    transform:translateY(0px);
+  }
+
+  50%{
+    transform:translateY(-10px);
+  }
+
+  100%{
+    transform:translateY(0px);
+  }
+
+}
+
+/* SOCKETS */
+
+.socket{
+  width:24px;
+  height:24px;
+  border-radius:50%;
+  background:#111;
+  position:absolute;
+  transition:0.5s;
+  box-shadow:
+  inset 0 0 10px #000;
+}
+
+/* SOCKET POSITIONS */
+
+.socket-space{
+  top:70px;
+  left:150px;
+}
+
+.socket-mind{
+  top:120px;
+  left:110px;
+}
+
+.socket-reality{
+  top:120px;
+  right:110px;
+}
+
+.socket-power{
+  top:190px;
+  left:130px;
+}
+
+.socket-time{
+  top:190px;
+  right:130px;
+}
+
+.socket-soul{
+  top:260px;
+  left:165px;
+}
+
+/* ACTIVE STONES */
+
+.active-space{
+  background:#00f;
+  box-shadow:0 0 25px #00f;
+}
+
+.active-mind{
+  background:yellow;
+  box-shadow:0 0 25px yellow;
+}
+
+.active-reality{
+  background:red;
+  box-shadow:0 0 25px red;
+}
+
+.active-power{
+  background:purple;
+  box-shadow:0 0 25px purple;
+}
+
+.active-time{
+  background:#00ff66;
+  box-shadow:0 0 25px #00ff66;
+}
+
+.active-soul{
+  background:orange;
+  box-shadow:0 0 25px orange;
+}
+
+/* STONE CLICK EFFECT */
+
+.stone-card{
+  cursor:pointer;
+  transition:0.4s;
+}
+
+.stone-card:hover{
+  transform:scale(1.05);
+}
+
+/* COUNTER */
+
+#stone-counter{
+  margin-top:30px;
+  color:gold;
+  letter-spacing:2px;
+  font-size:1.3rem;
+}
+
+/* FLYING STONE EFFECT */
+
+.stone-card.used{
+  pointer-events:none;
+}
+
+/* GLOW PULSE AFTER INSERT */
+
+.socket::after{
+
+  content:"";
+
+  position:absolute;
+
+  inset:-8px;
+
+  border-radius:50%;
+
+  opacity:0;
+
+  animation:none;
+
+}
+
+.active-space::after{
+  background:#00f;
+  box-shadow:0 0 25px #00f;
+  animation:stonePulse 1s ease;
+}
+
+.active-mind::after{
+  background:yellow;
+  box-shadow:0 0 25px yellow;
+  animation:stonePulse 1s ease;
+}
+
+.active-reality::after{
+  background:red;
+  box-shadow:0 0 25px red;
+  animation:stonePulse 1s ease;
+}
+
+.active-power::after{
+  background:purple;
+  box-shadow:0 0 25px purple;
+  animation:stonePulse 1s ease;
+}
+
+.active-time::after{
+  background:#00ff66;
+  box-shadow:0 0 25px #00ff66;
+  animation:stonePulse 1s ease;
+}
+
+.active-soul::after{
+  background:orange;
+  box-shadow:0 0 25px orange;
+  animation:stonePulse 1s ease;
+}
+
+/* ENERGY BURST */
+
+@keyframes stonePulse{
+
+  0%{
+    transform:scale(0.2);
+    opacity:1;
+  }
+
+  100%{
+    transform:scale(2);
+    opacity:0;
+  }
+
+}
     /* SUMMARY */
 
     .summary{
@@ -1630,7 +1849,7 @@ body {
 </section>
   
   <!-- INFINITY STONES -->
-<!-- INFINITY STONES -->
+
 
 <section id="stones" class="reveal">
 
@@ -1645,37 +1864,68 @@ body {
 
   <div class="stones hidden-stones" id="stones-container">
 
-    <div class="stone-card">
+    <div class="stone-card" data-stone="space">
       <img src="images/space.jpeg" alt="Space Stone">
       <h3>Space Stone</h3>
     </div>
 
-    <div class="stone-card">
+    <div class="stone-card" data-stone="mind">
       <img src="images/mind.jpeg" alt="Mind Stone">
       <h3>Mind Stone</h3>
     </div>
 
-    <div class="stone-card">
+    <div class="stone-card" data-stone="reality">
       <img src="images/reality.jpeg" alt="Reality Stone">
       <h3>Reality Stone</h3>
     </div>
 
-    <div class="stone-card">
+    <div class="stone-card" data-stone="power">
       <img src="images/power.jpeg" alt="Power Stone">
       <h3>Power Stone</h3>
     </div>
 
-    <div class="stone-card">
+    <div class="stone-card" data-stone="time">
       <img src="images/green.jpeg" alt="Time Stone">
       <h3>Time Stone</h3>
     </div>
 
-    <div class="stone-card">
+    <div class="stone-card" data-stone="soul">
       <img src="images/soul.jpeg" alt="Soul Stone">
       <h3>Soul Stone</h3>
     </div>
 
   </div>
+
+<!-- INFINITY GAUNTLET -->
+
+<div class="gauntlet-section">
+
+  <h2 class="gauntlet-title">
+    Complete The Infinity Gauntlet
+  </h2>
+
+  <div class="gauntlet-container">
+
+    <img src="images/gauntlet.png"
+         alt="Infinity Gauntlet"
+         class="gauntlet-img">
+
+    <!-- SOCKETS -->
+
+    <div class="socket socket-space"></div>
+    <div class="socket socket-mind"></div>
+    <div class="socket socket-reality"></div>
+    <div class="socket socket-power"></div>
+    <div class="socket socket-time"></div>
+    <div class="socket socket-soul"></div>
+
+  </div>
+
+  <h3 id="stone-counter">
+    0 / 6 Stones Collected
+  </h3>
+
+</div>
 
 </section>
   <!-- MCU TIMELINE -->
@@ -1982,6 +2232,124 @@ if (stonesBtn && stonesContainer) {
 }
 
 });
+
+const stones = document.querySelectorAll(".stone-card");
+
+let collected = 0;
+
+stones.forEach(stone => {
+
+  stone.addEventListener("click", () => {
+
+    const type = stone.dataset.stone;
+
+    const socket =
+    document.querySelector(`.socket-${type}`);
+
+    if(stone.classList.contains("used")) return;
+
+    stone.classList.add("used");
+
+   // CREATE FLYING STONE
+
+const flyingStone =
+stone.cloneNode(true);
+
+document.body.appendChild(flyingStone);
+
+const stoneRect =
+stone.getBoundingClientRect();
+
+const socketRect =
+socket.getBoundingClientRect();
+
+/* START POSITION */
+
+flyingStone.style.position = "fixed";
+
+flyingStone.style.left =
+stoneRect.left + "px";
+
+flyingStone.style.top =
+stoneRect.top + "px";
+
+flyingStone.style.width =
+stoneRect.width + "px";
+
+flyingStone.style.height =
+stoneRect.height + "px";
+
+flyingStone.style.zIndex = "9999";
+
+flyingStone.style.transition =
+"all 1s ease-in-out";
+
+/* PREVENT CLICK */
+
+flyingStone.style.pointerEvents =
+"none";
+
+/* ANIMATE */
+
+setTimeout(() => {
+
+  flyingStone.style.left =
+  socketRect.left + "px";
+
+  flyingStone.style.top =
+  socketRect.top + "px";
+
+  flyingStone.style.transform =
+  "scale(0.5)";
+
+}, 50);
+
+/* AFTER ANIMATION */
+
+setTimeout(() => {
+
+  flyingStone.remove();
+
+  socket.classList.add(`active-${type}`);
+
+}, 1000);
+
+/* ORIGINAL STONE FADE */
+
+stone.style.opacity = "0.3";
+
+    collected++;
+
+    document.getElementById("stone-counter")
+    .innerText =
+    `${collected} / 6 Stones Collected`;
+
+    if(collected === 6){
+
+      activateGauntlet();
+
+    }
+
+  });
+
+});
+
+function activateGauntlet(){
+
+  const gauntlet =
+  document.querySelector(".gauntlet-img");
+
+  gauntlet.style.filter =
+  "drop-shadow(0 0 60px gold)";
+
+  gauntlet.style.transform =
+  "scale(1.05)";
+
+  document.getElementById("stone-counter")
+  .innerText =
+  "⚡ INFINITY GAUNTLET COMPLETE ⚡";
+
+}
 </script>
 </body>
 </html>
