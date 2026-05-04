@@ -742,6 +742,187 @@ body {
   }
 
 }
+
+/* =========================
+   MATCHUP SECTION
+========================= */
+
+.matchup-section{
+
+  padding:120px 20px;
+
+  background:
+  linear-gradient(
+  to bottom,
+  #050505,
+  #0d0d0d
+  );
+
+  text-align:center;
+
+}
+
+.matchup-title{
+
+  font-size:4rem;
+
+  margin-bottom:70px;
+
+  color:#fff;
+
+  letter-spacing:5px;
+
+}
+
+/* MATCHUP CARD */
+
+.matchup-card{
+
+  display:flex;
+
+  justify-content:center;
+
+  align-items:center;
+
+  gap:60px;
+
+  flex-wrap:wrap;
+
+}
+
+/* FIGHTERS */
+
+.fighter{
+
+  width:260px;
+
+  background:#111;
+
+  border-radius:25px;
+
+  padding:25px;
+
+  transition:0.5s;
+
+  border:
+  1px solid rgba(255,255,255,0.08);
+
+}
+
+.fighter:hover{
+
+  transform:
+  translateY(-10px);
+
+  box-shadow:
+  0 0 30px rgba(255,255,255,0.15);
+
+}
+
+.fighter img{
+
+  width:100%;
+
+  height:300px;
+
+  object-fit:contain;
+
+}
+
+.fighter h2{
+
+  margin-top:20px;
+
+  color:white;
+
+}
+
+/* VS */
+
+.vs-text{
+
+  font-size:5rem;
+
+  font-weight:bold;
+
+  color:red;
+
+  text-shadow:
+  0 0 20px red;
+
+}
+
+/* STATS */
+
+.battle-stats{
+
+  width:60%;
+
+  margin:70px auto 0;
+
+}
+
+.stat{
+
+  margin-bottom:30px;
+
+  color:white;
+
+  text-align:left;
+
+}
+
+.bar{
+
+  width:100%;
+
+  height:18px;
+
+  background:#222;
+
+  border-radius:20px;
+
+  overflow:hidden;
+
+  margin-top:10px;
+
+}
+
+.fill{
+
+  height:100%;
+
+  border-radius:20px;
+
+}
+
+.ironman{
+
+  width:38%;
+
+  background:#00aaff;
+
+}
+
+.thanos{
+
+  width:62%;
+
+  background:purple;
+
+}
+
+/* WINNER */
+
+.winner{
+
+  margin-top:50px;
+
+  color:#ffd700;
+
+  letter-spacing:3px;
+
+}
     /* TIMELINE */
 /* =========================
    CINEMATIC MARVEL TIMELINE CARDS (DORMAMMU STYLE)
@@ -1075,6 +1256,58 @@ body {
 
   font-size:1rem;
 
+}
+
+/* FILL COLORS */
+
+.ironman-fill{
+  width:38%;
+  background:#00aaff;
+}
+
+.thanos-fill{
+  width:62%;
+  background:purple;
+}
+
+.thor-fill{
+  width:71%;
+  background:#00ccff;
+}
+
+.loki-fill{
+  width:29%;
+  background:green;
+}
+
+.hulk-fill{
+  width:67%;
+  background:#00ff66;
+}
+
+.ultron-fill{
+  width:33%;
+  background:silver;
+}
+
+.cap-fill{
+  width:74%;
+  background:#0066ff;
+}
+
+.skull-fill{
+  width:26%;
+  background:red;
+}
+
+.spider-fill{
+  width:45%;
+  background:#ff0000;
+}
+
+.venom-fill{
+  width:55%;
+  background:#222;
 }
     /* SUMMARY */
 
@@ -1721,6 +1954,221 @@ body {
   </div>
 </div>
   </section>
+
+
+<section class="matchup-section">
+
+  <h1 class="matchup-title">
+    HERO VS VILLAIN
+  </h1>
+
+  <!-- MATCHUP 1 -->
+
+  <div class="matchup-card">
+
+    <div class="fighter">
+      <img src="images/ironman.png">
+      <h2>Iron Man</h2>
+    </div>
+
+    <div class="vs-text">VS</div>
+
+    <div class="fighter">
+      <img src="images/thanos.png">
+      <h2>Thanos</h2>
+    </div>
+
+  </div>
+
+  <div class="battle-stats">
+
+    <div class="stat">
+      <span>Technology</span>
+      <div class="bar">
+        <div class="fill ironman-fill"></div>
+      </div>
+    </div>
+
+    <div class="stat">
+      <span>Power</span>
+      <div class="bar">
+        <div class="fill thanos-fill"></div>
+      </div>
+    </div>
+
+  </div>
+
+  <h2 class="winner">
+    WIN PROBABILITY: THANOS 62%
+  </h2>
+
+
+  <!-- MATCHUP 2 -->
+
+  <div class="matchup-card">
+
+    <div class="fighter">
+      <img src="images/thor.png">
+      <h2>Thor</h2>
+    </div>
+
+    <div class="vs-text">VS</div>
+
+    <div class="fighter">
+      <img src="images/loki.png">
+      <h2>Loki</h2>
+    </div>
+
+  </div>
+
+  <div class="battle-stats">
+
+    <div class="stat">
+      <span>Thunder Power</span>
+      <div class="bar">
+        <div class="fill thor-fill"></div>
+      </div>
+    </div>
+
+    <div class="stat">
+      <span>Magic</span>
+      <div class="bar">
+        <div class="fill loki-fill"></div>
+      </div>
+    </div>
+
+  </div>
+
+  <h2 class="winner">
+    WIN PROBABILITY: THOR 71%
+  </h2>
+
+
+  <!-- MATCHUP 3 -->
+
+  <div class="matchup-card">
+
+    <div class="fighter">
+      <img src="images/hulk.png">
+      <h2>Hulk</h2>
+    </div>
+
+    <div class="vs-text">VS</div>
+
+    <div class="fighter">
+      <img src="images/ultron.png">
+      <h2>Ultron</h2>
+    </div>
+
+  </div>
+
+  <div class="battle-stats">
+
+    <div class="stat">
+      <span>Strength</span>
+      <div class="bar">
+        <div class="fill hulk-fill"></div>
+      </div>
+    </div>
+
+    <div class="stat">
+      <span>AI Combat</span>
+      <div class="bar">
+        <div class="fill ultron-fill"></div>
+      </div>
+    </div>
+
+  </div>
+
+  <h2 class="winner">
+    WIN PROBABILITY: HULK 67%
+  </h2>
+
+
+  <!-- MATCHUP 4 -->
+
+  <div class="matchup-card">
+
+    <div class="fighter">
+      <img src="images/captain.png">
+      <h2>Captain America</h2>
+    </div>
+
+    <div class="vs-text">VS</div>
+
+    <div class="fighter">
+      <img src="images/redskull.png">
+      <h2>Red Skull</h2>
+    </div>
+
+  </div>
+
+  <div class="battle-stats">
+
+    <div class="stat">
+      <span>Leadership</span>
+      <div class="bar">
+        <div class="fill cap-fill"></div>
+      </div>
+    </div>
+
+    <div class="stat">
+      <span>Strategy</span>
+      <div class="bar">
+        <div class="fill skull-fill"></div>
+      </div>
+    </div>
+
+  </div>
+
+  <h2 class="winner">
+    WIN PROBABILITY: CAPTAIN AMERICA 74%
+  </h2>
+
+
+  <!-- MATCHUP 5 -->
+
+  <div class="matchup-card">
+
+    <div class="fighter">
+      <img src="images/spiderman.png">
+      <h2>Spider-Man</h2>
+    </div>
+
+    <div class="vs-text">VS</div>
+
+    <div class="fighter">
+      <img src="images/venom.png">
+      <h2>Venom</h2>
+    </div>
+
+  </div>
+
+  <div class="battle-stats">
+
+    <div class="stat">
+      <span>Agility</span>
+      <div class="bar">
+        <div class="fill spider-fill"></div>
+      </div>
+    </div>
+
+    <div class="stat">
+      <span>Symbiote Power</span>
+      <div class="bar">
+        <div class="fill venom-fill"></div>
+      </div>
+    </div>
+
+  </div>
+
+  <h2 class="winner">
+    WIN PROBABILITY: VENOM 55%
+  </h2>
+
+</section>
+
+  
 
   <section id="quotes" class="reveal">
 
