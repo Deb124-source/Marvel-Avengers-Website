@@ -1320,6 +1320,226 @@ body {
   0 0 15px #999;
 
 }
+
+/* =========================
+   MULTIVERSE SECTION
+========================= */
+
+.multiverse-section{
+
+  padding:120px 20px;
+
+  background:
+  radial-gradient(circle at center,
+  #120024 0%,
+  #050505 70%);
+
+  text-align:center;
+
+  overflow:hidden;
+
+  position:relative;
+
+}
+
+/* TITLE */
+
+.multiverse-title{
+
+  font-size:5rem;
+
+  color:white;
+
+  letter-spacing:8px;
+
+  margin-bottom:20px;
+
+  text-shadow:
+  0 0 25px #8a2be2;
+
+}
+
+.multiverse-subtitle{
+
+  color:#aaa;
+
+  margin-bottom:80px;
+
+  font-size:1.2rem;
+
+  letter-spacing:2px;
+
+}
+
+/* GRID */
+
+.multiverse-grid{
+
+  display:flex;
+
+  justify-content:center;
+
+  gap:40px;
+
+  flex-wrap:wrap;
+
+}
+
+/* CARDS */
+
+.variant-card{
+
+  position:relative;
+
+  width:260px;
+
+  background:
+  rgba(255,255,255,0.04);
+
+  border:
+  1px solid rgba(138,43,226,0.3);
+
+  border-radius:25px;
+
+  overflow:hidden;
+
+  padding:25px;
+
+  transition:0.5s ease;
+
+  backdrop-filter:blur(10px);
+
+}
+
+/* HOVER */
+
+.variant-card:hover{
+
+  transform:
+  translateY(-15px)
+  scale(1.04);
+
+  box-shadow:
+  0 0 40px rgba(138,43,226,0.5);
+
+}
+
+/* IMAGES */
+
+.variant-card img{
+
+  width:100%;
+
+  height:320px;
+
+  object-fit:contain;
+
+  transition:0.5s;
+
+  animation:
+  multiverseFloat 4s ease-in-out infinite;
+
+}
+
+/* FLOAT */
+
+@keyframes multiverseFloat{
+
+  0%{
+    transform:translateY(0px);
+  }
+
+  50%{
+    transform:translateY(-10px);
+  }
+
+  100%{
+    transform:translateY(0px);
+  }
+
+}
+
+/* GLITCH EFFECT */
+
+.variant-card:hover img{
+
+  filter:
+  hue-rotate(40deg)
+  contrast(1.2);
+
+}
+
+/* NAMES */
+
+.variant-card h2{
+
+  color:white;
+
+  margin-top:20px;
+
+  letter-spacing:2px;
+
+}
+
+/* PORTAL GLOW */
+
+.portal-glow{
+
+  position:absolute;
+
+  width:180px;
+  height:180px;
+
+  background:
+  radial-gradient(circle,
+  rgba(138,43,226,0.6),
+  transparent 70%);
+
+  top:50%;
+  left:50%;
+
+  transform:
+  translate(-50%,-50%);
+
+  filter:blur(30px);
+
+  animation:
+  portalPulse 3s infinite;
+
+  z-index:-1;
+
+}
+
+/* PULSE */
+
+@keyframes portalPulse{
+
+  0%{
+    transform:
+    translate(-50%,-50%)
+    scale(0.9);
+
+    opacity:0.6;
+  }
+
+  50%{
+    transform:
+    translate(-50%,-50%)
+    scale(1.2);
+
+    opacity:1;
+  }
+
+  100%{
+    transform:
+    translate(-50%,-50%)
+    scale(0.9);
+
+    opacity:0.6;
+  }
+
+}
+    
     /* SUMMARY */
 
     .summary{
@@ -2179,7 +2399,74 @@ body {
 
 </section>
 
-  
+
+  <section class="multiverse-section">
+
+  <h1 class="multiverse-title">
+    MULTIVERSE
+  </h1>
+
+  <p class="multiverse-subtitle">
+    Infinite realities. Infinite heroes.
+  </p>
+
+  <div class="multiverse-grid">
+
+    <!-- HERO 1 -->
+
+    <div class="variant-card">
+
+      <div class="portal-glow"></div>
+
+      <img src="images/spider_invariant.jpg"
+           alt="Spider-Man 2099">
+
+      <h2>Spider-Man 2099</h2>
+
+    </div>
+
+    <!-- HERO 2 -->
+
+    <div class="variant-card">
+
+      <div class="portal-glow"></div>
+
+      <img src="images/strange_supreme.jpg"
+           alt="Strange Supreme">
+
+      <h2>Strange Supreme</h2>
+
+    </div>
+
+    <!-- HERO 3 -->
+
+    <div class="variant-card">
+
+      <div class="portal-glow"></div>
+
+      <img src="images/lady_loki.jpg"
+           alt="Loki Variant">
+
+      <h2>Lady Loki - Sylvie</h2>
+
+    </div>
+
+    <!-- HERO 4 -->
+
+    <div class="variant-card">
+
+      <div class="portal-glow"></div>
+
+      <img src="images/witch_multiverse.jpg"
+           alt="Scarlet Witch Variant">
+
+      <h2>Zombie Scarlet Witch</h2>
+
+    </div>
+
+  </div>
+
+</section>
 
   <section id="quotes" class="reveal">
 
