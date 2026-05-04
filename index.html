@@ -522,14 +522,13 @@ body {
 
 .stones {
   margin-top: 60px;
+
   display: grid;
-  grid-auto-flow: column;
-  grid-auto-columns: minmax(180px, 1fr);
+  grid-template-columns: repeat(3, 1fr); 
   gap: 40px;
-  max-width: 1100px;
+
+  max-width: 900px;
   margin-inline: auto;
-  overflow-x: auto;
-  scrollbar-width: none; 
 }
 
 .stones::-webkit-scrollbar {
@@ -583,11 +582,6 @@ body {
   transition:0.4s ease;
 
   animation:stoneFloat 3s ease-in-out infinite;
-}
-
-/* image hover */
-.stone-card:hover img{
-  transform:scale(1.12) rotate(8deg);
 }
 
 /* TITLE */
