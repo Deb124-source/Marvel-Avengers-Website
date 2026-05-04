@@ -882,224 +882,80 @@ body {
   transform:translateY(-10px) scale(1.03);
   box-shadow:0 0 35px crimson;
 }
+.gauntlet-info{
 
-/* =========================
-   GAUNTLET SECTION
-========================= */
+  margin-top:40px;
 
-.gauntlet-section{
-  margin-top:80px;
   text-align:center;
+
+  color:white;
+
 }
 
-.gauntlet-title{
-  font-size:2rem;
-  margin-bottom:40px;
+.gauntlet-info h2{
+
+  font-size:2.5rem;
+
+  margin-bottom:20px;
+
   color:#ffd700;
-  letter-spacing:2px;
+
+  letter-spacing:3px;
+
 }
 
-.gauntlet-container{
-  position:relative;
-  width:350px;
+.gauntlet-info p{
+
+  width:70%;
+
   margin:auto;
+
+  color:#ccc;
+
+  line-height:1.8;
+
+  font-size:1.1rem;
+
 }
 
-.gauntlet-img{
-  width:100%;
-  filter:
-  drop-shadow(0 0 25px gold);
-  animation:gauntletFloat 4s ease-in-out infinite;
+  .gauntlet-img{
+
+  animation:
+  float 4s ease-in-out infinite,
+  glowPulse 3s infinite;
+
 }
 
-/* FLOATING EFFECT */
-
-@keyframes gauntletFloat{
+@keyframes glowPulse{
 
   0%{
-    transform:translateY(0px);
+    filter:drop-shadow(0 0 15px gold);
   }
 
   50%{
-    transform:translateY(-10px);
+    filter:drop-shadow(0 0 40px gold);
   }
 
   100%{
-    transform:translateY(0px);
+    filter:drop-shadow(0 0 15px gold);
   }
 
 }
 
-/* SOCKETS */
-
-.socket{
-  width:24px;
-  height:24px;
-  border-radius:50%;
-  background:#111;
-  position:absolute;
-  transition:0.5s;
-  box-shadow:
-  inset 0 0 10px #000;
-}
-
-/* SOCKET POSITIONS */
-
-.socket-space{
-  top:70px;
-  left:150px;
-}
-
-.socket-mind{
-  top:120px;
-  left:110px;
-}
-
-.socket-reality{
-  top:120px;
-  right:110px;
-}
-
-.socket-power{
-  top:190px;
-  left:130px;
-}
-
-.socket-time{
-  top:190px;
-  right:130px;
-}
-
-.socket-soul{
-  top:260px;
-  left:165px;
-}
-
-/* ACTIVE STONES */
-
-.active-space{
-  background:#00f;
-  box-shadow:0 0 25px #00f;
-}
-
-.active-mind{
-  background:yellow;
-  box-shadow:0 0 25px yellow;
-}
-
-.active-reality{
-  background:red;
-  box-shadow:0 0 25px red;
-}
-
-.active-power{
-  background:purple;
-  box-shadow:0 0 25px purple;
-}
-
-.active-time{
-  background:#00ff66;
-  box-shadow:0 0 25px #00ff66;
-}
-
-.active-soul{
-  background:orange;
-  box-shadow:0 0 25px orange;
-}
-
-/* STONE CLICK EFFECT */
-
-.stone-card{
-  cursor:pointer;
-  transition:0.4s;
-}
-
-.stone-card:hover{
-  transform:scale(1.05);
-}
-
-/* COUNTER */
-
-#stone-counter{
-  margin-top:30px;
-  color:gold;
-  letter-spacing:2px;
-  font-size:1.3rem;
-}
-
-/* FLYING STONE EFFECT */
-
-.stone-card.used{
-  pointer-events:none;
-}
-
-/* GLOW PULSE AFTER INSERT */
-
-.socket::after{
+.infinity-section::before{
 
   content:"";
 
   position:absolute;
 
-  inset:-8px;
+  inset:0;
 
-  border-radius:50%;
+  background:
+  radial-gradient(circle,
+  rgba(255,215,0,0.08),
+  transparent 70%);
 
-  opacity:0;
-
-  animation:none;
-
-}
-
-.active-space::after{
-  background:#00f;
-  box-shadow:0 0 25px #00f;
-  animation:stonePulse 1s ease;
-}
-
-.active-mind::after{
-  background:yellow;
-  box-shadow:0 0 25px yellow;
-  animation:stonePulse 1s ease;
-}
-
-.active-reality::after{
-  background:red;
-  box-shadow:0 0 25px red;
-  animation:stonePulse 1s ease;
-}
-
-.active-power::after{
-  background:purple;
-  box-shadow:0 0 25px purple;
-  animation:stonePulse 1s ease;
-}
-
-.active-time::after{
-  background:#00ff66;
-  box-shadow:0 0 25px #00ff66;
-  animation:stonePulse 1s ease;
-}
-
-.active-soul::after{
-  background:orange;
-  box-shadow:0 0 25px orange;
-  animation:stonePulse 1s ease;
-}
-
-/* ENERGY BURST */
-
-@keyframes stonePulse{
-
-  0%{
-    transform:scale(0.2);
-    opacity:1;
-  }
-
-  100%{
-    transform:scale(2);
-    opacity:0;
-  }
+  pointer-events:none;
 
 }
     /* SUMMARY */
@@ -1898,32 +1754,16 @@ body {
 
 <!-- INFINITY GAUNTLET -->
 
-<div class="gauntlet-section">
-
-  <h2 class="gauntlet-title">
-    Complete The Infinity Gauntlet
-  </h2>
-
-  <div class="gauntlet-container">
-
-    <img src="images/gauntlet.jpeg"
+<div class="gauntlet-info">
+   <img src="images/gauntlet.jpeg"
          alt="Infinity Gauntlet"
          class="gauntlet-img">
-
-    <!-- SOCKETS -->
-
-    <div class="socket socket-space"></div>
-    <div class="socket socket-mind"></div>
-    <div class="socket socket-reality"></div>
-    <div class="socket socket-power"></div>
-    <div class="socket socket-time"></div>
-    <div class="socket socket-soul"></div>
-
-  </div>
-
-  <h3 id="stone-counter">
-    0 / 6 Stones Collected
-  </h3>
+  
+  <h2>The Infinity Gauntlet</h2>
+  <p>
+    Forged to harness the power of all six Infinity Stones,
+    the gauntlet grants its wielder limitless cosmic power.
+  </p>
 
 </div>
 
@@ -2232,124 +2072,6 @@ if (stonesBtn && stonesContainer) {
 }
 
 });
-
-const stones = document.querySelectorAll(".stone-card");
-
-let collected = 0;
-
-stones.forEach(stone => {
-
-  stone.addEventListener("click", () => {
-
-    const type = stone.dataset.stone;
-
-    const socket =
-    document.querySelector(`.socket-${type}`);
-
-    if(stone.classList.contains("used")) return;
-
-    stone.classList.add("used");
-
-   // CREATE FLYING STONE
-
-const flyingStone =
-stone.cloneNode(true);
-
-document.body.appendChild(flyingStone);
-
-const stoneRect =
-stone.getBoundingClientRect();
-
-const socketRect =
-socket.getBoundingClientRect();
-
-/* START POSITION */
-
-flyingStone.style.position = "fixed";
-
-flyingStone.style.left =
-stoneRect.left + "px";
-
-flyingStone.style.top =
-stoneRect.top + "px";
-
-flyingStone.style.width =
-stoneRect.width + "px";
-
-flyingStone.style.height =
-stoneRect.height + "px";
-
-flyingStone.style.zIndex = "9999";
-
-flyingStone.style.transition =
-"all 1s ease-in-out";
-
-/* PREVENT CLICK */
-
-flyingStone.style.pointerEvents =
-"none";
-
-/* ANIMATE */
-
-setTimeout(() => {
-
-  flyingStone.style.left =
-  socketRect.left + "px";
-
-  flyingStone.style.top =
-  socketRect.top + "px";
-
-  flyingStone.style.transform =
-  "scale(0.5)";
-
-}, 50);
-
-/* AFTER ANIMATION */
-
-setTimeout(() => {
-
-  flyingStone.remove();
-
-  socket.classList.add(`active-${type}`);
-
-}, 1000);
-
-/* ORIGINAL STONE FADE */
-
-stone.style.opacity = "0.3";
-
-    collected++;
-
-    document.getElementById("stone-counter")
-    .innerText =
-    `${collected} / 6 Stones Collected`;
-
-    if(collected === 6){
-
-      activateGauntlet();
-
-    }
-
-  });
-
-});
-
-function activateGauntlet(){
-
-  const gauntlet =
-  document.querySelector(".gauntlet-img");
-
-  gauntlet.style.filter =
-  "drop-shadow(0 0 60px gold)";
-
-  gauntlet.style.transform =
-  "scale(1.05)";
-
-  document.getElementById("stone-counter")
-  .innerText =
-  "⚡ INFINITY GAUNTLET COMPLETE ⚡";
-
-}
 </script>
 </body>
 </html>
