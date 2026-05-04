@@ -520,17 +520,20 @@ body {
     
     /* INFINITY STONES */
 
-.stones{
-  margin-top:60px;
+.stones {
+  margin-top: 60px;
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: minmax(180px, 1fr);
+  gap: 40px;
+  max-width: 1100px;
+  margin-inline: auto;
+  overflow-x: auto;
+  scrollbar-width: none; 
+}
 
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
-  gap:40px;
-
-  max-width:1100px;
-  margin-inline:auto;
-
-  transition:1s ease;
+.stones::-webkit-scrollbar {
+  display: none;
 }
 
 /* hidden initially */
@@ -2585,32 +2588,32 @@ body {
   <div class="stones hidden-stones" id="stones-container">
 
     <div class="stone-card" data-stone="space">
-      <img src="images/space.jpeg" alt="Space Stone">
+      <img src="images/SPACE.jpeg" alt="Space Stone">
       <h3>Space Stone</h3>
     </div>
 
     <div class="stone-card" data-stone="mind">
-      <img src="images/mind.jpeg" alt="Mind Stone">
+      <img src="images/MIND.jpeg" alt="Mind Stone">
       <h3>Mind Stone</h3>
     </div>
 
     <div class="stone-card" data-stone="reality">
-      <img src="images/reality.jpeg" alt="Reality Stone">
+      <img src="images/REALITY.jpeg" alt="Reality Stone">
       <h3>Reality Stone</h3>
     </div>
 
     <div class="stone-card" data-stone="power">
-      <img src="images/power.jpeg" alt="Power Stone">
+      <img src="images/PURPLE.jpeg" alt="Power Stone">
       <h3>Power Stone</h3>
     </div>
 
     <div class="stone-card" data-stone="time">
-      <img src="images/green.jpeg" alt="Time Stone">
+      <img src="images/TIME.jpeg" alt="Time Stone">
       <h3>Time Stone</h3>
     </div>
 
     <div class="stone-card" data-stone="soul">
-      <img src="images/soul.jpeg" alt="Soul Stone">
+      <img src="images/SOUL.jpeg" alt="Soul Stone">
       <h3>Soul Stone</h3>
     </div>
 
