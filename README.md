@@ -156,6 +156,8 @@ in your browser.
 
 # 📸 Preview
 
+<img src="images/MANTIS.avif">
+
 The website delivers:
 - Cinematic Marvel aesthetics
 - Smooth animations
