@@ -1621,6 +1621,730 @@ filter: none;
 
     }
 
+
+  /* =================================
+   AVENGERS AI CHATBOT
+================================= */
+
+.avengers-chatbot{
+  position:fixed;
+  right:30px;
+  bottom:30px;
+  z-index:9998;
+}
+
+
+/* =========================
+   FLOATING BUTTON
+========================= */
+
+.chat-toggle{
+
+  position:relative;
+
+  width:68px;
+  height:68px;
+
+  border:none;
+  border-radius:50%;
+
+  background:
+  radial-gradient(
+    circle at top,
+    #ff1744,
+    crimson,
+    #45000d
+  );
+
+  color:white;
+
+  font-size:28px;
+
+  cursor:pointer;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  box-shadow:
+  0 0 20px crimson,
+  0 0 45px rgba(220,20,60,0.6);
+
+  transition:0.4s ease;
+
+}
+
+
+/* Hover */
+
+.chat-toggle:hover{
+
+  transform:
+  scale(1.1)
+  rotate(8deg);
+
+  box-shadow:
+  0 0 30px crimson,
+  0 0 70px rgba(220,20,60,0.9);
+
+}
+
+
+/* Pulse Ring */
+
+.chat-pulse{
+
+  position:absolute;
+
+  width:100%;
+  height:100%;
+
+  border-radius:50%;
+
+  border:2px solid crimson;
+
+  animation:
+  chatPulse 2s infinite;
+
+}
+
+
+@keyframes chatPulse{
+
+  0%{
+    transform:scale(1);
+    opacity:0.8;
+  }
+
+  70%{
+    transform:scale(1.5);
+    opacity:0;
+  }
+
+  100%{
+    opacity:0;
+  }
+
+}
+
+
+/* =========================
+   CHAT WINDOW
+========================= */
+
+.chat-window{
+
+  position:absolute;
+
+  bottom:85px;
+  right:0;
+
+  width:370px;
+  height:520px;
+
+  display:flex;
+  flex-direction:column;
+
+  background:
+  linear-gradient(
+    145deg,
+    rgba(18,18,18,0.98),
+    rgba(5,5,5,0.98)
+  );
+
+  border:
+
+  1px solid rgba(220,20,60,0.6);
+
+  border-radius:22px;
+
+  overflow:hidden;
+
+  backdrop-filter:blur(18px);
+
+  box-shadow:
+
+  0 0 25px rgba(220,20,60,0.4),
+  0 0 70px rgba(0,0,0,0.9);
+
+  opacity:0;
+
+  transform:
+  translateY(30px)
+  scale(0.95);
+
+  pointer-events:none;
+
+  transition:0.4s ease;
+
+}
+
+
+/* Active Window */
+
+.chat-window.active{
+
+  opacity:1;
+
+  transform:
+  translateY(0)
+  scale(1);
+
+  pointer-events:auto;
+
+}
+
+
+/* =========================
+   HEADER
+========================= */
+
+.chat-header{
+
+  padding:16px 18px;
+
+  display:flex;
+
+  align-items:center;
+
+  justify-content:space-between;
+
+  background:
+
+  linear-gradient(
+    90deg,
+    #3b0008,
+    #8b0018,
+    #3b0008
+  );
+
+  border-bottom:
+
+  1px solid rgba(255,255,255,0.1);
+
+}
+
+
+.ai-info{
+
+  display:flex;
+
+  align-items:center;
+
+  gap:12px;
+
+}
+
+
+.ai-logo{
+
+  width:42px;
+  height:42px;
+
+  border-radius:50%;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  font-weight:800;
+
+  color:white;
+
+  background:
+
+  radial-gradient(
+    circle,
+    crimson,
+    #44000a
+  );
+
+  border:
+
+  1px solid rgba(255,255,255,0.2);
+
+  box-shadow:
+
+  0 0 15px crimson;
+
+}
+
+
+.ai-info h3{
+
+  font-size:0.9rem;
+
+  letter-spacing:1px;
+
+}
+
+
+.ai-info span{
+
+  font-size:0.65rem;
+
+  color:#00ff88;
+
+  letter-spacing:1px;
+
+}
+
+
+#close-chat{
+
+  border:none;
+
+  background:transparent;
+
+  color:white;
+
+  font-size:20px;
+
+  cursor:pointer;
+
+  transition:0.3s;
+
+}
+
+
+#close-chat:hover{
+
+  color:crimson;
+
+  transform:rotate(90deg);
+
+}
+
+
+/* =========================
+   MESSAGES
+========================= */
+
+.chat-messages{
+
+  flex:1;
+
+  padding:18px;
+
+  overflow-y:auto;
+
+  display:flex;
+
+  flex-direction:column;
+
+  gap:15px;
+
+}
+
+
+.chat-messages::-webkit-scrollbar{
+
+  width:5px;
+
+}
+
+
+.chat-messages::-webkit-scrollbar-thumb{
+
+  background:crimson;
+
+  border-radius:10px;
+
+}
+
+
+/* =========================
+   BOT MESSAGE
+========================= */
+
+.message{
+
+  display:flex;
+
+  align-items:flex-start;
+
+  gap:10px;
+
+  animation:
+
+  messageAppear 0.3s ease;
+
+}
+
+
+@keyframes messageAppear{
+
+  from{
+
+    opacity:0;
+
+    transform:translateY(10px);
+
+  }
+
+  to{
+
+    opacity:1;
+
+    transform:translateY(0);
+
+  }
+
+}
+
+
+.message-avatar{
+
+  min-width:34px;
+
+  height:34px;
+
+  border-radius:50%;
+
+  display:flex;
+
+  align-items:center;
+
+  justify-content:center;
+
+  font-weight:bold;
+
+  background:crimson;
+
+  color:white;
+
+  box-shadow:
+
+  0 0 10px crimson;
+
+}
+
+
+.message-text{
+
+  max-width:75%;
+
+  padding:12px 14px;
+
+  border-radius:
+
+  4px 15px 15px 15px;
+
+  font-size:0.85rem;
+
+  line-height:1.6;
+
+}
+
+
+/* BOT */
+
+.bot-message .message-text{
+
+  background:
+
+  rgba(255,255,255,0.06);
+
+  border:
+
+  1px solid rgba(255,255,255,0.08);
+
+  color:#ddd;
+
+}
+
+
+/* USER */
+
+.user-message{
+
+  justify-content:flex-end;
+
+}
+
+
+.user-message .message-text{
+
+  background:
+
+  linear-gradient(
+    135deg,
+    crimson,
+    #8b0018
+  );
+
+  color:white;
+
+  border-radius:
+
+  15px 4px 15px 15px;
+
+}
+
+
+/* =========================
+   SUGGESTIONS
+========================= */
+
+.chat-suggestions{
+
+  padding:
+
+  10px 15px;
+
+  display:flex;
+
+  gap:8px;
+
+  overflow-x:auto;
+
+}
+
+
+.chat-suggestions::-webkit-scrollbar{
+
+  display:none;
+
+}
+
+
+.chat-suggestions button{
+
+  white-space:nowrap;
+
+  border:
+
+  1px solid rgba(220,20,60,0.5);
+
+  background:
+
+  rgba(220,20,60,0.08);
+
+  color:#ddd;
+
+  padding:
+
+  7px 12px;
+
+  border-radius:20px;
+
+  font-size:0.7rem;
+
+  cursor:pointer;
+
+  transition:0.3s;
+
+}
+
+
+.chat-suggestions button:hover{
+
+  background:crimson;
+
+  color:white;
+
+}
+
+
+/* =========================
+   INPUT AREA
+========================= */
+
+.chat-input-area{
+
+  display:flex;
+
+  padding:14px;
+
+  gap:10px;
+
+  border-top:
+
+  1px solid rgba(255,255,255,0.08);
+
+}
+
+
+#chat-input{
+
+  flex:1;
+
+  padding:
+
+  12px 15px;
+
+  border-radius:25px;
+
+  border:
+
+  1px solid rgba(255,255,255,0.1);
+
+  outline:none;
+
+  background:
+
+  rgba(255,255,255,0.05);
+
+  color:white;
+
+}
+
+
+#chat-input:focus{
+
+  border-color:crimson;
+
+  box-shadow:
+
+  0 0 12px rgba(220,20,60,0.4);
+
+}
+
+
+#send-message{
+
+  width:45px;
+
+  border:none;
+
+  border-radius:50%;
+
+  background:crimson;
+
+  color:white;
+
+  font-size:18px;
+
+  cursor:pointer;
+
+  transition:0.3s;
+
+}
+
+
+#send-message:hover{
+
+  transform:scale(1.1);
+
+  box-shadow:
+
+  0 0 15px crimson;
+
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:600px){
+
+  .avengers-chatbot{
+
+    right:18px;
+
+    bottom:18px;
+
+  }
+
+
+  .chat-window{
+
+    width:
+
+    calc(100vw - 36px);
+
+    height:500px;
+
+    right:0;
+
+  }
+
+
+  .chat-toggle{
+
+    width:60px;
+    height:60px;
+
+  }
+
+}
+
+/* =========================
+   JARVIS TYPING ANIMATION
+========================= */
+
+.typing-indicator{
+
+  display:flex;
+
+  align-items:center;
+
+  gap:5px;
+
+  min-height:42px;
+
+}
+
+
+.typing-indicator span{
+
+  width:7px;
+
+  height:7px;
+
+  background:crimson;
+
+  border-radius:50%;
+
+  animation:
+  jarvisTyping 1.2s infinite;
+
+}
+
+
+.typing-indicator span:nth-child(2){
+
+  animation-delay:0.2s;
+
+}
+
+
+.typing-indicator span:nth-child(3){
+
+  animation-delay:0.4s;
+
+}
+
+
+@keyframes jarvisTyping{
+
+  0%,
+  60%,
+  100%{
+
+    transform:
+    translateY(0);
+
+    opacity:0.4;
+
+  }
+
+
+  30%{
+
+    transform:
+    translateY(-7px);
+
+    opacity:1;
+
+    box-shadow:
+    0 0 10px crimson;
+
+  }
+
+}
+    
   </style>
 </head>
 
@@ -2738,7 +3462,93 @@ filter: none;
  <audio id="bg-music" loop>
     <source src="Avengers_assemble_song.mpeg" type="audio/mpeg">
   </audio>
-    
+
+<!-- =========================
+     AVENGERS AI CHATBOT
+========================= -->
+
+<div class="avengers-chatbot">
+
+  <!-- Chat Window -->
+  <div class="chat-window" id="chat-window">
+
+    <!-- Header -->
+    <div class="chat-header">
+
+      <div class="ai-info">
+
+        <div class="ai-logo">
+          A
+        </div>
+
+        <div>
+          <h3>J.A.R.V.I.S A.I</h3>
+          <span>● ONLINE</span>
+        </div>
+
+      </div>
+
+      <button id="close-chat">✕</button>
+
+    </div>
+
+
+    <!-- Messages -->
+    <div class="chat-messages" id="chat-messages">
+
+      <div class="message bot-message">
+        <div class="message-avatar">J</div>
+
+        <div class="message-text">
+          Welcome, Avenger. 🛡️<br><br>
+          I am your Avengers Universe Assistant. Ask me about heroes, villains, Infinity Stones, battles, or the MCU.
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <!-- Suggestions -->
+    <div class="chat-suggestions">
+
+      <button>Who is the strongest Avenger?</button>
+      <button>Tell me about Thanos</button>
+      <button>What are Infinity Stones?</button>
+
+    </div>
+
+
+    <!-- Input -->
+    <div class="chat-input-area">
+
+      <input
+        type="text"
+        id="chat-input"
+        placeholder="Ask the Avengers A.I..."
+      >
+
+      <button id="send-message">
+        ➤
+      </button>
+
+    </div>
+
+  </div>
+
+
+  <!-- Floating Button -->
+
+  <button class="chat-toggle" id="chat-toggle">
+
+    <span class="chat-icon">🤖</span>
+
+    <span class="chat-pulse"></span>
+
+  </button>
+
+</div>
+  
 <script>
 window.addEventListener("load", () => {
 
@@ -2884,6 +3694,356 @@ if (btn && bgMusic) {
 
 }
 
+// =========================
+// AVENGERS JARVIS AI CHATBOT
+// =========================
+
+const chatToggle = document.getElementById("chat-toggle");
+const chatWindow = document.getElementById("chat-window");
+const closeChat = document.getElementById("close-chat");
+
+const chatInput = document.getElementById("chat-input");
+const sendMessage = document.getElementById("send-message");
+
+const chatMessages = document.getElementById("chat-messages");
+
+
+// OPEN / CLOSE CHAT
+
+chatToggle.addEventListener("click", () => {
+
+  chatWindow.classList.toggle("active");
+
+});
+
+
+closeChat.addEventListener("click", () => {
+
+  chatWindow.classList.remove("active");
+
+});
+
+
+// =========================
+// SEND MESSAGE
+// =========================
+
+async function sendChatMessage() {
+
+  const message = chatInput.value.trim();
+
+  if (!message) return;
+
+
+  // USER MESSAGE
+
+  addUserMessage(message);
+
+
+  // Clear input
+
+  chatInput.value = "";
+
+
+  // Disable button while AI responds
+
+  sendMessage.disabled = true;
+
+
+  // Typing indicator
+
+  const typingId = addTypingIndicator();
+
+
+  try {
+
+    const response = await fetch(
+      "http://127.0.0.1:8000/chat",
+      {
+
+        method: "POST",
+
+        headers: {
+          "Content-Type": "application/json"
+        },
+
+        body: JSON.stringify({
+          message: message
+        })
+
+      }
+    );
+
+
+    const data = await response.json();
+
+
+    // Remove typing indicator
+
+    removeTypingIndicator(typingId);
+
+
+    // Add AI response
+
+    addBotMessage(
+      data.response ||
+      "Sorry, Avenger. I could not process that request."
+    );
+
+
+  } catch (error) {
+
+    console.error(error);
+
+
+    removeTypingIndicator(typingId);
+
+
+    addBotMessage(
+      "⚠️ JARVIS connection lost. Please check whether the AI server is running."
+    );
+
+  }
+
+
+  sendMessage.disabled = false;
+
+}
+
+
+// =========================
+// USER MESSAGE
+// =========================
+
+function addUserMessage(message) {
+
+  const messageDiv = document.createElement("div");
+
+  messageDiv.classList.add(
+    "message",
+    "user-message"
+  );
+
+
+  messageDiv.innerHTML = `
+
+    <div class="message-text">
+      ${escapeHTML(message)}
+    </div>
+
+  `;
+
+
+  chatMessages.appendChild(messageDiv);
+
+
+  scrollChat();
+
+}
+
+
+// =========================
+// JARVIS MESSAGE
+// =========================
+
+function addBotMessage(message) {
+
+  const messageDiv = document.createElement("div");
+
+  messageDiv.classList.add(
+    "message",
+    "bot-message"
+  );
+
+
+  messageDiv.innerHTML = `
+
+    <div class="message-avatar">
+      A
+    </div>
+
+    <div class="message-text">
+      ${formatResponse(message)}
+    </div>
+
+  `;
+
+
+  chatMessages.appendChild(messageDiv);
+
+
+  scrollChat();
+
+}
+
+
+// =========================
+// TYPING INDICATOR
+// =========================
+
+function addTypingIndicator() {
+
+  const typingDiv = document.createElement("div");
+
+
+  const id =
+    "typing-" +
+    Date.now();
+
+
+  typingDiv.id = id;
+
+
+  typingDiv.classList.add(
+    "message",
+    "bot-message"
+  );
+
+
+  typingDiv.innerHTML = `
+
+    <div class="message-avatar">
+      A
+    </div>
+
+    <div class="message-text typing-indicator">
+
+      <span></span>
+      <span></span>
+      <span></span>
+
+    </div>
+
+  `;
+
+
+  chatMessages.appendChild(typingDiv);
+
+
+  scrollChat();
+
+
+  return id;
+
+}
+
+
+function removeTypingIndicator(id) {
+
+  const element =
+    document.getElementById(id);
+
+
+  if (element) {
+
+    element.remove();
+
+  }
+
+}
+
+
+// =========================
+// FORMAT AI RESPONSE
+// =========================
+
+function formatResponse(text) {
+
+  return escapeHTML(text)
+    .replace(/\n/g, "<br>");
+
+}
+
+
+// =========================
+// SECURITY
+// =========================
+
+function escapeHTML(text) {
+
+  const div =
+    document.createElement("div");
+
+
+  div.innerText = text;
+
+
+  return div.innerHTML;
+
+}
+
+
+// =========================
+// SCROLL
+// =========================
+
+function scrollChat() {
+
+  chatMessages.scrollTop =
+    chatMessages.scrollHeight;
+
+}
+
+
+// =========================
+// BUTTON EVENT
+// =========================
+
+sendMessage.addEventListener(
+  "click",
+  sendChatMessage
+);
+
+
+// =========================
+// ENTER KEY
+// =========================
+
+chatInput.addEventListener(
+  "keydown",
+  (event) => {
+
+    if (
+      event.key === "Enter" &&
+      !event.shiftKey
+    ) {
+
+      event.preventDefault();
+
+
+      sendChatMessage();
+
+    }
+
+  }
+);
+
+
+// =========================
+// QUICK SUGGESTIONS
+// =========================
+
+document
+  .querySelectorAll(
+    ".chat-suggestions button"
+  )
+  .forEach(button => {
+
+    button.addEventListener(
+      "click",
+      () => {
+
+        chatInput.value =
+          button.innerText;
+
+
+        sendChatMessage();
+
+      }
+    );
+
+  });
+  
 // =========================
 // INFINITY STONES BUTTON
 // =========================
