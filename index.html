@@ -3694,122 +3694,291 @@ if (btn && bgMusic) {
 
 }
 
+
+
 // =========================
 // AVENGERS JARVIS AI CHATBOT
 // =========================
 
-const chatToggle = document.getElementById("chat-toggle");
-const chatWindow = document.getElementById("chat-window");
-const closeChat = document.getElementById("close-chat");
+const API_URL =
+  "https://marvel-avengers-website.onrender.com/chat";
 
-const chatInput = document.getElementById("chat-input");
-const sendMessage = document.getElementById("send-message");
+const chatToggle =
+  document.getElementById("chat-toggle");
 
-const chatMessages = document.getElementById("chat-messages");
+const chatWindow =
+  document.getElementById("chat-window");
+
+const closeChat =
+  document.getElementById("close-chat");
+
+const chatInput =
+  document.getElementById("chat-input");
+
+const sendButton =
+  document.getElementById("send-message");
+
+const chatMessages =
+  document.getElementById("chat-messages");
 
 
-// OPEN / CLOSE CHAT
-
-chatToggle.addEventListener("click", () => {
-
-  chatWindow.classList.toggle("active");
-
+// Open chatbot
+chatToggle?.addEventListener("click", () => {
+  chatWindow?.classList.toggle("active");
 });
 
 
-closeChat.addEventListener("click", () => {
-
-  chatWindow.classList.remove("active");
-
+// Close chatbot
+closeChat?.addEventListener("click", () => {
+  chatWindow?.classList.remove("active");
 });
 
 
-// =========================
-// SEND MESSAGE
-// =========================
+// Add user message
+function addUserMessage(message) {
 
+  const messageDiv =
+    document.createElement("div");
+
+  messageDiv.className =
+    "message user-message";
+
+  messageDiv.innerHTML = `
+    <div class="message-text">
+      ${escapeHTML(message)}
+    </div>
+  `;
+
+  chatMessages.appendChild(messageDiv);
+
+  scrollChat();
+}
+
+
+// Add AI message
+function addBotMessage(message) {
+
+  const messageDiv =
+    document.createElement("div");
+
+  messageDiv.className =
+    "message bot-message";
+
+  messageDiv.innerHTML = `
+    <div class="message-avatar">
+      J
+    </div>
+
+    <div class="message-text">
+      ${escapeHTML(message).replace(/\n/g, "<br>")}
+    </div>
+  `;
+
+  chatMessages.appendChild(messageDiv);
+
+  scrollChat();
+}
+
+
+// Typing animation
+function addTypingIndicator() {
+
+  const typingDiv =
+    document.createElement("div");
+
+  const typingId =
+    "typing-" + Date.now();
+
+  typingDiv.id = typingId;
+
+  typingDiv.className =
+    "message bot-message";
+
+  typingDiv.innerHTML = `
+    <div class="message-avatar">
+      J
+    </div>
+
+    <div class="message-text typing-indicator">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  `;
+
+  chatMessages.appendChild(typingDiv);
+
+  scrollChat();
+
+  return typingId;
+}
+
+
+// Remove typing animation
+function removeTypingIndicator(id) {
+
+  const element =
+    document.getElementById(id);
+
+  if (element) {
+    element.remove();
+  }
+}
+
+
+// Escape HTML
+function escapeHTML(text) {
+
+  const div =
+    document.createElement("div");
+
+  div.textContent = text;
+
+  return div.innerHTML;
+}
+
+
+// Scroll chat
+function scrollChat() {
+
+  chatMessages.scrollTop =
+    chatMessages.scrollHeight;
+}
+
+
+// Send message
 async function sendChatMessage() {
 
-  const message = chatInput.value.trim();
+  const message =
+    chatInput.value.trim();
 
   if (!message) return;
 
 
-  // USER MESSAGE
-
+  // Display user message
   addUserMessage(message);
-
-
-  // Clear input
 
   chatInput.value = "";
 
+  sendButton.disabled = true;
 
-  // Disable button while AI responds
-
-  sendMessage.disabled = true;
-
-
-  // Typing indicator
-
-  const typingId = addTypingIndicator();
+  const typingId =
+    addTypingIndicator();
 
 
   try {
 
-    const response = await fetch(
-      "http://127.0.0.1:8000/chat",
-      {
+    const response =
+      await fetch(API_URL, {
 
         method: "POST",
 
         headers: {
-          "Content-Type": "application/json"
+          "Content-Type":
+            "application/json"
         },
 
         body: JSON.stringify({
           message: message
         })
 
-      }
-    );
+      });
 
-
-    const data = await response.json();
-
-
-    // Remove typing indicator
 
     removeTypingIndicator(typingId);
 
 
-    // Add AI response
+    if (!response.ok) {
+
+      const errorText =
+        await response.text();
+
+      throw new Error(
+        `Server Error ${response.status}: ${errorText}`
+      );
+    }
+
+
+    const data =
+      await response.json();
+
 
     addBotMessage(
       data.response ||
-      "Sorry, Avenger. I could not process that request."
+      data.message ||
+      "Sorry, I could not generate a response."
     );
 
 
   } catch (error) {
 
-    console.error(error);
-
+    console.error(
+      "JARVIS Error:",
+      error
+    );
 
     removeTypingIndicator(typingId);
 
 
     addBotMessage(
-      "⚠️ JARVIS connection lost. Please check whether the AI server is running."
+      "⚠️ JARVIS is currently unavailable. Please try again."
     );
+
+  } finally {
+
+    sendButton.disabled = false;
 
   }
 
-
-  sendMessage.disabled = false;
-
 }
 
+
+// Send button
+sendButton?.addEventListener(
+  "click",
+  sendChatMessage
+);
+
+
+// Enter key
+chatInput?.addEventListener(
+  "keydown",
+  (event) => {
+
+    if (
+      event.key === "Enter"
+    ) {
+
+      event.preventDefault();
+
+      sendChatMessage();
+
+    }
+
+  }
+);
+
+
+// Suggestion buttons
+document
+  .querySelectorAll(
+    ".chat-suggestions button"
+  )
+  .forEach(button => {
+
+    button.addEventListener(
+      "click",
+      () => {
+
+        chatInput.value =
+          button.innerText;
+
+        sendChatMessage();
+
+      }
+    );
+
+  });
 
 // =========================
 // USER MESSAGE
